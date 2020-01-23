@@ -78,7 +78,13 @@ namespace crafter {
 				this->ingredients.push_back(Ingredients(ingredient, count));
 			}
 		}
-
+		auto method = recipe["method"];
+		if (method.IsDefined() && !method.IsScalar()) {
+			throw std::runtime_error("Failed to parse: " + name + "\nInvalid 'method' value\n");
+		}
+		if (method.IsScalar()) {
+			this->method = method.as<std::string>();
+		}
 	}
 
 	Ingredients::Ingredients(YAML::Node ingredient) {
@@ -136,7 +142,7 @@ namespace crafter {
 		}
 		return requests;
 	}
-	
+
 	std::string hello (void) {
         return "world";
     }

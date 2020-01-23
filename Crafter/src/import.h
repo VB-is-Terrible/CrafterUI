@@ -20,6 +20,7 @@ namespace crafter {
 		Recipe (std::string, YAML::Node);
 		std::string name;
 		int makes = 1;
+		std::string method;
 		std::vector<Ingredients> ingredients;
 	};
 
