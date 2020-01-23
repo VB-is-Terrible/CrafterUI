@@ -1,0 +1,14 @@
+<RCC>
+    <qresource prefix="/">
+        <file>qml/main.qml</file>
+        <file>qml/MainGraph.qml</file>
+        <file>qml/MainGraphForm.ui.qml</file>
+        <file>qml/SideColumn.qml</file>
+        <file>qml/SideColumnForm.ui.qml</file>
+        <file>qml/TestLayout.qml</file>
+        <file>qml/TestLayoutForm.ui.qml</file>
+        <file>qml/RecipeNode.qml</file>
+        <file>qml/RecipeNodeForm.ui.qml</file>
+        <file>qml/LinePath.qml</file>
+    </qresource>
+</RCC>

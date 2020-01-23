@@ -1,0 +1,65 @@
+Mechanical Squeezer:
+  method:
+    Advanced Crafting Table
+  ingredients:
+    Electrum Plate: 7
+    Steel Plate: 8
+    Signalum Plate: 1
+    Demon Gear: 2
+    Electric Motor: 1
+    30k Coolant Cell: 1
+    Advanced Control Circuit: 1
+    Linear Actuator: 1
+    Battery: 2
+    CPU Core S1000: 1
+
+Demon Gear:
+  ingredients:
+    Demon Ingot: 4
+    Iron Ingot: 1
+
+Block of Copper:
+  ingredients:
+    Copper Ingot: 9
+
+Resourceful Furnace:
+  method:
+    Advanced Crafting Table
+  ingredients:
+    Steel Plate: 8
+    Bronze Plate: 8
+    Plastic: 2
+    Furnace: 2
+    Advanced Control Circuit: 1
+    Cleaning Tube: 1
+    Chest: 1
+    CPU Core B500: 1
+    Heat Conductor: 1
+    
+Compacting Drawer:
+  ingredients:
+    Stone: 5
+    Piston: 2
+    Half Drawers 2x2: 1
+    Iron Ingot: 1
+
+Half Drawers 2x2:
+  makes: 4
+  ingredients:
+    Chest: 4
+    Wood Slab: 5
+    
+Wood Slab:
+  makes: 4
+  ingredients:
+    Wooden Planks: 1
+
+Crafter Tier 1:
+  ingredients:
+    Invar Plate: 16
+    Glass: 2
+    Chest: 1
+    Basic Control Circuit: 1
+    Crafting Table: 2
+    Bronze Gear: 2
+    Motor: 1
