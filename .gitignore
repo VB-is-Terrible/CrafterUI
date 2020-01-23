@@ -72,3 +72,7 @@ Thumbs.db
 # --------
 *.dll
 *.exe
+
+# Build artifacts
+build
+compile_commands.json
