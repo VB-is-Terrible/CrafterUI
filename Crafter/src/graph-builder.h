@@ -33,7 +33,7 @@ using craft_store = std::unordered_map<std::string, craft_count>;
 using requests = std::vector<Ingredients>;
 using depend_graph = std::unordered_map<std::string, std::vector<std::string>>;
 using ingredient_map = std::unordered_map<std::string, int>;
-using order = std::vector<std::vector<std::string>>;
+using recipe_order = std::vector<std::vector<std::string>>;
 
 class CraftingGraph {
 public:
@@ -43,10 +43,9 @@ public:
 		const depend_graph& dependencies
 	);
 
-	recipe_graph recipe_graph;
+	recipe_graph graph;
 	craft_store recipe_count;
-	requests requests;
-	order order;
+	recipe_order order;
 	const recipe_store recipes;
 	const depend_graph dependencies;
 private:
@@ -65,7 +64,7 @@ private:
 
 requests get_requests (const recipe_store& recipes, const std::string& input_file);
 requests get_requests_from_input (const recipe_store& recipes);
-recipe_store read_templates(std::string template_location);
+recipe_store read_templates(std::string template_location = data_location);
 bool valid_extension(std::string);
 depend_graph build_depend_graph (const recipe_store& recipes);
 

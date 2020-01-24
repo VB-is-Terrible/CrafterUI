@@ -9,10 +9,13 @@ namespace fs = std::experimental::filesystem;
 #define old_fs
 #endif
 
+static constexpr int STRING_PAD = 30;
 void add_depend_recipe(crafter::depend_graph& graph, const crafter::Recipe& recipe);
 namespace crafter {
 
 craft_count::craft_count(const std::vector<Recipe>& recipes) {
+	distribution = decltype(distribution)();
+	makes = decltype(makes)();
 	for (const auto& recipe : recipes) {
 		distribution.push_back(0);
 		makes.push_back(recipe.makes);
@@ -24,13 +27,13 @@ CraftingGraph::CraftingGraph (
 	const recipe_store& recipes,
 	const depend_graph& dependencies)
 	: recipes{recipes},  dependencies{dependencies} {
-	this->requests = requests;
 	build_graph(requests);
 	tally_count(requests);
 	get_order();
 }
 
 void CraftingGraph::build_graph(const std::vector<Ingredients>& requests) {
+	//TODO: Make building the graph lazy
 	std::deque<std::string> queue;
 	std::unordered_set<std::string> seen;
 	for (const auto& request : requests) {
@@ -41,15 +44,15 @@ void CraftingGraph::build_graph(const std::vector<Ingredients>& requests) {
 	while (!queue.empty()) {
 		auto request = queue[0];
 		queue.pop_front();
-		recipe_graph.InsertNode(request);
+		graph.InsertNode(request);
 		auto recipe_it = recipes.find(request);
 		if (recipe_it != recipes.end()) {
 			// Add links for all recipes
 			for (const auto& recipe : recipe_it->second) {
 				for (const auto& ingredient : recipe.ingredients) {
-					recipe_graph.InsertNode(ingredient.name);
-					if (!recipe_graph.IsConnected(request, ingredient.name)) {
-						recipe_graph.InsertEdge(request, ingredient.name, 0);
+					graph.InsertNode(ingredient.name);
+					if (!graph.IsConnected(request, ingredient.name)) {
+						graph.InsertEdge(request, ingredient.name, 0);
 					}
 					if (!seen.count(ingredient.name)) {
 						seen.insert(ingredient.name);
@@ -63,7 +66,7 @@ void CraftingGraph::build_graph(const std::vector<Ingredients>& requests) {
 
 void CraftingGraph::tally_count(const std::vector<Ingredients>& requests) {
 	std::deque<std::string> queue;
-	const auto head_vec = heads(recipe_graph);
+	const auto head_vec = heads(graph);
 	std::unordered_set<std::string> head_set{head_vec.begin(), head_vec.end()};
 	for (const auto& node : requests) {
 		auto needed = static_cast<size_t>(node.count);
@@ -75,9 +78,9 @@ void CraftingGraph::tally_count(const std::vector<Ingredients>& requests) {
 	while (!queue.empty()) {
 		auto request = queue[0];
 		queue.pop_front();
-		for (const auto& ingredient : recipe_graph.GetConnected(request)) {
-			auto ready = check_ingredient(ingredient);
-			if (ready) {
+		auto ready = check_ingredient(request);
+		if (ready) {
+			for (const auto& ingredient : graph.GetConnected(request)) {
 				queue.push_back(ingredient);
 			}
 		}
@@ -85,7 +88,7 @@ void CraftingGraph::tally_count(const std::vector<Ingredients>& requests) {
 }
 
 void CraftingGraph::get_order (void) {
-	order = crafter::order();
+	order = crafter::recipe_order();
 	for (const auto& it : recipe_count) {
 		auto& name = it.first;
 		auto& craft = it.second;
@@ -112,22 +115,31 @@ bool CraftingGraph::check_ingredient(const std::string& ingredient) {
 		}
 	}
 
-	decltype(count.distance) parent_distance = 0;
+	int parent_distance = -1;
 	count.needed = count.base_needed;
 
 	for (const auto& parent : dependencies.at(ingredient)) {
+		if (!recipe_count.count(parent)) {
+			continue;
+		}
 		if (!recipe_count[parent].ready) {
 			return false;
 		}
-		count.needed += recipe_graph.GetWeight(parent, ingredient);
-		parent_distance = std::max(parent_distance, recipe_count[parent].distance);
+		count.needed += graph.GetWeight(parent, ingredient);
+		parent_distance = std::max(parent_distance, (int) recipe_count[parent].distance);
 	}
 	count.distance = parent_distance + 1;
 	make_distribution(count);
 	count.ready = true;
 	recipe_count[ingredient] = count;
 	link_ingredient(ingredient);
-    	return true;
+
+	// Check if there are any dependencies
+	if (count.needed != 0) {
+		return true;
+	} else {
+		return false;
+	}
 }
 
 void CraftingGraph::make_distribution(craft_count &count)
@@ -153,7 +165,7 @@ void CraftingGraph::make_distribution(craft_count &count)
 void CraftingGraph::link_ingredient(const std::string& ingredient) {
 	auto map = calc_ingredients(ingredient);
 	for (const auto& pair : map) {
-		recipe_graph.SetWeight(ingredient, pair.first, pair.second);
+		graph.SetWeight(ingredient, pair.first, pair.second);
 	}
 }
 
@@ -163,7 +175,7 @@ ingredient_map CraftingGraph::calc_ingredients(const std::string& item) const {
 	auto recipe_it = recipes.find(item);
 	// Index 0 should not have a valid recipe
 	for (size_t i = 1; i < count.distribution.size(); i++) {
-		const auto& recipe = recipe_it->second[i - 1];
+		const auto& recipe = recipe_it->second[1];
 		for (const auto& ingredient : recipe.ingredients) {
 			if (!result.count(ingredient.name)) {
 				result[ingredient.name] = 0;
@@ -188,8 +200,15 @@ std::ostream& operator<< (std::ostream& os, const CraftingGraph& graph) {
 }
 
 std::ostream& output_recipe (std::ostream& os, const CraftingGraph& graph, const std::string& name) {
-	const auto& recipes = graph.recipes.at(name);
 	const auto count = graph.recipe_count.at(name);
+	if (!graph.recipes.count(name)) {
+		os << name;
+		const auto pad_length = std::max(STRING_PAD - (int) name.size(), 1);
+		os << std::string(pad_length, ' ');
+		os << count.distribution[0] << "\n";
+		return os;
+	}
+	const auto& recipes = graph.recipes.at(name);
 	for (size_t i = 0; i < recipes.size(); i++) {
 		if (count.distribution[i] == 0) {
 			continue;
@@ -201,7 +220,7 @@ std::ostream& output_recipe (std::ostream& os, const CraftingGraph& graph, const
 			os << "\t" << ingredient.name << "\n";
 		}
 	}
-	if (graph.recipe_graph.GetConnected(name).size() != 0) {
+	if (!graph.graph.IsNode(name)) {
 		os << "\n";
 	}
 	return os;
@@ -271,6 +290,29 @@ depend_graph build_depend_graph (const recipe_store& recipe_store) {
 			add_depend_recipe(result, recipe);
 		}
 	}
+	return result;
+}
+
+template <typename N, typename E>
+std::vector<N> heads(graph::Graph<N, E> g) {
+	std::vector<N> result;
+	for (const auto& node : g) {
+		if (g.GetIncoming(node).size() == 0) {
+			result.push_back(node);
+		}
+	}
+	return result;
+}
+
+template <typename N, typename E>
+std::vector<N> tails(graph::Graph<N, E> g) {
+	std::vector<N> result;
+	for (const auto& node : g) {
+		if (g.GetConnected(node).size() == 0) {
+			result.push_back(node);
+		}
+	}
+	return result;
 }
 
 }
