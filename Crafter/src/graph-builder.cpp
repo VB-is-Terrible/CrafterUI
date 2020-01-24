@@ -1,5 +1,15 @@
 #include "graph-builder.h"
 
+#if __GNUC__ > 7
+#include <filesystem>
+namespace fs = std::filesystem;
+#else
+#include <experimental/filesystem>
+namespace fs = std::experimental::filesystem;
+#define old_fs
+#endif
+
+void add_depend_recipe(crafter::depend_graph& graph, const crafter::Recipe& recipe);
 namespace crafter {
 
 craft_count::craft_count(const std::vector<Recipe>& recipes) {
@@ -75,7 +85,18 @@ void CraftingGraph::tally_count(const std::vector<Ingredients>& requests) {
 }
 
 void CraftingGraph::get_order (void) {
-
+	order = crafter::order();
+	for (const auto& it : recipe_count) {
+		auto& name = it.first;
+		auto& craft = it.second;
+		if (craft.distance >= order.size()) {
+			order.resize(craft.distance + 1);
+		}
+		order[craft.distance].push_back(name);
+	}
+	for (auto& level : order) {
+		std::sort(level.begin(), level.end());
+	}
 }
 
 bool CraftingGraph::check_ingredient(const std::string& ingredient) {
@@ -130,33 +151,132 @@ void CraftingGraph::make_distribution(craft_count &count)
 }
 
 void CraftingGraph::link_ingredient(const std::string& ingredient) {
-	
+	auto map = calc_ingredients(ingredient);
+	for (const auto& pair : map) {
+		recipe_graph.SetWeight(ingredient, pair.first, pair.second);
+	}
 }
 
-
-std::ostream& operator<< (std::ostream& os, const CraftingGraph&) {
-
+ingredient_map CraftingGraph::calc_ingredients(const std::string& item) const {
+	ingredient_map result;
+	const craft_count& count = recipe_count.at(item);
+	auto recipe_it = recipes.find(item);
+	// Index 0 should not have a valid recipe
+	for (size_t i = 1; i < count.distribution.size(); i++) {
+		const auto& recipe = recipe_it->second[i - 1];
+		for (const auto& ingredient : recipe.ingredients) {
+			if (!result.count(ingredient.name)) {
+				result[ingredient.name] = 0;
+			}
+			result[ingredient.name] += ingredient.count * count.distribution[i];
+		}
+	}
+	return result;
 }
 
-std::ostream& output_recipe (std::ostream& os, const std::string& name) {
+std::ostream& operator<< (std::ostream& os, const CraftingGraph& graph) {
+	const std::string line = "---------------";
+	size_t level_count = 0;
+	for (auto level = graph.order.crbegin(); level != graph.order.crend(); level++) {
+		level_count++;
+		os << line << " " << "Level " << level_count << " " << line << "\n\n";
+		for (const auto& name : *level) {
+			output_recipe(os, graph, name);
+		}
+	}
+	return os;
+}
 
+std::ostream& output_recipe (std::ostream& os, const CraftingGraph& graph, const std::string& name) {
+	const auto& recipes = graph.recipes.at(name);
+	const auto count = graph.recipe_count.at(name);
+	for (size_t i = 0; i < recipes.size(); i++) {
+		if (count.distribution[i] == 0) {
+			continue;
+		}
+		os << name << " (" << count.distribution[i] << ")\n";
+		const auto& recipe = recipes[i];
+		for (const auto& ingredient : recipe.ingredients) {
+			os << ingredient.count * count.distribution[i];
+			os << "\t" << ingredient.name << "\n";
+		}
+	}
+	if (graph.recipe_graph.GetConnected(name).size() != 0) {
+		os << "\n";
+	}
+	return os;
 }
 
 requests get_requests (const recipe_store& recipes, const std::string& input_file) {
-
+	if (input_file == "") {
+		return get_requests_from_input(recipes);
+	} else {
+		return crafter::get_requests_from_file(recipes, input_file);
+	}
 }
 
 requests get_requests_from_input (const recipe_store& recipes) {
+	std::cout << "Input Recipe: ";
+	std::string in;
+	getline(std::cin, in);
+
+	std::vector<crafter::Ingredients> requests;
+	while (in != "") {
+		auto it = recipes.find(in);
+		if (it == recipes.end()) {
+			std::cerr << "Recipe not found\n";
+		} else {
+			requests.push_back(crafter::Ingredients(in, 1));
+		}
+		std::cout << "Input Recipe: ";
+		getline(std::cin, in);
+	}
+	std::cout << "\n";
+	return requests;
+}
+
+#ifndef old_fs
+crafter::recipe_store read_templates(std::string template_location) {
+	crafter::recipe_store result;
+	for (const auto& entry : fs::directory_iterator(template_location)) {
+		if (entry.is_regular_file() && valid_extension(entry.path().extension())) {
+			crafter::read_in(entry.path(), result, true);
+		}
+	}
+	return result;
+}
+#else
+crafter::recipe_store read_templates(std::string template_location) {
+	crafter::recipe_store result;
+	for (const auto& entry : fs::directory_iterator(template_location)) {
+		if (fs::is_regular_file(entry) && valid_extension(entry.path().extension())) {
+			crafter::read_in(entry.path(), result, true);
+		}
+	}
+	return result;
+}
+#endif
+
+bool valid_extension(std::string extension) {
+	if (extension == ".yaml" || extension == ".yml") {
+		return true;
+	}
+	return false;
+}
+
+depend_graph build_depend_graph (const recipe_store& recipe_store) {
+	depend_graph result;
+	for (const auto& [_, recipes] : recipe_store) {
+		for (const auto& recipe : recipes) {
+			add_depend_recipe(result, recipe);
+		}
+	}
+}
 
 }
 
-recipe_store read_templates(std::string template_location) {
-
-}
-
-bool valid_extension(std::string) {
-
-}
-
-
+void add_depend_recipe(crafter::depend_graph& graph, const crafter::Recipe& recipe) {
+	for (const auto& ingredient : recipe.ingredients) {
+		graph[ingredient.name].push_back(recipe.name);
+	}
 }
