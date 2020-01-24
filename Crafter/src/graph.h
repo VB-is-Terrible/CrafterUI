@@ -100,6 +100,8 @@ public:
         const_reverse_iterator rend() const;
         const_iterator begin() const;
         const_iterator end() const;
+private:
+	const_iterator DeleteNode(const N&, bool);
 };
 
 

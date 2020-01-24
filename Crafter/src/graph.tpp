@@ -88,6 +88,21 @@ bool Graph<N, E>::DeleteNode(const N& value) {
 }
 
 template <typename N, typename E>
+_const_iterator<N, E> Graph<N, E>::DeleteNode(const N& value, bool) {
+	auto& node = nodes[value];
+	for (auto& inbound : node.incoming) {
+		auto& src_node = nodes[inbound];
+		src_node.edges.erase(src_node);
+	}
+	for (auto& outbound : node.edges) {
+		auto& dst_node = nodes[outbound];
+		dst_node.incoming.erase(value);
+	}
+        // return _const_iterator<N, E>(nodes.erase(value));
+	return nodes.erase(value);
+}
+
+template <typename N, typename E>
 bool Graph<N, E>::IsNode(const N& value) const {
 	auto it = nodes.find(value);
 	if (it == nodes.end()) {
@@ -290,12 +305,13 @@ typename Graph<N, E>::const_iterator Graph<N, E>::cend() const {
 
 template <typename N, typename E>
 typename Graph<N, E>::const_iterator Graph<N, E>::erase(typename Graph<N, E>::const_iterator it) {
-
+        N& current = *it;
+        return this->DeleteNode(current, false);
 }
 
 template <typename N, typename E>
-typename Graph<N, E>::const_iterator Graph<N, E>::find(const N&) const {
-
+typename Graph<N, E>::const_iterator Graph<N, E>::find(const N& node) const {
+        return Graph<N, E>::const_iterator(nodes.find(node));
 }
 
 template <typename N, typename E>
