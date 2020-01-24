@@ -118,7 +118,7 @@ bool Graph<N, E>::IsConnected(const N& src, const N& dst) const {
 		throw std::runtime_error(
 		"Cannot call Graph::IsConnected if src or dst node don't exist in the graph");
 	}
-	const auto& src_node = nodes[src];
+	const auto& src_node = nodes.at(src);
 	if (src_node.edges.find(dst) == src_node.edges.end()) {
 		return false;
 	} else {
