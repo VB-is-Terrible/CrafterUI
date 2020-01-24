@@ -9,6 +9,8 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 add_library(Crafter
     import.cpp
+    graph-construct.cpp
+    graph-builder.cpp
 )
 
 add_executable(GraphConstruct graph-construct.cpp)
