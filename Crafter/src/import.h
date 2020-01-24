@@ -18,6 +18,7 @@ namespace crafter {
 	};
 	struct Recipe {
 		Recipe (std::string, YAML::Node);
+		Recipe (std::string name) : name{name} {};
 		std::string name;
 		int makes = 1;
 		std::string method;
