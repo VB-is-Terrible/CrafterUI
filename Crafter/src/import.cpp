@@ -9,23 +9,24 @@
 #include "yaml-cpp/yaml.h"
 
 namespace crafter {
-	recipe_store read_in(std::string file_name) {
+
+	recipe_store read_in(std::string file_name, bool pre_populate) {
 		std::ifstream fin(file_name);
-		return read_in(fin);
+		return read_in(fin, pre_populate);
 	}
 
-	void read_in(std::string file_name, recipe_store& store) {
+	void read_in(std::string file_name, recipe_store& store, bool pre_populate) {
 		std::ifstream fin(file_name);
-		return read_in(fin, store);
+		return read_in(fin, store, pre_populate);
 	}
 
-	recipe_store read_in(std::ifstream& file) {
+	recipe_store read_in(std::ifstream& file, bool pre_populate) {
 		recipe_store recipes;
-		read_in(file, recipes);
+		read_in(file, recipes, pre_populate);
 		return recipes;
 	}
 
-	void read_in(std::ifstream& file, recipe_store& recipes) {
+	void read_in(std::ifstream& file, recipe_store& recipes, bool pre_populate) {
 		auto recipes_yaml = YAML::Load(file);
 		for (const auto it : recipes_yaml) {
 			std::string name;
@@ -37,10 +38,16 @@ namespace crafter {
 			auto recipe = it.second;
 			if (recipes.count(name) == 0) {
 				recipes[name] = std::vector<Recipe>();
+				if (pre_populate) {
+					auto default_recipe = Recipe(name);
+					default_recipe.method = "Pre-crafted";
+					recipes[name].push_back(default_recipe);
+				}
 			}
 			recipes[name].push_back(Recipe(name, recipe));
 		}
 	}
+
 
 	Recipe::Recipe(std::string name, YAML::Node recipe) : name{name} {
 		auto makes = recipe["makes"];
