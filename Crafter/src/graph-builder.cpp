@@ -30,7 +30,20 @@ CraftingGraph::CraftingGraph (
 	: recipes{recipes},  dependencies{dependencies} {
 	build_graph(requests);
 	tally_count(requests);
-	get_order();
+    get_order();
+}
+
+pairings CraftingGraph::make_pairings(void) const {
+	pairings result;
+	for (const auto& item : graph) {
+		for (const auto& connected : graph.GetConnected(item)) {
+			if (graph.GetWeight(item, connected) != 0
+			    && recipe_count.at(connected).distribution.size() != 1) {
+				result.push_back({item, connected});
+			}
+		}
+	}
+	return result;
 }
 
 void CraftingGraph::build_graph(const std::vector<Ingredients>& requests) {

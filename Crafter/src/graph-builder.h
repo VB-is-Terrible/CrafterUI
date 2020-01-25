@@ -34,7 +34,7 @@ using requests = std::vector<Ingredients>;
 using depend_graph = std::unordered_map<std::string, std::vector<std::string>>;
 using ingredient_map = std::unordered_map<std::string, int>;
 using recipe_order = std::vector<std::vector<std::string>>;
-
+using pairings = std::vector<std::pair<std::string, std::string>>;
 class CraftingGraph {
 public:
 	CraftingGraph (
@@ -49,6 +49,8 @@ public:
 	std::vector<std::string> raw_ingredients;
 	const recipe_store recipes;
 	const depend_graph dependencies;
+
+	pairings make_pairings(void) const;
 private:
 	void build_graph(const std::vector<Ingredients>&);
 	void tally_count(const std::vector<Ingredients>&);
