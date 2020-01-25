@@ -1,5 +1,6 @@
 #include "graphuimanager.h"
 
+
 namespace crafter {
 
 GraphUIManager::GraphUIManager(QQmlApplicationEngine* engine) {
@@ -38,36 +39,39 @@ void GraphUIManager::removeAllRecipeDisplays(void) {
 
 template <typename T>
 struct size_comp {
-    bool operator() (const T a, const T b) {
-        return a.size() < b.size();
-    }
+    	bool operator() (const T a, const T b) {
+        	return a.size() < b.size();
+    	}
 };
 
-location_map GraphUIManager::populateRecipes(recipe_layout order) {
-    location_map result;
-    const auto height = order.size() * recipe_height + (order.size() - 1) * recipe_margin_bottom;
-    const auto max_items = (*std::max_element(
-                                order.begin(), order.end(),
-                                size_comp<decltype(order.at(0))>())
-                            ).size();
-    const auto width = max_items * recipe_width + (max_items - 1) * recipe_margin_right;
-    flickable->setProperty("contentHeight", QVariant(static_cast<unsigned long long>(height)));
-    flickable->setProperty("contentWidth", QVariant(static_cast<unsigned long long>(width)));
-    auto y_level = 0;
-    for (const auto& level : order) {
-        const auto gap = calc_gap(level.size(), width);
-        auto x_level = gap;
-        for (const auto& recipe_name : level) {
-            auto recipe = createRecipeDisplay(recipe_name);
-            recipe->setX(x_level);
-            recipe->setY(y_level);
-            result[recipe_name] = std::pair(x_level, y_level);
-            appendRecipeDisplay(recipe);
-            x_level += recipe_width + recipe_margin_right;
-        }
-        y_level += recipe_height + recipe_margin_bottom;
-    }
-    return result;
+location_map GraphUIManager::populateRecipes(const crafter::CraftingGraph& graph, bool) {
+	location_map result;
+	const auto height = graph.order.size() * recipe_height + (graph.order.size() - 1) * recipe_margin_bottom;
+	const auto max_items = (*std::max_element(
+    	                            graph.order.begin(), graph.order.end(),
+    	                            size_comp<decltype(graph.order.at(0))>())
+	                        ).size();
+	const auto width = max_items * recipe_width + (max_items - 1) * recipe_margin_right;
+	flickable->setProperty("contentHeight", QVariant(static_cast<unsigned long long>(height)));
+	flickable->setProperty("contentWidth", QVariant(static_cast<unsigned long long>(width)));
+	auto y_level = 0;
+	for (const auto& level : graph.order) {
+        	const auto gap = calc_gap(level.size(), width);
+        	auto x_level = gap;
+	        for (const auto& recipe_name : level) {
+			auto recipe = createRecipeDisplay(recipe_name);
+			recipe->setX(x_level);
+			recipe->setY(y_level);
+            recipe->setProperty("contents",
+                                QVariant(QString::fromStdString(
+                                             output_ingredients(graph.calc_ingredients(recipe_name)))));
+			result[recipe_name] = std::pair(x_level, y_level);
+			appendRecipeDisplay(recipe);
+			x_level += recipe_width + recipe_margin_right;
+	        }
+	        y_level += recipe_height + recipe_margin_bottom;
+	}
+	return result;
 }
 
 constexpr unsigned long GraphUIManager::calc_gap(size_t items, size_t width) {
@@ -90,10 +94,22 @@ void GraphUIManager::populateRecipeLinks(location_map locations, recipe_links li
 
 }
 
-void GraphUIManager::populateRecipes(recipe_layout order, recipe_links links) {
+void GraphUIManager::populateRecipes(const crafter::CraftingGraph& graph) {
 	removeAllRecipeDisplays();
-	const auto locations = populateRecipes(order);
-	populateRecipeLinks(locations, links);
+	const auto locations = populateRecipes(graph, false);
+	populateRecipeLinks(locations, graph.make_pairings());
 }
 
+std::string GraphUIManager::output_ingredients(const crafter::ingredient_map& map) {
+	std::vector<std::string> names;
+	for (const auto& [name, count] : map) {
+		names.push_back(name);
+	}
+	std::sort(names.begin(), names.end());
+	std::string result;
+	for (const auto& name : names) {
+		result += std::to_string(map.at(name)) + "\t" + name + "\n";
+	}
+	return result;
+}
 }

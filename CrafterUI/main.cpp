@@ -47,7 +47,7 @@ int main(int argc, char *argv[])
 
         crafter::CraftingGraph graph(requests, recipes, dependencies);
 
-        main_graph.populateRecipes(graph.order, graph.make_pairings());
+        main_graph.populateRecipes(graph);
 
         return app.exec();
 }

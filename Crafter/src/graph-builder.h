@@ -51,6 +51,7 @@ public:
 	const depend_graph dependencies;
 
 	pairings make_pairings(void) const;
+	ingredient_map calc_ingredients(const std::string& ingredient) const;
 private:
 	void build_graph(const std::vector<Ingredients>&);
 	void tally_count(const std::vector<Ingredients>&);
@@ -59,7 +60,6 @@ private:
 	bool check_ingredient(const std::string& ingredient);
 	static void make_distribution(craft_count& count);
 	void link_ingredient(const std::string& ingredient);
-	ingredient_map calc_ingredients(const std::string& ingredient) const;
 	/**
 	 * Tag all items needed as not ready
 	 * @param requests The items to begin marking from

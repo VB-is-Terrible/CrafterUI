@@ -14,8 +14,8 @@ Item {
     Layout.fillHeight: true
     Layout.fillWidth: true
     Layout.minimumWidth: 10 * fontMetrics.maximumCharacterWidth
-    Layout.maximumWidth: Screen.desktopAvailableWidth * .15
-    Layout.preferredWidth: 18 * fontMetrics.maximumCharacterWidth
+    Layout.maximumWidth: Screen.desktopAvailableWidth * .2
+    Layout.preferredWidth: 22 * fontMetrics.maximumCharacterWidth
     Layout.preferredHeight: 600
     Layout.minimumHeight: 300
 

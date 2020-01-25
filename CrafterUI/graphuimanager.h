@@ -7,6 +7,7 @@
 #include <string>
 #include <iostream>
 #include <unordered_map>
+#include "graph-builder.h"
 #include "lineshape.h"
 
 static const auto RECIPE_LOCATION = "qrc:/qml/RecipeNode.qml";
@@ -25,14 +26,15 @@ public:
         GraphUIManager(QQmlApplicationEngine* engine);
         QQuickItem* createRecipeDisplay(std::string title);
         void removeAllRecipeDisplays (void);
-        location_map populateRecipes(recipe_layout order);
         void populateRecipeLinks(location_map locations, recipe_links links);
-        void populateRecipes(recipe_layout order, recipe_links links);
+        void populateRecipes(const crafter::CraftingGraph&);
 private:
         QQmlApplicationEngine* engine;
         void appendRecipeDisplay (QQuickItem* recipe);
         void findScene();
+        static std::string output_ingredients (const crafter::ingredient_map&);
         constexpr unsigned long calc_gap(size_t items, size_t width);
+        location_map populateRecipes(const crafter::CraftingGraph&, bool);
         QQuickItem* scene;
         QQuickItem* flickable;
         LineShape* lineShape;
