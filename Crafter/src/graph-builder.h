@@ -46,6 +46,7 @@ public:
 	recipe_graph graph;
 	craft_store recipe_count;
 	recipe_order order;
+	std::vector<std::string> raw_ingredients;
 	const recipe_store recipes;
 	const depend_graph dependencies;
 private:

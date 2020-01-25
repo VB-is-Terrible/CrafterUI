@@ -11,6 +11,7 @@ namespace fs = std::experimental::filesystem;
 
 static constexpr int STRING_PAD = 30;
 void add_depend_recipe(crafter::depend_graph& graph, const crafter::Recipe& recipe);
+
 namespace crafter {
 
 craft_count::craft_count(const std::vector<Recipe>& recipes) {
@@ -88,10 +89,17 @@ void CraftingGraph::tally_count(const std::vector<Ingredients>& requests) {
 }
 
 void CraftingGraph::get_order (void) {
-	order = crafter::recipe_order();
+	order = recipe_order();
+	auto raw = std::unordered_set<std::string>();
 	for (const auto& it : recipe_count) {
 		auto& name = it.first;
 		auto& craft = it.second;
+		if (craft.distribution[0] > 0) {
+			raw.insert(name);
+		}
+		if (!recipes.count(name)) {
+			continue;
+		}
 		if (craft.distance >= order.size()) {
 			order.resize(craft.distance + 1);
 		}
@@ -100,6 +108,8 @@ void CraftingGraph::get_order (void) {
 	for (auto& level : order) {
 		std::sort(level.begin(), level.end());
 	}
+	raw_ingredients = std::vector(raw.begin(), raw.end());
+	std::sort(raw_ingredients.begin(), raw_ingredients.end());
 }
 
 bool CraftingGraph::check_ingredient(const std::string& ingredient) {
@@ -188,12 +198,22 @@ ingredient_map CraftingGraph::calc_ingredients(const std::string& item) const {
 
 std::ostream& operator<< (std::ostream& os, const CraftingGraph& graph) {
 	const std::string line = "---------------";
+	os << line << " Raw Materials " << line << "\n";
+	for (const auto& ingredient : graph.raw_ingredients) {
+		os << ingredient;
+		const auto pad_length = std::max(STRING_PAD - (int) ingredient.size(), 1);
+		os << std::string(pad_length, ' ');
+		os << graph.recipe_count.at(ingredient).distribution[0] << "\n";
+	}
+	os << "\n";
+
 	size_t level_count = 0;
 	for (auto level = graph.order.crbegin(); level != graph.order.crend(); level++) {
 		level_count++;
 		os << line << " " << "Level " << level_count << " " << line << "\n\n";
 		for (const auto& name : *level) {
 			output_recipe(os, graph, name);
+			os << "\n";
 		}
 	}
 	return os;
@@ -205,7 +225,6 @@ std::ostream& output_recipe (std::ostream& os, const CraftingGraph& graph, const
 		os << name;
 		const auto pad_length = std::max(STRING_PAD - (int) name.size(), 1);
 		os << std::string(pad_length, ' ');
-		os << count.distribution[0] << "\n";
 		return os;
 	}
 	const auto& recipes = graph.recipes.at(name);
