@@ -321,4 +321,5 @@ void add_depend_recipe(crafter::depend_graph& graph, const crafter::Recipe& reci
 	for (const auto& ingredient : recipe.ingredients) {
 		graph[ingredient.name].push_back(recipe.name);
 	}
+	graph[recipe.name];
 }
