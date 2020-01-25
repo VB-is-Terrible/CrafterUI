@@ -67,8 +67,9 @@ void CraftingGraph::build_graph(const std::vector<Ingredients>& requests) {
 
 void CraftingGraph::tally_count(const std::vector<Ingredients>& requests) {
 	std::deque<std::string> queue;
-	const auto head_vec = heads(graph);
-	std::unordered_set<std::string> head_set{head_vec.begin(), head_vec.end()};
+
+	mark(requests);
+
 	for (const auto& node : requests) {
 		auto needed = static_cast<size_t>(node.count);
 		craft_count craft(recipes.at(node.name));
@@ -76,6 +77,8 @@ void CraftingGraph::tally_count(const std::vector<Ingredients>& requests) {
 		recipe_count[node.name] = craft;
 		queue.push_back(node.name);
 	}
+
+
 	while (!queue.empty()) {
 		auto request = queue[0];
 		queue.pop_front();
@@ -90,7 +93,7 @@ void CraftingGraph::tally_count(const std::vector<Ingredients>& requests) {
 
 void CraftingGraph::get_order (void) {
 	order = recipe_order();
-	auto raw = std::unordered_set<std::string>();
+	std::unordered_set<std::string> raw;
 	for (const auto& it : recipe_count) {
 		auto& name = it.first;
 		auto& craft = it.second;
@@ -113,16 +116,9 @@ void CraftingGraph::get_order (void) {
 }
 
 bool CraftingGraph::check_ingredient(const std::string& ingredient) {
-	craft_count count;
-	if (recipe_count.count(ingredient) != 0) {
-		count = recipe_count[ingredient];
-		if (count.ready) {
-			return true;
-		}
-	} else {
-		if (recipes.count(ingredient)) {
-			count = craft_count(recipes.at(ingredient));
-		}
+	craft_count& count = recipe_count[ingredient];
+	if (count.ready) {
+		return true;
 	}
 
 	int parent_distance = -1;
@@ -141,7 +137,6 @@ bool CraftingGraph::check_ingredient(const std::string& ingredient) {
 	count.distance = parent_distance + 1;
 	make_distribution(count);
 	count.ready = true;
-	recipe_count[ingredient] = count;
 	link_ingredient(ingredient);
 
 	// Check if there are any dependencies
@@ -332,6 +327,33 @@ std::vector<N> tails(graph::Graph<N, E> g) {
 		}
 	}
 	return result;
+}
+
+void CraftingGraph::mark(const std::vector<Ingredients>& requests) {
+	std::deque<std::string> queue;
+	for (const auto& node : requests) {
+		queue.push_back(node.name);
+	}
+
+	std::unordered_set<std::string> seen;
+	while (!queue.empty()) {
+		auto item = queue[0];
+		queue.pop_front();
+		if (seen.count(item)) {
+			continue;
+		} else {
+			seen.insert(item);
+		}
+		if (recipes.count(item) == 0) {
+			recipe_count[item];
+			continue;
+		} else {
+			recipe_count[item] = craft_count(recipes.at(item));
+		}
+		for (const auto& ingredient : recipes.at(item)[default_recipe].ingredients) {
+			queue.push_back(ingredient.name);
+		}
+	}
 }
 
 }

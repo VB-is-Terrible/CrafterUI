@@ -58,7 +58,11 @@ private:
 	static void make_distribution(craft_count& count);
 	void link_ingredient(const std::string& ingredient);
 	ingredient_map calc_ingredients(const std::string& ingredient) const;
-
+	/**
+	 * Tag all items needed as not ready
+	 * @param requests The items to begin marking from
+	 */
+	void mark(const std::vector<Ingredients>&);
 	friend std::ostream& operator<< (std::ostream& os, const CraftingGraph&);
 	friend std::ostream& output_recipe (std::ostream& os, const CraftingGraph&, const std::string& name);
 };
