@@ -131,9 +131,16 @@ bool CraftingGraph::check_ingredient(const std::string& ingredient) {
 		if (!recipe_count[parent].ready) {
 			return false;
 		}
+	}
+
+	for (const auto& parent : graph.GetIncoming(ingredient)) {
+		if (!recipe_count.count(parent)) {
+			continue;
+		}
 		count.needed += graph.GetWeight(parent, ingredient);
 		parent_distance = std::max(parent_distance, (int) recipe_count[parent].distance);
 	}
+
 	count.distance = parent_distance + 1;
 	make_distribution(count);
 	count.ready = true;
