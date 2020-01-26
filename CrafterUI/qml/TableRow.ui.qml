@@ -4,8 +4,8 @@ import QtQuick.Layouts 1.12
 import QtQuick.Window 2.2
 
 Item {
-    property string name: qsTr("Item Name")
-    property string count: qsTr("Item Count")
+    property string itemName: qsTr("Item Name")
+    property string itemCount: qsTr("Item Count")
     anchors.rightMargin: 0
     anchors.leftMargin: 0
     anchors.left: parent.left
@@ -13,9 +13,9 @@ Item {
     height: 27
 
     Text {
-        id: itemName
-        objectName: "itemName"
-        text: name
+        id: nameDisplay
+        objectName: "nameDisplay"
+        text: itemName
         anchors.right: itemCount.left
         anchors.rightMargin: 573
         fontSizeMode: Text.Fit
@@ -28,9 +28,9 @@ Item {
     }
 
     Text {
-        id: itemCount
-        objectName: "itemCount"
-        text: count
+        id: countDisplay
+        objectName: "countDisplay"
+        text: itemCount
         elide: Text.ElideRight
         fontSizeMode: Text.Fit
         verticalAlignment: Text.AlignVCenter
