@@ -46,7 +46,7 @@ struct size_comp {
 
 location_map GraphUIManager::populateRecipes(const crafter::CraftingGraph& graph, bool) {
 	location_map result;
-	const auto height = graph.order.size() * recipe_height + (graph.order.size() - 1) * recipe_margin_bottom;
+	const auto height = graph.order.size() * (recipe_height + recipe_margin_bottom) - recipe_margin_bottom;
 	const auto max_items = (*std::max_element(
     	                            graph.order.begin(), graph.order.end(),
     	                            size_comp<decltype(graph.order.at(0))>())
