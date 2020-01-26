@@ -62,7 +62,7 @@ location_map GraphUIManager::populateRecipes(const crafter::CraftingGraph& graph
 			auto recipe = createRecipeDisplay(recipe_name);
 			recipe->setX(x_level);
 			recipe->setY(y_level);
-            recipe->setProperty("contents",
+        		recipe->setProperty("contents",
                                 QVariant(QString::fromStdString(
                                              output_ingredients(graph.calc_ingredients(recipe_name)))));
 			result[recipe_name] = std::pair(x_level, y_level);
