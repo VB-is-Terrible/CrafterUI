@@ -75,22 +75,22 @@ location_map GraphUIManager::populateRecipes(const crafter::CraftingGraph& graph
 }
 
 constexpr unsigned long GraphUIManager::calc_gap(size_t items, size_t width) {
-    const auto needed = items * recipe_width + (items - 1) * recipe_margin_right;
-    return (width - needed) / (items + 1);
+	const auto needed = items * (recipe_width + recipe_margin_right) - recipe_margin_right;
+	return (width - needed) / (items + 1);
 }
 
 void GraphUIManager::populateRecipeLinks(location_map locations, recipe_links links) {
-    std::vector<crafter::LineConnection> connections;
-    for (const auto& [source, destination] : links) {
-        crafter::LineConnection connection;
-        const auto source_location = locations.at(source);
-        const auto destination_location = locations.at(destination);
-        connection.start = std::pair<double, double>(source_location.first + recipe_width / 2, source_location.second + recipe_height);
-        connection.end = std::pair<double, double>(destination_location.first + recipe_width / 2, destination_location.second);
-        std::cout << connection;
-        connections.push_back(connection);
-    }
-    lineShape->setLines(std::move(connections));
+	std::vector<crafter::LineConnection> connections;
+	for (const auto& [source, destination] : links) {
+		crafter::LineConnection connection;
+		const auto source_location = locations.at(source);
+		const auto destination_location = locations.at(destination);
+		connection.start = std::pair<double, double>(source_location.first + recipe_width / 2, source_location.second + recipe_height);
+		connection.end = std::pair<double, double>(destination_location.first + recipe_width / 2, destination_location.second);
+		// std::cout << connection;
+		connections.push_back(connection);
+	}
+	lineShape->setLines(std::move(connections));
 
 }
 
