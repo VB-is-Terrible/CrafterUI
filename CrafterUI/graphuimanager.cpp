@@ -46,12 +46,12 @@ struct size_comp {
 
 location_map GraphUIManager::populateRecipes(const crafter::CraftingGraph& graph, bool) {
 	location_map result;
-	const auto height = graph.order.size() * recipe_height + (graph.order.size() - 1) * recipe_margin_bottom;
+	const auto height = graph.order.size() * (recipe_height + recipe_margin_bottom) - recipe_margin_bottom;
 	const auto max_items = (*std::max_element(
     	                            graph.order.begin(), graph.order.end(),
     	                            size_comp<decltype(graph.order.at(0))>())
 	                        ).size();
-	const auto width = max_items * recipe_width + (max_items - 1) * recipe_margin_right;
+	const auto width = max_items * (recipe_width + recipe_margin_right) - recipe_margin_right;
 	flickable->setProperty("contentHeight", QVariant(static_cast<unsigned long long>(height)));
 	flickable->setProperty("contentWidth", QVariant(static_cast<unsigned long long>(width)));
 	auto y_level = 0;
