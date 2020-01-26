@@ -10,11 +10,14 @@ GraphUIManager::GraphUIManager(QQmlApplicationEngine* engine) {
 
 void GraphUIManager::findScene(void) {
 	auto root = engine->rootObjects()[0];
-	QQuickItem* rootLayout = root->findChild<QQuickItem *>("Centre of the Universe");
-	QQuickItem* graph = (rootLayout->property("mainGraph").value<QQuickItem*>());
-	flickable = (graph->property("scene").value<QQuickItem*>());
+	auto rootLayout = root->findChild<QQuickItem *>("Centre of the Universe");
+	auto graph = rootLayout->property("mainGraph").value<QQuickItem*>();
+	flickable = graph->property("scene").value<QQuickItem*>();
 	scene = flickable->findChild<QQuickItem *>("recipeStore");
 	lineShape = flickable->findChild<crafter::LineShape *>("betterShape");
+	auto sideColumn = rootLayout->property("sideColumn").value<QQuickItem*>();
+	sideStack = sideColumn->findChild<QQuickItem *>("mainView");
+	rawDisplay = sideColumn->findChild<QQuickItem *>("rawPage");
 }
 
 QQuickItem* GraphUIManager::createRecipeDisplay(std::string title) {
@@ -45,6 +48,7 @@ struct size_comp {
 };
 
 location_map GraphUIManager::populateRecipes(const crafter::CraftingGraph& graph, bool) {
+	removeAllRecipeDisplays();
 	location_map result;
 	const auto height = graph.order.size() * (recipe_height + recipe_margin_bottom) - recipe_margin_bottom;
 	const auto max_items = (*std::max_element(
@@ -95,9 +99,9 @@ void GraphUIManager::populateRecipeLinks(location_map locations, recipe_links li
 }
 
 void GraphUIManager::populateRecipes(const crafter::CraftingGraph& graph) {
-	removeAllRecipeDisplays();
 	const auto locations = populateRecipes(graph, false);
 	populateRecipeLinks(locations, graph.make_pairings());
+	populateRawMaterials(graph);
 }
 
 std::string GraphUIManager::output_ingredients(const crafter::ingredient_map& map) {
@@ -111,5 +115,32 @@ std::string GraphUIManager::output_ingredients(const crafter::ingredient_map& ma
 		result += std::to_string(map.at(name)) + "\t" + name + "\n";
 	}
 	return result;
+}
+
+void GraphUIManager::removeAllRawMaterials(void) {
+	for (auto child : rawDisplay->childItems()) {
+		child->setParentItem(nullptr);
+		delete child;
+	}
+}
+
+void GraphUIManager::addRawMaterial(std::string name, size_t count) {
+	QQmlComponent rowComponent(engine, QUrl(ROW_LOCATION), rawDisplay);
+	// QQuickItem* row = qobject_cast<QQuickItem *>(rowComponent.beginCreate(engine->rootContext()));
+	// row->setParentItem(rawDisplay);
+	// rowComponent.completeCreate();
+	QQuickItem* row = qobject_cast<QQuickItem *>(rowComponent.create());
+	row->setProperty("itemName", QString::fromStdString(name));
+	row->setProperty("itemCount", QString::fromStdString(std::to_string(count)));
+	row->setParentItem(rawDisplay);
+	engine->setObjectOwnership(row, QQmlEngine::JavaScriptOwnership);
+}
+
+void GraphUIManager::populateRawMaterials(const crafter::CraftingGraph& graph) {
+	removeAllRawMaterials();
+	for (const auto& ingredient : graph.raw_ingredients) {
+		const auto needed = graph.recipe_count.at(ingredient).distribution[0];
+		addRawMaterial(ingredient, needed);
+	}
 }
 }
