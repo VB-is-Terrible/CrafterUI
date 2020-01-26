@@ -32,6 +32,16 @@ Item {
         Flickable {
             id: flickable
             interactive: true
+
+            anchors.fill: parent
+            bottomMargin: fontMetrics.maximumCharacterWidth
+            topMargin: fontMetrics.maximumCharacterWidth
+            rightMargin: fontMetrics.maximumCharacterWidth
+            leftMargin: fontMetrics.maximumCharacterWidth
+            contentHeight: 1080
+            contentWidth: 1920
+            clip: true
+
             ScrollBar.vertical: ScrollBar {
                 size: 20
                 id: vertibar
@@ -50,15 +60,7 @@ Item {
                 //                propagateComposedEvents: true
                 z: -99
             }
-            anchors.fill: parent
-            bottomMargin: fontMetrics.maximumCharacterWidth
-            topMargin: fontMetrics.maximumCharacterWidth
-            rightMargin: fontMetrics.maximumCharacterWidth
-            leftMargin: fontMetrics.maximumCharacterWidth
-            contentHeight: 1080
-            contentWidth: 1920
-            scale: 1
-            clip: true
+
             Label {
                 text: qsTr("You are on Main Graph.")
                 anchors.centerIn: parent
@@ -85,9 +87,9 @@ Item {
 
             LineShape {
                 anchors.fill: parent
-                objectName: "betterShape";
-                id: betterShape;
-                z: -100;
+                objectName: "betterShape"
+                id: betterShape
+                z: -100
                 lineWidth: 4
             }
 
