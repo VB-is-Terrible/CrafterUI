@@ -67,7 +67,7 @@ location_map GraphUIManager::populateRecipes(const crafter::CraftingGraph& graph
                                              output_ingredients(graph.calc_ingredients(recipe_name)))));
 			result[recipe_name] = std::pair(x_level, y_level);
 			appendRecipeDisplay(recipe);
-			x_level += recipe_width + recipe_margin_right;
+			x_level += recipe_width + recipe_margin_right + gap;
 	        }
 	        y_level += recipe_height + recipe_margin_bottom;
 	}
