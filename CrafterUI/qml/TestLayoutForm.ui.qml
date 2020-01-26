@@ -17,7 +17,7 @@ Item {
     RowLayout {
         id: rowLayout
         anchors.fill: parent
-
+        spacing: 0
         MainGraph {
             id: mainGraph
             transformOrigin: Item.Center
