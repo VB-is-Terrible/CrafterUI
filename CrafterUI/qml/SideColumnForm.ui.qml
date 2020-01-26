@@ -8,7 +8,7 @@ Item {
         id: fontMetrics
     }
 
-    height: 200
+    height: 800
     width: 18 * fontMetrics.maximumCharacterWidth
 
     Layout.fillHeight: true
