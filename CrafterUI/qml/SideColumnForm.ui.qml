@@ -59,19 +59,16 @@ Item {
             anchors.left: rowLayout.anchors.left
             anchors.top: rowLayout.bottom
             height: 696
+            currentIndex: pageIndicator.currentIndex
             anchors.right: parent.right
             anchors.rightMargin: 10
             anchors.leftMargin: 10
             anchors.bottom: parent.bottom
             anchors.bottomMargin: 42
-            currentIndex: pageIndicator.currentIndex
-
+            clip: true
             Column {
                 id: raw_page
-                anchors.fill: parent
-                TableRow {
-                    id: row
-                }
+                TableRow {}
                 TableRow {}
                 TableRow {}
                 TableRow {}
@@ -81,9 +78,6 @@ Item {
 
         PageIndicator {
             id: pageIndicator
-            x: 309
-            y: 764
-            width: 48
             height: 20
             anchors.horizontalCenter: parent.horizontalCenter
             anchors.bottom: parent.bottom
