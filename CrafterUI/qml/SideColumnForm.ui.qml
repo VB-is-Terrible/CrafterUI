@@ -55,24 +55,52 @@ Item {
 
         SwipeView {
             id: mainView
+            objectName: "mainView"
             y: 62
             anchors.left: rowLayout.anchors.left
             anchors.top: rowLayout.bottom
             height: 696
+            anchors.rightMargin: 10
             currentIndex: pageIndicator.currentIndex
             anchors.right: parent.right
-            anchors.rightMargin: 10
             anchors.leftMargin: 10
             anchors.bottom: parent.bottom
             anchors.bottomMargin: 42
             clip: true
-            Column {
-                id: raw_page
-                TableRow {}
-                TableRow {}
-                TableRow {}
-                TableRow {}
-                TableRow {}
+            Item {
+                ScrollView {
+                    id: scrollView
+                    anchors.fill: parent
+                    contentHeight: rawPage.height
+                    ScrollBar.vertical: ScrollBar {
+                        id: vertibar
+                        anchors.right: parent.right
+                        anchors.top: parent.top
+                        anchors.bottom: parent.bottom
+                        policy: ScrollBar.AlwaysOn
+                    }
+                    Item {
+                        anchors.right: parent.right
+                        anchors.left: parent.left
+                        anchors.top: parent.top
+                        anchors.rightMargin: 20
+                        height: rawPage.height
+                        Column {
+                            id: rawPage
+//                            anchors.fill: parent
+                            anchors.right: parent.right
+                            anchors.left: parent.left
+                            anchors.top: parent.top
+                            objectName: "rawPage"
+                            TableRow {}
+                            TableRow {}
+                            TableRow {}
+                            TableRow {}
+                        }
+
+                    }
+
+                }
             }
         }
 
@@ -87,3 +115,10 @@ Item {
         }
     }
 }
+
+/*##^##
+Designer {
+    D{i:4;anchors_width:100;anchors_x:23;anchors_y:16}D{i:7;anchors_width:646}
+}
+##^##*/
+

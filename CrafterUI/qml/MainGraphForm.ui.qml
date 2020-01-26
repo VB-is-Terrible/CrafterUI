@@ -43,13 +43,11 @@ Item {
             clip: true
 
             ScrollBar.vertical: ScrollBar {
-                size: 20
                 id: vertibar
                 x: parent.right - size
                 policy: ScrollBar.AlwaysOn
             }
             ScrollBar.horizontal: ScrollBar {
-                size: 20
                 y: parent.bottom - size
                 policy: ScrollBar.AlwaysOn
             }
