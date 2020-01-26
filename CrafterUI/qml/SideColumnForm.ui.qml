@@ -27,5 +27,69 @@ Item {
             text: qsTr("You are on the side bar.")
             anchors.centerIn: parent
         }
+
+        RowLayout {
+            id: rowLayout
+            height: 40
+            anchors.right: parent.right
+            anchors.rightMargin: 10
+            anchors.left: parent.left
+            anchors.leftMargin: 10
+            anchors.top: parent.top
+            anchors.topMargin: 10
+
+            Button {
+                id: button
+                text: qsTr("New Request")
+                Layout.fillWidth: true
+                Layout.fillHeight: true
+            }
+
+            Button {
+                id: button1
+                text: qsTr("Raw Materials")
+                Layout.fillWidth: true
+                Layout.fillHeight: true
+            }
+        }
+
+        SwipeView {
+            id: mainView
+            y: 62
+            anchors.left: rowLayout.anchors.left
+            anchors.top: rowLayout.bottom
+            height: 696
+            anchors.right: parent.right
+            anchors.rightMargin: 10
+            anchors.leftMargin: 10
+            anchors.bottom: parent.bottom
+            anchors.bottomMargin: 42
+            currentIndex: pageIndicator.currentIndex
+
+            Column {
+                id: raw_page
+                anchors.fill: parent
+                TableRow {
+                    id: row
+                }
+                TableRow {}
+                TableRow {}
+                TableRow {}
+                TableRow {}
+            }
+        }
+
+        PageIndicator {
+            id: pageIndicator
+            x: 309
+            y: 764
+            width: 48
+            height: 20
+            anchors.horizontalCenter: parent.horizontalCenter
+            anchors.bottom: parent.bottom
+            anchors.bottomMargin: 16
+            count: mainView.count
+            currentIndex: mainView.currentIndex
+        }
     }
 }
