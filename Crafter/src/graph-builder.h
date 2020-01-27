@@ -74,11 +74,4 @@ requests get_requests_from_input (const recipe_store& recipes);
 recipe_store read_templates(std::string template_location = data_location);
 bool valid_extension(std::string);
 depend_graph build_depend_graph (const recipe_store& recipes);
-
-template <typename N, typename E>
-std::vector<N> heads(graph::Graph<N, E> g);
-
-template <typename N, typename E>
-std::vector<N> tails(graph::Graph<N, E> g);
-
 }

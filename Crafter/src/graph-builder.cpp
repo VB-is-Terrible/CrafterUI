@@ -14,6 +14,12 @@ void add_depend_recipe(crafter::depend_graph& graph, const crafter::Recipe& reci
 
 namespace crafter {
 
+template <typename N, typename E>
+std::vector<N> heads(graph::Graph<N, E> g);
+
+template <typename N, typename E>
+std::vector<N> tails(graph::Graph<N, E> g);
+
 craft_count::craft_count(const std::vector<Recipe>& recipes) {
 	distribution = decltype(distribution)();
 	makes = decltype(makes)();
