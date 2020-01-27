@@ -48,19 +48,19 @@ struct size_comp {
     	}
 };
 
-location_map GraphUIManager::populateRecipes(const crafter::CraftingGraph& graph, bool) {
 	removeAllRecipeDisplays();
+location_map GraphUIManager::populateRecipes(void) {
 	location_map result;
-	const auto height = graph.order.size() * (recipe_height + recipe_margin_bottom) - recipe_margin_bottom;
+	const auto height = graph->order.size() * (recipe_height + recipe_margin_bottom) - recipe_margin_bottom;
 	const auto max_items = (*std::max_element(
-    	                            graph.order.begin(), graph.order.end(),
-    	                            size_comp<decltype(graph.order.at(0))>())
+    	                            graph->order.begin(), graph->order.end(),
+    	                            size_comp<decltype(graph->order.at(0))>())
 	                        ).size();
 	const auto width = max_items * (recipe_width + recipe_margin_right) - recipe_margin_right;
 	flickable->setProperty("contentHeight", QVariant(static_cast<unsigned long long>(height)));
 	flickable->setProperty("contentWidth", QVariant(static_cast<unsigned long long>(width)));
 	auto y_level = 0;
-	for (const auto& level : graph.order) {
+	for (const auto& level : graph->order) {
         	const auto gap = calc_gap(level.size(), width);
         	auto x_level = gap;
 	        for (const auto& recipe_name : level) {
@@ -69,7 +69,7 @@ location_map GraphUIManager::populateRecipes(const crafter::CraftingGraph& graph
 			recipe->setY(y_level);
         		recipe->setProperty("contents",
                                 QVariant(QString::fromStdString(
-                                             output_ingredients(graph.calc_ingredients(recipe_name)))));
+                                             output_ingredients(graph->calc_ingredients(recipe_name)))));
 			result[recipe_name] = std::pair(x_level, y_level);
 			appendRecipeDisplay(recipe);
 			x_level += recipe_width + recipe_margin_right + gap;
@@ -99,10 +99,11 @@ void GraphUIManager::populateRecipeLinks(location_map locations, recipe_links li
 
 }
 
-void GraphUIManager::populateRecipes(const crafter::CraftingGraph& graph) {
-	const auto locations = populateRecipes(graph, false);
-	populateRecipeLinks(locations, graph.make_pairings());
-	populateRawMaterials(graph);
+void GraphUIManager::populateRecipes(std::shared_ptr<crafter::CraftingGraph> graph) {
+	this->graph = graph;
+	const auto locations = populateRecipes();
+	populateRecipeLinks(locations, graph->make_pairings());
+	populateRawMaterials();
 }
 
 std::string GraphUIManager::output_ingredients(const crafter::ingredient_map& map) {
@@ -137,10 +138,11 @@ void GraphUIManager::addRawMaterial(std::string name, size_t count) {
 	engine->setObjectOwnership(row, QQmlEngine::JavaScriptOwnership);
 }
 
-void GraphUIManager::populateRawMaterials(const crafter::CraftingGraph& graph) {
 	removeAllRawMaterials();
 	for (const auto& ingredient : graph.raw_ingredients) {
-		const auto needed = graph.recipe_count.at(ingredient).distribution[0];
+void GraphUIManager::populateRawMaterials() {
+	for (const auto& ingredient : graph->raw_ingredients) {
+		const auto needed = graph->recipe_count.at(ingredient).distribution[0];
 		addRawMaterial(ingredient, needed);
 	}
 }

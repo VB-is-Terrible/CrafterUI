@@ -7,6 +7,8 @@
 #include <string>
 #include <iostream>
 #include <unordered_map>
+#include <memory>
+
 #include "graph-builder.h"
 #include "lineshape.h"
 #include "qmlcommunication.h"
@@ -29,7 +31,7 @@ public:
         QQuickItem* createRecipeDisplay(std::string title);
         void removeAllRecipeDisplays(void);
         void populateRecipeLinks(location_map locations, recipe_links links);
-        void populateRecipes(const crafter::CraftingGraph&);
+        void populateRecipes(std::shared_ptr<crafter::CraftingGraph>);
 private:
         QQmlApplicationEngine* engine;
         QQuickItem* scene;
@@ -43,9 +45,9 @@ private:
         void findScene();
         static std::string output_ingredients (const crafter::ingredient_map&);
         constexpr unsigned long calc_gap(size_t items, size_t width);
-        location_map populateRecipes(const crafter::CraftingGraph&, bool);
-        void populateRawMaterials(const crafter::CraftingGraph&);
         void removeAllRawMaterials(void);
+        location_map populateRecipes(void);
+        void populateRawMaterials(void);
         void addRawMaterial(std::string name, size_t count);
         void recipeClicked(const std::string& name);
 

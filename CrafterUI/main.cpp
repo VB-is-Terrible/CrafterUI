@@ -8,6 +8,7 @@
 #include <QPainterPath>
 #include <unordered_map>
 #include <filesystem>
+#include <memory>
 
 #include "lineshape.h"
 #include "graphuimanager.h"
@@ -45,7 +46,7 @@ int main(int argc, char *argv[])
         const auto dependencies = crafter::build_depend_graph(recipes);
         const auto requests = crafter::get_requests(recipes, input_file);
 
-        crafter::CraftingGraph graph(requests, recipes, dependencies);
+        std::shared_ptr<crafter::CraftingGraph> graph = std::make_shared<crafter::CraftingGraph>(requests, recipes, dependencies);
 
         main_graph.populateRecipes(graph);
 
