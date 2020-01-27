@@ -76,3 +76,6 @@ Thumbs.db
 # Build artifacts
 build
 compile_commands.json
+
+# Qt Creator files
+CMakeLists.txt.user
