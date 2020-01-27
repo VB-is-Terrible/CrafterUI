@@ -3,10 +3,21 @@
 
 namespace crafter {
 
-GraphUIManager::GraphUIManager(QQmlApplicationEngine* engine) : communicator{*this} {
+GraphUIManager::GraphUIManager(QQmlApplicationEngine* engine)
+        : communicator{*this}, recipeColumn{engine} {
 	this->engine = engine;
+	recipeColumn.setData("import QtQuick 2.9; Column {anchor.left: parent.left; anchor.right: parent.right;}", QUrl());
+
 	findScene();
 }
+
+void GraphUIManager::removeChildren(QQuickItem* parent) {
+	for (auto child : parent->childItems()) {
+		child->setParentItem(nullptr);
+		delete child;
+	}
+}
+
 
 void GraphUIManager::findScene(void) {
 	auto root = engine->rootObjects()[0];
@@ -18,6 +29,8 @@ void GraphUIManager::findScene(void) {
 	auto sideColumn = rootLayout->property("sideColumn").value<QQuickItem*>();
 	sideStack = sideColumn->findChild<QQuickItem *>("mainView");
 	rawDisplay = sideColumn->findChild<QQuickItem *>("rawPage");
+	recipeDisplay = sideColumn->findChild<QQuickItem *>("recipeDetailed");
+	recipeMaterials = recipeDisplay->findChild<QQuickItem *>("recipeMaterials");
 }
 
 QQuickItem* GraphUIManager::createRecipeDisplay(std::string title) {
@@ -34,13 +47,6 @@ void GraphUIManager::appendRecipeDisplay (QQuickItem* recipe) {
 	communicator.addRecipe(recipe);
 }
 
-void GraphUIManager::removeAllRecipeDisplays(void) {
-	for (auto child : scene->childItems()) {
-		child->setParentItem(nullptr);
-		delete child;
-	}
-}
-
 template <typename T>
 struct size_comp {
     	bool operator() (const T a, const T b) {
@@ -48,8 +54,8 @@ struct size_comp {
     	}
 };
 
-	removeAllRecipeDisplays();
 location_map GraphUIManager::populateRecipes(void) {
+	removeChildren(scene);
 	location_map result;
 	const auto height = graph->order.size() * (recipe_height + recipe_margin_bottom) - recipe_margin_bottom;
 	const auto max_items = (*std::max_element(
@@ -119,13 +125,6 @@ std::string GraphUIManager::output_ingredients(const crafter::ingredient_map& ma
 	return result;
 }
 
-void GraphUIManager::removeAllRawMaterials(void) {
-	for (auto child : rawDisplay->childItems()) {
-		child->setParentItem(nullptr);
-		delete child;
-	}
-}
-
 void GraphUIManager::addRawMaterial(std::string name, size_t count) {
 	QQmlComponent rowComponent(engine, QUrl(ROW_LOCATION), rawDisplay);
 	// QQuickItem* row = qobject_cast<QQuickItem *>(rowComponent.beginCreate(engine->rootContext()));
@@ -138,9 +137,8 @@ void GraphUIManager::addRawMaterial(std::string name, size_t count) {
 	engine->setObjectOwnership(row, QQmlEngine::JavaScriptOwnership);
 }
 
-	removeAllRawMaterials();
-	for (const auto& ingredient : graph.raw_ingredients) {
 void GraphUIManager::populateRawMaterials() {
+	removeChildren(rawDisplay);
 	for (const auto& ingredient : graph->raw_ingredients) {
 		const auto needed = graph->recipe_count.at(ingredient).distribution[0];
 		addRawMaterial(ingredient, needed);
@@ -149,5 +147,42 @@ void GraphUIManager::populateRawMaterials() {
 
 void GraphUIManager::recipeClicked(const std::string& name) {
 	std::cerr << "Recieved click from " << name << "\n";
+	fillOutRecipe(name);
 }
+
+void GraphUIManager::fillOutRecipe(const std::string& name) {
+	removeChildren(recipeMaterials);
+	recipeDisplay->setProperty("recipeName", QString::fromStdString(name));
+	recipeDisplay->setProperty("recipeValues", nameRecipeOptions(name));
+	recipeDisplay->setProperty("currentIndex", 1);
+	const auto& count = graph->recipe_count.at(name);
+	const auto& recipes = graph->recipes.at(name);
+	appendDetailedRecipe(recipes[1]);
+	auto ingredient_count = graph->calc_ingredients(name, count);
+
+}
+
+QList<QVariant> GraphUIManager::nameRecipeOptions(const std::string& name) {
+	const auto& recipes = graph->recipes.at(name);
+	QList<QVariant> result{QString("Pre-crafted"), QString("Default")};
+	for (size_t i = 2; i < recipes.size(); i++) {
+		result.push_back(QString::fromStdString("Recipe " + std::to_string(i - 1)));
+	}
+	return result;
+}
+
+void GraphUIManager::appendDetailedRecipe(const Recipe& recipe) {
+	for (const auto& ingredient : recipe.ingredients) {
+		QQmlComponent rowComponent(engine, QUrl(ROW_LOCATION), rawDisplay);
+		QQuickItem* row = qobject_cast<QQuickItem *>(rowComponent.create());
+		row->setProperty("itemName", QString::fromStdString(ingredient.name));
+		row->setProperty("itemCount", QString::fromStdString(std::to_string(ingredient.count)));
+		row->setParentItem(recipeMaterials);
+		engine->setObjectOwnership(row, QQmlEngine::JavaScriptOwnership);
+	}
+
+}
+
+
+
 }

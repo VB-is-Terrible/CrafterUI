@@ -52,6 +52,7 @@ public:
 
 	pairings make_pairings(void) const;
 	ingredient_map calc_ingredients(const std::string& ingredient) const;
+	std::vector<ingredient_map> calc_ingredients(const std::string& name, const craft_count& count) const;
 private:
 	void build_graph(const std::vector<Ingredients>&);
 	void tally_count(const std::vector<Ingredients>&);

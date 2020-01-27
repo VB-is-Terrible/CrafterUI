@@ -222,6 +222,28 @@ ingredient_map CraftingGraph::calc_ingredients(const std::string& item) const {
 	return result;
 }
 
+std::vector<ingredient_map> CraftingGraph::calc_ingredients(const std::string& name, const craft_count& count) const {
+	std::vector<ingredient_map> result;
+	auto recipe_it = recipes.find(name);
+	for (size_t i = 0; i < count.distribution.size(); i++) {
+		ingredient_map current;
+		if (count.distribution[i] == 0) {
+			result.push_back(current);
+			continue;
+		}
+		const auto& recipe = recipe_it->second[i];
+		for (const auto& ingredient : recipe.ingredients) {
+			if (!current.count(ingredient.name)) {
+				current[ingredient.name] = 0;
+			}
+			current[ingredient.name] += ingredient.count * count.distribution[i];
+		}
+		result.push_back(current);
+	}
+	return result;
+}
+
+
 std::ostream& operator<< (std::ostream& os, const CraftingGraph& graph) {
 	const std::string line = "---------------";
 	os << line << " Raw Materials " << line << "\n";

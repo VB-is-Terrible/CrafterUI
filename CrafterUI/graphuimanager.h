@@ -29,28 +29,30 @@ class GraphUIManager {
 public:
         GraphUIManager(QQmlApplicationEngine* engine);
         QQuickItem* createRecipeDisplay(std::string title);
-        void removeAllRecipeDisplays(void);
         void populateRecipeLinks(location_map locations, recipe_links links);
         void populateRecipes(std::shared_ptr<crafter::CraftingGraph>);
 private:
         QQmlApplicationEngine* engine;
-        QQuickItem* scene;
-        QQuickItem* flickable;
         LineShape* lineShape;
-        QQuickItem* sideStack;
-        QQuickItem* rawDisplay;
+        QQuickItem *scene, *flickable, *sideStack, *rawDisplay,
+                   *recipeDisplay, *recipeMaterials, *recipeColumns;
         QMLCommunication communicator;
+        std::shared_ptr<crafter::CraftingGraph> graph;
+
 
         void appendRecipeDisplay (QQuickItem* recipe);
         void findScene();
         static std::string output_ingredients (const crafter::ingredient_map&);
         constexpr unsigned long calc_gap(size_t items, size_t width);
-        void removeAllRawMaterials(void);
         location_map populateRecipes(void);
         void populateRawMaterials(void);
         void addRawMaterial(std::string name, size_t count);
         void recipeClicked(const std::string& name);
-
+        void fillOutRecipe(const std::string& name);
+        void removeChildren(QQuickItem* parent);
+        QList<QVariant> nameRecipeOptions(const std::string& name);
+        void appendDetailedRecipe(const Recipe&);
+        QQmlComponent recipeColumn;
         friend QMLCommunication;
 };
 

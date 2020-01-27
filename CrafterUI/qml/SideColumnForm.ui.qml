@@ -30,7 +30,7 @@ Item {
 
         RowLayout {
             id: rowLayout
-            height: 40
+            height: fontMetrics.height * 2
             anchors.right: parent.right
             anchors.rightMargin: 10
             anchors.left: parent.left
@@ -59,7 +59,7 @@ Item {
             y: 62
             anchors.left: rowLayout.anchors.left
             anchors.top: rowLayout.bottom
-            anchors.topMargin: 5
+            anchors.topMargin: fontMetrics.maximumCharacterWidth * .2
             height: 696
             anchors.rightMargin: 10
             currentIndex: pageIndicator.currentIndex
@@ -68,44 +68,22 @@ Item {
             anchors.bottom: parent.bottom
             anchors.bottomMargin: 42
             clip: true
+//            interactive: false
             Item {
-                Flickable {
-                    id: scrollView
-                    anchors.fill: parent
-                    contentHeight: rawPage.height
-                    boundsBehavior: Flickable.StopAtBounds
-                    ScrollBar.vertical: ScrollBar {
-                        id: vertibar
-                        anchors.right: parent.right
-                        anchors.top: parent.top
-                        anchors.bottom: parent.bottom
-                        policy: ScrollBar.AlwaysOn
-                    }
-                    Item {
-                        anchors.right: parent.right
-                        anchors.left: parent.left
-                        anchors.top: parent.top
-                        anchors.rightMargin: vertibar.width + 3
-                        height: rawPage.height
-                        Column {
-                            id: rawPage
-                            anchors.right: parent.right
-                            anchors.left: parent.left
-                            anchors.top: parent.top
-                            objectName: "rawPage"
-                            TableRow {}
-                            TableRow {}
-                            TableRow {}
-                            TableRow {}
-                        }
+                BetterColumn {
+                    column {
+                        id: rawPage
+                        objectName: "rawPage"
                     }
                 }
             }
             Item {
-
+                RecipeDetailed {
+                    id: recipeDetailed
+                    objectName: "recipeDetailed"
+                }
             }
         }
-
         PageIndicator {
             id: pageIndicator
             height: 20

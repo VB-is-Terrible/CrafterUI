@@ -13,5 +13,6 @@
         <file>qml/TableRow.ui.qml</file>
         <file>qml/RecipeDetailed.qml</file>
         <file>qml/RecipeDetailedForm.ui.qml</file>
+        <file>qml/BetterColumn.ui.qml</file>
     </qresource>
 </RCC>
