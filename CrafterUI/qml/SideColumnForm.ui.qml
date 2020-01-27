@@ -68,10 +68,11 @@ Item {
             anchors.bottomMargin: 42
             clip: true
             Item {
-                ScrollView {
+                Flickable {
                     id: scrollView
                     anchors.fill: parent
                     contentHeight: rawPage.height
+                    boundsBehavior: Flickable.StopAtBounds
                     ScrollBar.vertical: ScrollBar {
                         id: vertibar
                         anchors.right: parent.right
@@ -83,11 +84,10 @@ Item {
                         anchors.right: parent.right
                         anchors.left: parent.left
                         anchors.top: parent.top
-                        anchors.rightMargin: 20
+                        anchors.rightMargin: vertibar.width + 3
                         height: rawPage.height
                         Column {
                             id: rawPage
-//                            anchors.fill: parent
                             anchors.right: parent.right
                             anchors.left: parent.left
                             anchors.top: parent.top
@@ -97,9 +97,7 @@ Item {
                             TableRow {}
                             TableRow {}
                         }
-
                     }
-
                 }
             }
         }
