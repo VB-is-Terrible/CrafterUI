@@ -203,9 +203,14 @@ void CraftingGraph::link_ingredient(const std::string& ingredient) {
 ingredient_map CraftingGraph::calc_ingredients(const std::string& item) const {
 	ingredient_map result;
 	const craft_count& count = recipe_count.at(item);
+	if (count.distribution.size() <= default_recipe) {
+		return result;
+	}
 	auto recipe_it = recipes.find(item);
-	// Index 0 should not have a valid recipe
-	for (size_t i = 1; i < count.distribution.size(); i++) {
+	for (size_t i = 0; i < count.distribution.size(); i++) {
+		if (count.distribution[i] == 0) {
+			continue;
+		}
 		const auto& recipe = recipe_it->second[i];
 		for (const auto& ingredient : recipe.ingredients) {
 			if (!result.count(ingredient.name)) {
