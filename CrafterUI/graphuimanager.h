@@ -9,6 +9,7 @@
 #include <unordered_map>
 #include "graph-builder.h"
 #include "lineshape.h"
+#include "qmlcommunication.h"
 
 static const auto RECIPE_LOCATION = "qrc:/qml/RecipeNode.qml";
 static const auto ROW_LOCATION = "qrc:/qml/TableRow.ui.qml";
@@ -36,6 +37,7 @@ private:
         LineShape* lineShape;
         QQuickItem* sideStack;
         QQuickItem* rawDisplay;
+        QMLCommunication communicator;
 
         void appendRecipeDisplay (QQuickItem* recipe);
         void findScene();
@@ -45,6 +47,9 @@ private:
         void populateRawMaterials(const crafter::CraftingGraph&);
         void removeAllRawMaterials(void);
         void addRawMaterial(std::string name, size_t count);
+        void recipeClicked(const std::string& name);
+
+        friend QMLCommunication;
 };
 
 }

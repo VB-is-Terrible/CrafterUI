@@ -11,5 +11,7 @@
         <file>qml/RecipeNodeForm.ui.qml</file>
         <file>qml/LinePath.qml</file>
         <file>qml/TableRow.ui.qml</file>
+        <file>qml/RecipeDetailed.qml</file>
+        <file>qml/RecipeDetailedForm.ui.qml</file>
     </qresource>
 </RCC>

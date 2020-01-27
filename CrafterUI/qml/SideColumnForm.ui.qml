@@ -59,6 +59,7 @@ Item {
             y: 62
             anchors.left: rowLayout.anchors.left
             anchors.top: rowLayout.bottom
+            anchors.topMargin: 5
             height: 696
             anchors.rightMargin: 10
             currentIndex: pageIndicator.currentIndex
@@ -99,6 +100,9 @@ Item {
                         }
                     }
                 }
+            }
+            Item {
+
             }
         }
 

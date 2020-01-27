@@ -47,6 +47,7 @@ add_executable(CrafterUI
     main.cpp
     lineshape.cpp
     graphuimanager.cpp
+    qmlcommunication.cpp
     qml.qrc
 )
 

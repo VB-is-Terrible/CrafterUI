@@ -3,7 +3,7 @@
 
 namespace crafter {
 
-GraphUIManager::GraphUIManager(QQmlApplicationEngine* engine) {
+GraphUIManager::GraphUIManager(QQmlApplicationEngine* engine) : communicator{*this} {
 	this->engine = engine;
 	findScene();
 }
@@ -31,6 +31,7 @@ QQuickItem* GraphUIManager::createRecipeDisplay(std::string title) {
 void GraphUIManager::appendRecipeDisplay (QQuickItem* recipe) {
 	recipe->setParentItem(scene);
 	engine->setObjectOwnership(recipe, QQmlEngine::JavaScriptOwnership);
+	communicator.addRecipe(recipe);
 }
 
 void GraphUIManager::removeAllRecipeDisplays(void) {
@@ -102,6 +103,7 @@ void GraphUIManager::populateRecipes(const crafter::CraftingGraph& graph) {
 	const auto locations = populateRecipes(graph, false);
 	populateRecipeLinks(locations, graph.make_pairings());
 	populateRawMaterials(graph);
+	tryQmlFunction();
 }
 
 std::string GraphUIManager::output_ingredients(const crafter::ingredient_map& map) {
