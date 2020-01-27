@@ -206,7 +206,7 @@ ingredient_map CraftingGraph::calc_ingredients(const std::string& item) const {
 	auto recipe_it = recipes.find(item);
 	// Index 0 should not have a valid recipe
 	for (size_t i = 1; i < count.distribution.size(); i++) {
-		const auto& recipe = recipe_it->second[1];
+		const auto& recipe = recipe_it->second[i];
 		for (const auto& ingredient : recipe.ingredients) {
 			if (!result.count(ingredient.name)) {
 				result[ingredient.name] = 0;
