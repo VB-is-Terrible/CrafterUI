@@ -103,7 +103,6 @@ void GraphUIManager::populateRecipes(const crafter::CraftingGraph& graph) {
 	const auto locations = populateRecipes(graph, false);
 	populateRecipeLinks(locations, graph.make_pairings());
 	populateRawMaterials(graph);
-	tryQmlFunction();
 }
 
 std::string GraphUIManager::output_ingredients(const crafter::ingredient_map& map) {
@@ -144,5 +143,9 @@ void GraphUIManager::populateRawMaterials(const crafter::CraftingGraph& graph) {
 		const auto needed = graph.recipe_count.at(ingredient).distribution[0];
 		addRawMaterial(ingredient, needed);
 	}
+}
+
+void GraphUIManager::recipeClicked(const std::string& name) {
+	std::cerr << "Recieved click from " << name << "\n";
 }
 }
