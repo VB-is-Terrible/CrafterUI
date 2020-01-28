@@ -31,6 +31,7 @@ void GraphUIManager::findScene(void) {
 	recipeDisplay = sideColumn->findChild<QQuickItem *>("recipeDetailed");
 	recipeMaterials = recipeDisplay->findChild<QQuickItem *>("recipeMaterials");
         recipeSelector = recipeDisplay->findChild<QQuickItem *>("recipeSelector");
+        recipeColumns = recipeDisplay->findChild<QQuickItem *>("recipeColumns");
 }
 
 QQuickItem* GraphUIManager::createRecipeDisplay(std::string title) {
@@ -162,6 +163,21 @@ QQuickItem* GraphUIManager::createRow(const std::string& name, const size_t coun
         return row;
 }
 
+void GraphUIManager::makeRecipeColumns(const std::string& name) {
+        const auto& count = graph->recipe_count.at(name);
+        const auto& recipes = graph->recipes.at(name);
+        auto ingredient_lists = graph->calc_ingredients(name, count);
+        removeChildren(recipeColumns);
+
+        for (size_t i = 0; i < ingredient_lists.size(); i++) {
+                const auto& list = ingredient_lists[i];
+                const auto& recipe = recipes[i];
+                if (list.empty()) {
+                        continue;
+                }
+                auto column = makeSingleRecipe(list, recipe);
+                column->setParentItem(recipeColumns);
+        }
 }
 
 QList<QVariant> GraphUIManager::nameRecipeOptions(const std::string& name) {
@@ -181,6 +197,18 @@ void GraphUIManager::appendDetailedRecipe(const Recipe& recipe) {
 
 }
 
+QQuickItem* GraphUIManager::makeSingleRecipe(const ingredient_map& ingredients, const Recipe& recipe) {
+        QQmlComponent singleComponent(engine, QUrl(COLUMN_LOCATION));
+        auto single = qobject_cast<QQuickItem *>(singleComponent.create());
+        auto insert_point = single->property("column").value<QQuickItem*>();
+        for (const auto& [name, count] : recipe.ingredients) {
+                auto row = createRow(name, ingredients.at(name));
+                row->setParentItem(insert_point);
+        }
+        single->setProperty("methodName", QString::fromStdString(recipe.method));
+        single->setProperty("hasMethod", !recipe.method.empty());
+        return single;
+}
 
 
 }
