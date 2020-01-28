@@ -194,11 +194,8 @@ QList<QVariant> GraphUIManager::nameRecipeOptions(const std::string& name) {
 
 void GraphUIManager::appendDetailedRecipe(const Recipe& recipe) {
         removeChildren(recipeMaterials);
-	for (const auto& ingredient : recipe.ingredients) {
-                auto row = createRow(ingredient.name, ingredient.count);
-		row->setParentItem(recipeMaterials);
-	}
-
+        auto row = createSingleRecipe(recipe);
+        row->setParentItem(recipeMaterials);
 }
 
 QQuickItem* GraphUIManager::createSingleRecipe(const ingredient_map& ingredients, const Recipe& recipe, const size_t needed) {
@@ -213,6 +210,21 @@ QQuickItem* GraphUIManager::createSingleRecipe(const ingredient_map& ingredients
         single->setProperty("hasMethod", !recipe.method.empty());
         single->setProperty("makes", static_cast<unsigned int>(needed));
         return single;
+}
+
+QQuickItem* GraphUIManager::createSingleRecipe(const Recipe& recipe) {
+        QQmlComponent singleComponent(engine, QUrl(COLUMN_LOCATION));
+        auto single = qobject_cast<QQuickItem *>(singleComponent.create());
+        auto insert_point = single->property("column").value<QQuickItem*>();
+        for (const auto& [name, count] : recipe.ingredients) {
+                auto row = createRow(name, count);
+                row->setParentItem(insert_point);
+        }
+        single->setProperty("methodName", QString::fromStdString(recipe.method));
+        single->setProperty("hasMethod", !recipe.method.empty());
+        single->setProperty("makes", static_cast<unsigned int>(recipe.makes));
+        return single;
+
 }
 
 void GraphUIManager::recipeSelected(int index) {
