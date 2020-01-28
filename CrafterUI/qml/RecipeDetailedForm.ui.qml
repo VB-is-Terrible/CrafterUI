@@ -1,5 +1,6 @@
 import QtQuick 2.9
 import QtQuick.Controls 2.9
+import QtQuick.Layouts 1.12
 
 Item {
     FontMetrics {
@@ -69,13 +70,40 @@ Item {
                 anchors.topMargin: fontMetrics.maximumCharacterWidth * .2
                 anchors.right: parent.right
                 anchors.left: parent.left
-                anchors.bottom: parent.bottom
+                anchors.bottom: spinBox.top
                 anchors.top: recipeSelector.bottom
                 BetterColumn {
                     column {
                         id: recipeMaterials
                         objectName: "recipeMaterials"
                     }
+                }
+            }
+            SpinBox {
+                id: spinBox
+                anchors.bottom: baseRow.top
+                anchors.bottomMargin: fontMetrics.height * .5
+                anchors.horizontalCenter: parent.horizontalCenter
+                editable: true
+                to: 999999
+            }
+            RowLayout {
+                id: baseRow
+                anchors.bottom: parent.bottom
+                anchors.right: parent.right
+                anchors.left: parent.left
+                anchors.rightMargin: fontMetrics.height * .5
+                anchors.leftMargin: fontMetrics.height * .5
+                anchors.bottomMargin: fontMetrics.height * .5
+                Button {
+                    text: qsTr("Cancel")
+                    Layout.fillWidth: true
+                    Layout.fillHeight: true
+                }
+                Button {
+                    text: qsTr("Accept")
+                    Layout.fillWidth: true
+                    Layout.fillHeight: true
                 }
             }
         }
