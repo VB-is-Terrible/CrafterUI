@@ -41,11 +41,9 @@ Item {
             height: hasMethod ? fontMetrics.height : 0
             Text {
                 text: qsTr("Method: ")
-                font.underline: true
             }
             Text {
                 text: methodName
-                font.underline: true
             }
         }
     }
