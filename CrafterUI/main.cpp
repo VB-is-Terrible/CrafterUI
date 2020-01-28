@@ -9,6 +9,7 @@
 #include <unordered_map>
 #include <filesystem>
 #include <memory>
+#include <QIcon>
 
 #include "lineshape.h"
 #include "graphuimanager.h"
@@ -28,6 +29,8 @@ int main(int argc, char *argv[])
 
         QGuiApplication app(argc, argv);
 
+        QIcon icon(":/icon.png");
+        app.setWindowIcon(icon);
         QQmlApplicationEngine engine;
 
         qmlRegisterType<crafter::LineShape>("com.chow", 1, 0, "LineShape");
