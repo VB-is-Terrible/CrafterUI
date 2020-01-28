@@ -51,6 +51,7 @@ private:
         void recipeClicked(const std::string& name);
         void fillOutRecipe(const std::string& name);
         void removeChildren(QQuickItem* parent);
+        QQuickItem* createRow(const std::string& name, const size_t count);
         QList<QVariant> nameRecipeOptions(const std::string& name);
         void appendDetailedRecipe(const Recipe&);
         friend QMLCommunication;

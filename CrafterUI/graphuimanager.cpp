@@ -126,16 +126,9 @@ std::string GraphUIManager::output_ingredients(const crafter::ingredient_map& ma
 	return result;
 }
 
-	QQmlComponent rowComponent(engine, QUrl(ROW_LOCATION), rawDisplay);
-	// QQuickItem* row = qobject_cast<QQuickItem *>(rowComponent.beginCreate(engine->rootContext()));
-	// row->setParentItem(rawDisplay);
-	// rowComponent.completeCreate();
-	QQuickItem* row = qobject_cast<QQuickItem *>(rowComponent.create());
-	row->setProperty("itemName", QString::fromStdString(name));
-	row->setProperty("itemCount", QString::fromStdString(std::to_string(count)));
 void GraphUIManager::addRawMaterial(const std::string& name, const size_t count) {
+        auto row = createRow(name, count);
 	row->setParentItem(rawDisplay);
-	engine->setObjectOwnership(row, QQmlEngine::JavaScriptOwnership);
 }
 
 void GraphUIManager::populateRawMaterials() {
@@ -160,6 +153,14 @@ void GraphUIManager::fillOutRecipe(const std::string& name) {
 	const auto& recipes = graph->recipes.at(name);
 	appendDetailedRecipe(recipes[1]);
 	auto ingredient_count = graph->calc_ingredients(name, count);
+QQuickItem* GraphUIManager::createRow(const std::string& name, const size_t count) {
+        QQmlComponent rowComponent(engine, QUrl(ROW_LOCATION));
+        QQuickItem* row = qobject_cast<QQuickItem *>(rowComponent.create());
+        row->setProperty("itemName", QString::fromStdString(name));
+        row->setProperty("itemCount", QString::fromStdString(std::to_string(count)));
+        engine->setObjectOwnership(row, QQmlEngine::JavaScriptOwnership);
+        return row;
+}
 
 }
 
@@ -174,12 +175,8 @@ QList<QVariant> GraphUIManager::nameRecipeOptions(const std::string& name) {
 
 void GraphUIManager::appendDetailedRecipe(const Recipe& recipe) {
 	for (const auto& ingredient : recipe.ingredients) {
-		QQmlComponent rowComponent(engine, QUrl(ROW_LOCATION), rawDisplay);
-		QQuickItem* row = qobject_cast<QQuickItem *>(rowComponent.create());
-		row->setProperty("itemName", QString::fromStdString(ingredient.name));
-		row->setProperty("itemCount", QString::fromStdString(std::to_string(ingredient.count)));
+                auto row = createRow(ingredient.name, ingredient.count);
 		row->setParentItem(recipeMaterials);
-		engine->setObjectOwnership(row, QQmlEngine::JavaScriptOwnership);
 	}
 
 }
