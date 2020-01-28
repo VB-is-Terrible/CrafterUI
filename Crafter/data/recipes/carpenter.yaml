@@ -7,8 +7,8 @@ Carpenter:
     Copper Tank: 1
     30k Coolant Cell: 2
     Motor: 1
-    Advanced Control Circuit (): 1
-    Microchip <Tier 2> (): 1
+    Advanced Control Circuit: 1
+    Microchip <Tier 2>: 1
     Servomechanism: 1
 Empowered Enori Plate:
   ingredients:
@@ -24,8 +24,8 @@ Pulverized Obsidian:
   makes: 4
 Data Storage Circuit:
   ingredients:
-    Memory <Tier 1> (): 4
-    Advanced Control Circuit (): 1
+    Memory <Tier 1>: 4
+    Advanced Control Circuit: 1
     Emerald: 4
 Ferroboron Alloy:
   ingredients:
