@@ -18,13 +18,6 @@ Copper Tank:
     Copper Plate: 13
     Glass: 9
     Hardened Glass: 3
-Servomechanism:
-  ingredients:
-    Ferroboron Alloy: 2
-    Redstone: 2
-    Triberium Ingot (): 1
-    Steel Ingot: 2
-    Copper Gear: 1
 Pulverized Obsidian:
   ingredients:
     Obsidian: 1
@@ -120,5 +113,3 @@ Signalum-Plated Impulse Itemduct:
     Electrotine Alloy Plate: 1
     Red Alloy Plate: 1
     Hardened Glass: 3
-    
-    
