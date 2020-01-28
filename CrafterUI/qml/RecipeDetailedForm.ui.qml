@@ -28,6 +28,7 @@ Item {
         anchors.bottom: parent.bottom
         anchors.top: heading.bottom
         anchors.topMargin: fontMetrics.maximumCharacterWidth * .2
+        clip: true
         Item {
             Button {
                 id: editChange
@@ -56,7 +57,6 @@ Item {
         Item {
             id: element1
             ComboBox {
-                anchors.topMargin: fontMetrics.maximumCharacterWidth * .2
                 id: recipeSelector
                 objectName: "recipeSelector"
                 anchors.horizontalCenter: parent.horizontalCenter
@@ -66,6 +66,7 @@ Item {
                 signal recipeSelect(index: int)
             }
             Item {
+                anchors.topMargin: fontMetrics.maximumCharacterWidth * .2
                 anchors.right: parent.right
                 anchors.left: parent.left
                 anchors.bottom: parent.bottom
