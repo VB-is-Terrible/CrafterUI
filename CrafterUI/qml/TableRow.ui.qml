@@ -24,10 +24,10 @@ Item {
         anchors.rightMargin: 573
         fontSizeMode: Text.Fit
         verticalAlignment: Text.AlignVCenter
-        anchors.bottom: parent.bottom
-        anchors.top: parent.top
+        anchors.bottom: parent ? parent.bottom : undefined
+        anchors.top: parent ? parent.top : undefined
         anchors.topMargin: 0
-        anchors.left: parent.left
+        anchors.left: parent ? parent.left : undefined
         anchors.leftMargin: 0
     }
 
@@ -39,10 +39,10 @@ Item {
         elide: Text.ElideRight
         fontSizeMode: Text.Fit
         verticalAlignment: Text.AlignVCenter
-        anchors.top: parent.top
+        anchors.top: parent ? parent.top : undefined
         anchors.topMargin: 0
-        anchors.bottom: parent.bottom
-        anchors.right: parent.right
+        anchors.bottom: parent ? parent.bottom : undefined
+        anchors.right: parent ? parent.right : undefined
         width: 10 * fontMetrics.averageCharacterWidth
     }
 }
