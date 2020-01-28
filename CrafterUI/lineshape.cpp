@@ -29,7 +29,6 @@ void LineShape::paint(QPainter *painter) {
         painter->drawLine(connection.toQLineF());
         count++;
     }
-    std::cout << "Painted " << count << " lines\n";
 }
 
 void LineShape::setLines(std::vector<LineConnection> new_lines) {

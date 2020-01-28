@@ -100,7 +100,6 @@ void GraphUIManager::populateRecipeLinks(location_map locations, recipe_links li
 		const auto destination_location = locations.at(destination);
 		connection.start = std::pair<double, double>(source_location.first + recipe_width / 2, source_location.second + recipe_height);
 		connection.end = std::pair<double, double>(destination_location.first + recipe_width / 2, destination_location.second);
-		// std::cout << connection;
 		connections.push_back(connection);
 	}
 	lineShape->setLines(std::move(connections));
