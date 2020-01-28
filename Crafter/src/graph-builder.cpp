@@ -207,7 +207,9 @@ ingredient_map CraftingGraph::calc_ingredients(const std::string& item) const {
 		return result;
 	}
 	auto recipe_it = recipes.find(item);
-	for (size_t i = 0; i < count.distribution.size(); i++) {
+	// Recipe 0 is a special self loop, and meant to represent a precrafted item
+	// Hence, ignore it for internal bookkeeping
+	for (size_t i = 1; i < count.distribution.size(); i++) {
 		if (count.distribution[i] == 0) {
 			continue;
 		}
