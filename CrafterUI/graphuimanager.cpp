@@ -4,9 +4,8 @@
 namespace crafter {
 
 GraphUIManager::GraphUIManager(QQmlApplicationEngine* engine)
-        : communicator{*this}, recipeColumn{engine} {
+        : communicator{*this} {
 	this->engine = engine;
-	recipeColumn.setData("import QtQuick 2.9; Column {anchor.left: parent.left; anchor.right: parent.right;}", QUrl());
 
 	findScene();
 }

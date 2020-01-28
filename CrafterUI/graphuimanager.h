@@ -53,7 +53,6 @@ private:
         void removeChildren(QQuickItem* parent);
         QList<QVariant> nameRecipeOptions(const std::string& name);
         void appendDetailedRecipe(const Recipe&);
-        QQmlComponent recipeColumn;
         friend QMLCommunication;
 };
 
