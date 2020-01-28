@@ -126,7 +126,6 @@ std::string GraphUIManager::output_ingredients(const crafter::ingredient_map& ma
 	return result;
 }
 
-void GraphUIManager::addRawMaterial(std::string name, size_t count) {
 	QQmlComponent rowComponent(engine, QUrl(ROW_LOCATION), rawDisplay);
 	// QQuickItem* row = qobject_cast<QQuickItem *>(rowComponent.beginCreate(engine->rootContext()));
 	// row->setParentItem(rawDisplay);
@@ -134,6 +133,7 @@ void GraphUIManager::addRawMaterial(std::string name, size_t count) {
 	QQuickItem* row = qobject_cast<QQuickItem *>(rowComponent.create());
 	row->setProperty("itemName", QString::fromStdString(name));
 	row->setProperty("itemCount", QString::fromStdString(std::to_string(count)));
+void GraphUIManager::addRawMaterial(const std::string& name, const size_t count) {
 	row->setParentItem(rawDisplay);
 	engine->setObjectOwnership(row, QQmlEngine::JavaScriptOwnership);
 }

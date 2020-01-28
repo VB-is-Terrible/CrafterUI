@@ -47,7 +47,7 @@ private:
         constexpr unsigned long calc_gap(size_t items, size_t width);
         location_map populateRecipes(void);
         void populateRawMaterials(void);
-        void addRawMaterial(std::string name, size_t count);
+        void addRawMaterial(const std::string& name, const size_t count);
         void recipeClicked(const std::string& name);
         void fillOutRecipe(const std::string& name);
         void removeChildren(QQuickItem* parent);
