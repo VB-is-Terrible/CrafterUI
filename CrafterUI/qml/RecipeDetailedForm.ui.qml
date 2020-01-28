@@ -42,6 +42,14 @@ Item {
                 anchors.left: parent.left
                 anchors.bottom: parent.bottom
                 anchors.top: editChange.bottom
+                anchors.topMargin: fontMetrics.height * .5
+                BetterColumn {
+                    column {
+                        id: recipeColumns
+                        objectName: "recipeColumns"
+                        spacing: fontMetrics.height
+                    }
+                }
             }
         }
 
