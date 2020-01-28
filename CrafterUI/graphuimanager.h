@@ -40,6 +40,11 @@ private:
                    *recipeSelector;
         QMLCommunication communicator;
         std::shared_ptr<crafter::CraftingGraph> graph;
+        std::string selected;
+        int recipeIndex;
+
+
+
 
 
         void appendRecipeDisplay (QQuickItem* recipe);
@@ -57,6 +62,7 @@ private:
         QQuickItem* createRow(const std::string& name, const size_t count);
         QList<QVariant> nameRecipeOptions(const std::string& name);
         void appendDetailedRecipe(const Recipe&);
+        void recipeSelected(int index);
         friend QMLCommunication;
 };
 

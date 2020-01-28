@@ -63,6 +63,7 @@ Item {
                 anchors.top: parent.top
                 model: recipeValues
                 height: fontMetrics.height * 2
+                signal recipeSelect(index: int)
             }
             Item {
                 anchors.right: parent.right

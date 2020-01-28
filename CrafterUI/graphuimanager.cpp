@@ -8,6 +8,7 @@ GraphUIManager::GraphUIManager(QQmlApplicationEngine* engine)
 	this->engine = engine;
 
 	findScene();
+        communicator.setRecipeSelector(recipeSelector);
 }
 
 void GraphUIManager::removeChildren(QQuickItem* parent) {
@@ -142,18 +143,20 @@ void GraphUIManager::populateRawMaterials() {
 
 void GraphUIManager::recipeClicked(const std::string& name) {
 	std::cerr << "Recieved click from " << name << "\n";
+        selected = name;
 	fillOutRecipe(name);
 }
 
 void GraphUIManager::fillOutRecipe(const std::string& name) {
-	removeChildren(recipeMaterials);
 	recipeDisplay->setProperty("recipeName", QString::fromStdString(name));
 	recipeDisplay->setProperty("recipeValues", nameRecipeOptions(name));
+        recipeIndex = 1;
 	recipeSelector->setProperty("currentIndex", 1);
-	const auto& count = graph->recipe_count.at(name);
 	const auto& recipes = graph->recipes.at(name);
 	appendDetailedRecipe(recipes[1]);
-	auto ingredient_count = graph->calc_ingredients(name, count);
+        makeRecipeColumns(name);
+}
+
 QQuickItem* GraphUIManager::createRow(const std::string& name, const size_t count) {
         QQmlComponent rowComponent(engine, QUrl(ROW_LOCATION));
         QQuickItem* row = qobject_cast<QQuickItem *>(rowComponent.create());
@@ -190,6 +193,7 @@ QList<QVariant> GraphUIManager::nameRecipeOptions(const std::string& name) {
 }
 
 void GraphUIManager::appendDetailedRecipe(const Recipe& recipe) {
+        removeChildren(recipeMaterials);
 	for (const auto& ingredient : recipe.ingredients) {
                 auto row = createRow(ingredient.name, ingredient.count);
 		row->setParentItem(recipeMaterials);
@@ -210,5 +214,10 @@ QQuickItem* GraphUIManager::makeSingleRecipe(const ingredient_map& ingredients, 
         return single;
 }
 
+void GraphUIManager::recipeSelected(int index) {
+        recipeIndex = index;
+        const auto& recipes = graph->recipes.at(selected);
+        appendDetailedRecipe(recipes[index]);
+}
 
 }

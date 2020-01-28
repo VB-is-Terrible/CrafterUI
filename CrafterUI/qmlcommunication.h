@@ -13,9 +13,11 @@ class QMLCommunication : public QObject {
 	Q_OBJECT
 public:
 	QMLCommunication(class GraphUIManager&);
+	void setRecipeSelector(QQuickItem*);
 public slots:
 	void recipeClicked(const QString& recipe);
 	void addRecipe(QQuickItem* recipe);
+	void recipeSelected(int index);
 private:
 	GraphUIManager& graphui;
 };
