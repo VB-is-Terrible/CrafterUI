@@ -57,7 +57,7 @@ private:
         void recipeClicked(const std::string& name);
         void fillOutRecipe(const std::string& name);
         void makeRecipeColumns(const std::string& name);
-        QQuickItem* makeSingleRecipe(const ingredient_map& ingredients, const Recipe& recipe);
+        QQuickItem* makeSingleRecipe(const ingredient_map& ingredients, const Recipe& recipe, const size_t needed);
         void removeChildren(QQuickItem* parent);
         QQuickItem* createRow(const std::string& name, const size_t count);
         QList<QVariant> nameRecipeOptions(const std::string& name);

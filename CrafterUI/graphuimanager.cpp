@@ -178,7 +178,7 @@ void GraphUIManager::makeRecipeColumns(const std::string& name) {
                 if (list.empty()) {
                         continue;
                 }
-                auto column = makeSingleRecipe(list, recipe);
+                auto column = makeSingleRecipe(list, recipe, count.distribution[i]);
                 column->setParentItem(recipeColumns);
         }
 }
@@ -201,7 +201,7 @@ void GraphUIManager::appendDetailedRecipe(const Recipe& recipe) {
 
 }
 
-QQuickItem* GraphUIManager::makeSingleRecipe(const ingredient_map& ingredients, const Recipe& recipe) {
+QQuickItem* GraphUIManager::makeSingleRecipe(const ingredient_map& ingredients, const Recipe& recipe, const size_t needed) {
         QQmlComponent singleComponent(engine, QUrl(COLUMN_LOCATION));
         auto single = qobject_cast<QQuickItem *>(singleComponent.create());
         auto insert_point = single->property("column").value<QQuickItem*>();
@@ -211,6 +211,7 @@ QQuickItem* GraphUIManager::makeSingleRecipe(const ingredient_map& ingredients, 
         }
         single->setProperty("methodName", QString::fromStdString(recipe.method));
         single->setProperty("hasMethod", !recipe.method.empty());
+        single->setProperty("makes", static_cast<unsigned int>(needed));
         return single;
 }
 
