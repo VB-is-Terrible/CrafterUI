@@ -29,7 +29,6 @@ static constexpr const auto recipe_margin_right = 30;
 class GraphUIManager {
 public:
         GraphUIManager(QQmlApplicationEngine* engine);
-        QQuickItem* createRecipeDisplay(std::string title);
         void populateRecipeLinks(location_map locations, recipe_links links);
         void populateRecipes(std::shared_ptr<crafter::CraftingGraph>);
 private:
@@ -47,6 +46,7 @@ private:
 
 
 
+        QQuickItem* createRecipeDisplay(std::string title);
         void appendRecipeDisplay (QQuickItem* recipe);
         void findScene();
         static std::string output_ingredients (const crafter::ingredient_map&);
@@ -57,7 +57,7 @@ private:
         void recipeClicked(const std::string& name);
         void fillOutRecipe(const std::string& name);
         void makeRecipeColumns(const std::string& name);
-        QQuickItem* makeSingleRecipe(const ingredient_map& ingredients, const Recipe& recipe, const size_t needed);
+        QQuickItem* createSingleRecipe(const ingredient_map& ingredients, const Recipe& recipe, const size_t needed);
         void removeChildren(QQuickItem* parent);
         QQuickItem* createRow(const std::string& name, const size_t count);
         QList<QVariant> nameRecipeOptions(const std::string& name);
