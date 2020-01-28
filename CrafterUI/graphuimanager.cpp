@@ -38,6 +38,8 @@ QQuickItem* GraphUIManager::createRecipeDisplay(std::string title) {
 	QQuickItem* recipe = qobject_cast<QQuickItem *>(recipeComponent.create());
 	recipe->setProperty("heading", QString::fromStdString(title));
 	recipe->setProperty("contents", QString::fromStdString("Test contents"));
+        recipe->setProperty("width", recipe_width);
+        recipe->setProperty("height", recipe_height);
 	return recipe;
 }
 

@@ -20,10 +20,10 @@ namespace crafter {
 using location_map = std::unordered_map<std::string, std::pair<size_t, size_t>>;
 using recipe_layout = const std::vector<std::vector<std::string>>&;
 using recipe_links = const std::vector<std::pair<std::string, std::string>>&;
-static constexpr const auto recipe_height = 200;
-static constexpr const auto recipe_width = 400;
+static constexpr const auto recipe_height = 150;
+static constexpr const auto recipe_width = 300;
 static constexpr const auto recipe_margin_bottom = 50;
-static constexpr const auto recipe_margin_right = 50;
+static constexpr const auto recipe_margin_right = 30;
 
 class GraphUIManager {
 public:
