@@ -31,6 +31,7 @@ void GraphUIManager::findScene(void) {
 	rawDisplay = sideColumn->findChild<QQuickItem *>("rawPage");
 	recipeDisplay = sideColumn->findChild<QQuickItem *>("recipeDetailed");
 	recipeMaterials = recipeDisplay->findChild<QQuickItem *>("recipeMaterials");
+        recipeSelector = recipeDisplay->findChild<QQuickItem *>("recipeSelector");
 }
 
 QQuickItem* GraphUIManager::createRecipeDisplay(std::string title) {
@@ -154,7 +155,7 @@ void GraphUIManager::fillOutRecipe(const std::string& name) {
 	removeChildren(recipeMaterials);
 	recipeDisplay->setProperty("recipeName", QString::fromStdString(name));
 	recipeDisplay->setProperty("recipeValues", nameRecipeOptions(name));
-	recipeDisplay->setProperty("currentIndex", 1);
+	recipeSelector->setProperty("currentIndex", 1);
 	const auto& count = graph->recipe_count.at(name);
 	const auto& recipes = graph->recipes.at(name);
 	appendDetailedRecipe(recipes[1]);

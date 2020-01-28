@@ -35,7 +35,8 @@ private:
         QQmlApplicationEngine* engine;
         LineShape* lineShape;
         QQuickItem *scene, *flickable, *sideStack, *rawDisplay,
-                   *recipeDisplay, *recipeMaterials, *recipeColumns;
+                   *recipeDisplay, *recipeMaterials, *recipeColumns,
+                   *recipeSelector;
         QMLCommunication communicator;
         std::shared_ptr<crafter::CraftingGraph> graph;
 
