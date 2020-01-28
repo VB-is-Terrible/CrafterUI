@@ -23,7 +23,19 @@ Item {
         Row {
             anchors.left: parent.left
             anchors.right: parent.right
-//            anchors.top: parent.top
+            spacing: fontMetrics.averageCharacterWidth
+            Text {
+                text: qsTr("Makes: ")
+                font.underline: true
+            }
+            Text {
+                text: makes
+                font.underline: true
+            }
+        }
+        Row {
+            anchors.left: parent.left
+            anchors.right: parent.right
             spacing: fontMetrics.averageCharacterWidth
             visible: hasMethod
             height: hasMethod ? fontMetrics.height : 0
@@ -36,20 +48,6 @@ Item {
                 font.underline: true
             }
         }
-        Row {
-            anchors.left: parent.left
-            anchors.right: parent.right
-            spacing: fontMetrics.averageCharacterWidth
-            Text {
-                text: qsTr("Makes: ")
-                font.underline: true
-            }
-            Text {
-                text: makes
-                font.underline: true
-            }
-        }
-
     }
 
 
