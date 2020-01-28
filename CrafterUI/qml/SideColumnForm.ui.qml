@@ -75,6 +75,7 @@ Item {
                         id: rawPage
                         objectName: "rawPage"
                     }
+
                 }
             }
             Item {

@@ -6,6 +6,7 @@ Flickable {
         id: fontMetrics
     }
     property alias column: column
+    default property alias children: column.children
     boundsBehavior: Flickable.StopAtBounds
     contentHeight: column.height
     anchors.fill: parent
@@ -26,10 +27,6 @@ Flickable {
             anchors.left: parent.left
             anchors.top: parent.top
             objectName: "column"
-            TableRow {}
-            TableRow {}
-            TableRow {}
-            TableRow {}
         }
     }
 }
