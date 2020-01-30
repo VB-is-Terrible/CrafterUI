@@ -70,7 +70,7 @@ Item {
             anchors.bottom: parent.bottom
             anchors.bottomMargin: 42
             clip: true
-//            interactive: false
+            interactive: false
             Item {
                 BetterColumn {
                     column {

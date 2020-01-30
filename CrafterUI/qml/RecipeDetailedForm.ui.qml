@@ -38,6 +38,7 @@ Item {
         anchors.top: heading.bottom
         anchors.topMargin: fontMetrics.maximumCharacterWidth * .2
         clip: true
+        interactive: false
         Item {
             Button {
                 id: editChange
@@ -95,6 +96,7 @@ Item {
                 anchors.horizontalCenter: parent.horizontalCenter
                 editable: true
                 to: 999999
+                enabled: !isDefaultRecipe
             }
             RowLayout {
                 id: baseRow
