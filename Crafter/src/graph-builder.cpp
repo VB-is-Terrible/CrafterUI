@@ -36,7 +36,7 @@ CraftingGraph::CraftingGraph (
 	: recipes{recipes},  dependencies{dependencies} {
 	build_graph(requests);
 	tally_count(requests);
-    get_order();
+	get_order();
 }
 
 pairings CraftingGraph::make_pairings(void) const {
