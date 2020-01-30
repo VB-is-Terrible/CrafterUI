@@ -6,9 +6,8 @@ namespace crafter {
 GraphUIManager::GraphUIManager(QQmlApplicationEngine* engine)
         : communicator{*this} {
 	this->engine = engine;
-
 	findScene();
-        communicator.setRecipeSelector(recipeSelector);
+        communicator.realConstructor();
 }
 
 void GraphUIManager::removeChildren(QQuickItem* parent) {
@@ -26,13 +25,15 @@ void GraphUIManager::findScene(void) {
 	flickable = graph->property("scene").value<QQuickItem*>();
 	scene = flickable->findChild<QQuickItem *>("recipeStore");
 	lineShape = flickable->findChild<crafter::LineShape *>("betterShape");
-	auto sideColumn = rootLayout->property("sideColumn").value<QQuickItem*>();
+	sideColumn = rootLayout->property("sideColumn").value<QQuickItem*>();
 	sideStack = sideColumn->findChild<QQuickItem *>("mainView");
 	rawDisplay = sideColumn->findChild<QQuickItem *>("rawPage");
 	recipeDisplay = sideColumn->findChild<QQuickItem *>("recipeDetailed");
 	recipeMaterials = recipeDisplay->findChild<QQuickItem *>("recipeMaterials");
         recipeSelector = recipeDisplay->findChild<QQuickItem *>("recipeSelector");
         recipeColumns = recipeDisplay->findChild<QQuickItem *>("recipeColumns");
+        recipeSpinner = recipeDisplay->findChild<QQuickItem *>("spinBox");
+        recipeAcceptor = recipeDisplay->property("accept").value<QQuickItem*>();
 }
 
 QQuickItem* GraphUIManager::createRecipeDisplay(std::string title) {
@@ -150,10 +151,9 @@ void GraphUIManager::recipeClicked(const std::string& name) {
 void GraphUIManager::fillOutRecipe(const std::string& name) {
 	recipeDisplay->setProperty("recipeName", QString::fromStdString(name));
 	recipeDisplay->setProperty("recipeValues", nameRecipeOptions(name));
-        recipeIndex = 1;
-	recipeSelector->setProperty("currentIndex", 1);
-	const auto& recipes = graph->recipes.at(name);
-	appendDetailedRecipe(recipes[1]);
+        recipeIndex = default_recipe;
+	recipeSelector->setProperty("currentIndex", default_recipe);
+	setDetailedRecipe(name, default_recipe);
         makeRecipeColumns(name);
 }
 
@@ -192,10 +192,17 @@ QList<QVariant> GraphUIManager::nameRecipeOptions(const std::string& name) {
 	return result;
 }
 
-void GraphUIManager::appendDetailedRecipe(const Recipe& recipe) {
+void GraphUIManager::setDetailedRecipe(const std::string& name, const size_t recipe_index) {
         removeChildren(recipeMaterials);
+        const auto& recipes = graph->recipes.at(name);
+        const auto& count = graph->recipe_count.at(name);
+        const auto& recipe = recipes[recipeIndex];
         auto row = createSingleRecipe(recipe);
         row->setParentItem(recipeMaterials);
+        const auto needed = count.distribution[recipe_index];
+        recipeSpinner->setProperty("value", static_cast<  int>(needed));
+        recipeDisplay->setProperty("isDefaultRecipe", recipe_index == default_recipe);
+        recipeDisplay->setProperty("recipeCount", static_cast<int>(needed));
 }
 
 QQuickItem* GraphUIManager::createSingleRecipe(const ingredient_map& ingredients, const Recipe& recipe, const size_t needed) {
@@ -229,8 +236,15 @@ QQuickItem* GraphUIManager::createSingleRecipe(const Recipe& recipe) {
 
 void GraphUIManager::recipeSelected(int index) {
         recipeIndex = index;
-        const auto& recipes = graph->recipes.at(selected);
-        appendDetailedRecipe(recipes[index]);
+        setDetailedRecipe(selected, index);
+}
+
+void GraphUIManager::recipeAmountChanged(size_t amount) {
+        if (graph->recipe_count.at(selected).distribution[recipeIndex] == amount) {return;}
+        std::cout << "Would set recipe " << recipeIndex << " of " << selected << " to " << amount << "\n";
+        graph->recipe_count.at(selected).distribution[recipeIndex] = amount;
+        graph->update({selected});
+        this->populateRecipes(graph);
 }
 
 }

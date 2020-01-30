@@ -32,20 +32,6 @@ public:
         void populateRecipeLinks(location_map locations, recipe_links links);
         void populateRecipes(std::shared_ptr<crafter::CraftingGraph>);
 private:
-        QQmlApplicationEngine* engine;
-        LineShape* lineShape;
-        QQuickItem *scene, *flickable, *sideStack, *rawDisplay,
-                   *recipeDisplay, *recipeMaterials, *recipeColumns,
-                   *recipeSelector;
-        QMLCommunication communicator;
-        std::shared_ptr<crafter::CraftingGraph> graph;
-        std::string selected;
-        int recipeIndex;
-
-
-
-
-
         QQuickItem* createRecipeDisplay(std::string title);
         void appendRecipeDisplay (QQuickItem* recipe);
         void findScene();
@@ -63,9 +49,21 @@ private:
         void removeChildren(QQuickItem* parent);
         QQuickItem* createRow(const std::string& name, const size_t count);
         QList<QVariant> nameRecipeOptions(const std::string& name);
-        void appendDetailedRecipe(const Recipe&);
+        void setDetailedRecipe(const std::string& name, const size_t recipe_index);
         void recipeSelected(int index);
+        void recipeAmountChanged(size_t amount);
+
         friend QMLCommunication;
+
+        QQmlApplicationEngine* engine;
+        LineShape* lineShape;
+        QQuickItem *scene, *flickable, *sideStack, *rawDisplay,
+                   *recipeDisplay, *recipeMaterials, *recipeColumns,
+                   *recipeSelector, *recipeSpinner, *sideColumn, *recipeAcceptor;
+        QMLCommunication communicator;
+        std::shared_ptr<crafter::CraftingGraph> graph;
+        std::string selected;
+        int recipeIndex;
 };
 
 }
