@@ -102,6 +102,8 @@ void CraftingGraph::build_graph_node(std::deque<std::string>& queue, std::unorde
 		graph.InsertNode(ingredient.name);
 		if (!graph.IsConnected(request, ingredient.name)) {
 			graph.InsertEdge(request, ingredient.name, 0);
+		} else {
+			graph.SetWeight(request, ingredient.name, 0);
 		}
 		if (!seen.count(ingredient.name)) {
 			seen.insert(ingredient.name);
