@@ -435,7 +435,7 @@ std::vector<N> tails(graph::Graph<N, E> g) {
 }
 
 void CraftingGraph::mark(const std::vector<Ingredients>& requests) {
-	std::deque<std::string> queue(requests.size());
+	std::deque<std::string> queue;
 	for (const auto& node : requests) {
 		queue.push_back(node.name);
 	}
