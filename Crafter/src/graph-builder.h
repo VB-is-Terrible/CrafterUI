@@ -58,6 +58,9 @@ private:
 	void build_graph(const std::vector<Ingredients>&);
 	void build_graph(const std::vector<std::string>&);
 	void build_graph(std::deque<std::string>&, std::unordered_set<std::string>&);
+	void build_graph_node(
+		std::deque<std::string>&, std::unordered_set<std::string>&,
+		const std::string&, const Recipe&);
 	void tally_count(const std::vector<Ingredients>&);
 	void tally_count(const std::vector<std::string>&);
 	void tally_count(std::deque<std::string>&);

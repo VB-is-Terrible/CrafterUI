@@ -53,7 +53,6 @@ pairings CraftingGraph::make_pairings(void) const {
 }
 
 void CraftingGraph::build_graph(const std::vector<Ingredients>& requests) {
-	//TODO: Make building the graph lazy
 	std::deque<std::string> queue;
 	std::unordered_set<std::string> seen;
 	for (const auto& request : requests) {
@@ -64,7 +63,6 @@ void CraftingGraph::build_graph(const std::vector<Ingredients>& requests) {
 }
 
 void CraftingGraph::build_graph(const std::vector<std::string>& requests) {
-	//TODO: Make building the graph lazy
 	std::deque<std::string> queue;
 	std::unordered_set<std::string> seen;
 	for (const auto& name : requests) {
@@ -83,18 +81,31 @@ void CraftingGraph::build_graph(std::deque<std::string>& queue, std::unordered_s
 		auto recipe_it = recipes.find(request);
 		if (recipe_it != recipes.end()) {
 			// Add links for all recipes
-			for (const auto& recipe : recipe_it->second) {
-				for (const auto& ingredient : recipe.ingredients) {
-					graph.InsertNode(ingredient.name);
-					if (!graph.IsConnected(request, ingredient.name)) {
-						graph.InsertEdge(request, ingredient.name, 0);
-					}
-					if (!seen.count(ingredient.name)) {
-						seen.insert(ingredient.name);
-						queue.push_back(ingredient.name);
-					}
-				}
+			std::vector<size_t> distribution;
+			if (recipe_count.count(request)) {
+				distribution = recipe_count.at(request).distribution;
+			} else {
+				distribution = {0, 1};
 			}
+			for (size_t i = 0; i < distribution.size(); i++) {
+				if (distribution[i] == 0) {
+					continue;
+				}
+				build_graph_node(queue, seen, request, recipe_it->second[i]);
+			}
+		}
+	}
+}
+
+void CraftingGraph::build_graph_node(std::deque<std::string>& queue, std::unordered_set<std::string>& seen, const std::string& request, const Recipe& recipe) {
+	for (const auto& ingredient : recipe.ingredients) {
+		graph.InsertNode(ingredient.name);
+		if (!graph.IsConnected(request, ingredient.name)) {
+			graph.InsertEdge(request, ingredient.name, 0);
+		}
+		if (!seen.count(ingredient.name)) {
+			seen.insert(ingredient.name);
+			queue.push_back(ingredient.name);
 		}
 	}
 }
