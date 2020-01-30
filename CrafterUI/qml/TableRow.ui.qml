@@ -14,7 +14,7 @@ Item {
     anchors.leftMargin: 0
     anchors.left: parent ? parent.left : undefined
     anchors.right: parent ? parent.right : undefined
-    height: 27
+    height: fontMetrics.height * 1.2
 
     Text {
         id: nameDisplay

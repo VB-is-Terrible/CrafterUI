@@ -9,6 +9,8 @@ Item {
     }
 
     height: 800
+    property alias button1: button1
+    property alias mainView: mainView
     width: 18 * fontMetrics.maximumCharacterWidth
 
     Layout.fillHeight: true
@@ -68,7 +70,7 @@ Item {
             anchors.bottom: parent.bottom
             anchors.bottomMargin: 42
             clip: true
-//            interactive: false
+            interactive: false
             Item {
                 BetterColumn {
                     column {

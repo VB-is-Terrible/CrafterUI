@@ -13,24 +13,41 @@ Item {
     property alias column: column
     property bool hasMethod: true
     property string methodName: qsTr("Put the method name here")
+    property int makes: 1
     implicitHeight: row.height + column.height + (hasMethod ? fontMetrics.height * .2 : 0)
-    Row {
+    Column {
         anchors.left: parent.left
         anchors.right: parent.right
         anchors.top: parent.top
         id: row
-        spacing: fontMetrics.averageCharacterWidth
-        visible: hasMethod
-        height: hasMethod ? fontMetrics.height : 0
-        Text {
-            text: qsTr("Method: ")
-            font.underline: true
+        Row {
+            anchors.left: parent.left
+            anchors.right: parent.right
+            spacing: fontMetrics.averageCharacterWidth
+            Text {
+                text: qsTr("Makes: ")
+                font.underline: true
+            }
+            Text {
+                text: makes
+                font.underline: true
+            }
         }
-        Text {
-            text: methodName
-            font.underline: true
+        Row {
+            anchors.left: parent.left
+            anchors.right: parent.right
+            spacing: fontMetrics.averageCharacterWidth
+            visible: hasMethod
+            height: hasMethod ? fontMetrics.height : 0
+            Text {
+                text: qsTr("Method: ")
+            }
+            Text {
+                text: methodName
+            }
         }
     }
+
 
     Column {
         id: column

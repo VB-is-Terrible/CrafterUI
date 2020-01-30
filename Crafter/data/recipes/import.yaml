@@ -965,9 +965,16 @@ Red Alloy Gear:
     Red Alloy Ingot: 4
   makes: 1
 Red Alloy Ingot:
+  method: Induction Smelter
   ingredients:
     Iron Ingot: 1
     Redstone: 5
+  makes: 1
+Red Alloy Ingot:
+  method: Crafting Table
+  ingredients:
+    Iron Ingot: 1
+    Redstone: 8
   makes: 1
 Red Alloy Plate:
   ingredients:
@@ -1233,5 +1240,5 @@ Sugar:
   ingredients:
     Sugar Cane: 1
   makes: 4
-  method: 
+  method:
     Mechanical Squeezer

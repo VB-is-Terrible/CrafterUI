@@ -53,9 +53,14 @@ public:
 	pairings make_pairings(void) const;
 	ingredient_map calc_ingredients(const std::string& ingredient) const;
 	std::vector<ingredient_map> calc_ingredients(const std::string& name, const craft_count& count) const;
+	void update(const std::vector<std::string>&);
 private:
 	void build_graph(const std::vector<Ingredients>&);
+	void build_graph(const std::vector<std::string>&);
+	void build_graph(std::deque<std::string>&, std::unordered_set<std::string>&);
 	void tally_count(const std::vector<Ingredients>&);
+	void tally_count(const std::vector<std::string>&);
+	void tally_count(std::deque<std::string>&);
 	void get_order (void);
 
 	bool check_ingredient(const std::string& ingredient);
@@ -66,6 +71,8 @@ private:
 	 * @param requests The items to begin marking from
 	 */
 	void mark(const std::vector<Ingredients>&);
+	void mark(const std::vector<std::string>&);
+	void mark(std::deque<std::string>&);
 	friend std::ostream& operator<< (std::ostream& os, const CraftingGraph&);
 	friend std::ostream& output_recipe (std::ostream& os, const CraftingGraph&, const std::string& name);
 };
