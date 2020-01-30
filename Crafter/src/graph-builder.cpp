@@ -60,7 +60,22 @@ void CraftingGraph::build_graph(const std::vector<Ingredients>& requests) {
 		queue.push_back(request.name);
 		seen.insert(request.name);
 	}
+	build_graph(queue, seen);
+}
 
+void CraftingGraph::build_graph(const std::vector<std::string>& requests) {
+	//TODO: Make building the graph lazy
+	std::deque<std::string> queue;
+	std::unordered_set<std::string> seen;
+	for (const auto& name : requests) {
+		queue.push_back(name);
+		seen.insert(name);
+	}
+	build_graph(queue, seen);
+}
+
+
+void CraftingGraph::build_graph(std::deque<std::string>& queue, std::unordered_set<std::string> &seen) {
 	while (!queue.empty()) {
 		auto request = queue[0];
 		queue.pop_front();
@@ -97,12 +112,31 @@ void CraftingGraph::tally_count(const std::vector<Ingredients>& requests) {
 		queue.push_back(node.name);
 	}
 
+	tally_count(queue);
+}
 
+void CraftingGraph::tally_count(const std::vector<std::string>& requests) {
+	std::deque<std::string> queue;
+	mark(requests);
+
+	for (const auto& name : requests) {
+		queue.push_back(name);
+	}
+
+	tally_count(queue);
+}
+
+void CraftingGraph::tally_count(std::deque<std::string>& queue) {
+	std::unordered_set<std::string> seen;
 	while (!queue.empty()) {
 		auto request = queue[0];
 		queue.pop_front();
+		if (seen.count(request)) {
+			continue;
+		}
 		auto ready = check_ingredient(request);
 		if (ready) {
+			seen.insert(request);
 			for (const auto& ingredient : graph.GetConnected(request)) {
 				queue.push_back(ingredient);
 			}
@@ -385,11 +419,22 @@ std::vector<N> tails(graph::Graph<N, E> g) {
 }
 
 void CraftingGraph::mark(const std::vector<Ingredients>& requests) {
-	std::deque<std::string> queue;
+	std::deque<std::string> queue(requests.size());
 	for (const auto& node : requests) {
 		queue.push_back(node.name);
 	}
+	mark(queue);
+}
 
+void CraftingGraph::mark(const std::vector<std::string>& requests) {
+	std::deque<std::string> queue;
+	for (const auto& name : requests) {
+		queue.push_back(name);
+	}
+	mark(queue);
+}
+
+void CraftingGraph::mark(std::deque<std::string>& queue) {
 	std::unordered_set<std::string> seen;
 	while (!queue.empty()) {
 		auto item = queue[0];
@@ -400,15 +445,26 @@ void CraftingGraph::mark(const std::vector<Ingredients>& requests) {
 			seen.insert(item);
 		}
 		if (recipes.count(item) == 0) {
-			recipe_count[item];
+			recipe_count[item] = craft_count();
 			continue;
 		} else {
-			recipe_count[item] = craft_count(recipes.at(item));
+			if (recipe_count.count(item)) {
+				recipe_count[item].ready = false;
+			}	 else {
+				recipe_count[item] = craft_count(recipes.at(item));
+			}
 		}
+		//TODO: append ingredients for all current alt recipes
 		for (const auto& ingredient : recipes.at(item)[default_recipe].ingredients) {
 			queue.push_back(ingredient.name);
 		}
 	}
+}
+
+void CraftingGraph::update(const std::vector<std::string>& updated) {
+	build_graph(updated);
+	tally_count(updated);
+	get_order();
 }
 
 }
