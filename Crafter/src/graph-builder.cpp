@@ -475,14 +475,8 @@ void CraftingGraph::mark(std::deque<std::string>& queue) {
 				recipe_count[item] = craft_count(recipes.at(item));
 			}
 		}
-		for (const auto& ingredient : recipes.at(item)[default_recipe].ingredients) {
-			queue.push_back(ingredient.name);
-		}
 		for (size_t i = 0; i < recipe_count[item].distribution.size(); i++) {
-			if (i == default_recipe) {
-				continue;
-			}
-			if (recipe_count[item].distribution[i] > 0) {
+			if (i == default_recipe || recipe_count[item].distribution[i] > 0) {
 				for (const auto& ingredient : recipes.at(item)[i].ingredients) {
 					queue.push_back(ingredient.name);
 				}
