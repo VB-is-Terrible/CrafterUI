@@ -12,6 +12,13 @@ Item {
     width: 400
     height: 400
     property alias recipeSelector: recipeSelector
+    property bool isDefaultRecipe: false
+    property int recipeCount: -1
+    property alias cancel: cancel
+    property alias accept: accept
+    property alias swiper: swiper
+    property alias spinBox: spinBox
+    property alias editChange: editChange
     anchors.fill: parent
     Text {
         id: heading
@@ -22,6 +29,7 @@ Item {
         anchors.horizontalCenter: parent.horizontalCenter
     }
     SwipeView {
+        id: swiper
         currentIndex: 0
         anchors.right: parent.right
         anchors.left: parent.left
@@ -81,6 +89,7 @@ Item {
             }
             SpinBox {
                 id: spinBox
+                objectName: "spinBox"
                 anchors.bottom: baseRow.top
                 anchors.bottomMargin: fontMetrics.height * .5
                 anchors.horizontalCenter: parent.horizontalCenter
@@ -96,11 +105,13 @@ Item {
                 anchors.leftMargin: fontMetrics.height * .5
                 anchors.bottomMargin: fontMetrics.height * .5
                 Button {
+                    id: cancel
                     text: qsTr("Cancel")
                     Layout.fillWidth: true
                     Layout.fillHeight: true
                 }
                 Button {
+                    id: accept
                     text: qsTr("Accept")
                     Layout.fillWidth: true
                     Layout.fillHeight: true

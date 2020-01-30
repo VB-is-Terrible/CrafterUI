@@ -9,6 +9,8 @@ Item {
     }
 
     height: 800
+    property alias button1: button1
+    property alias mainView: mainView
     width: 18 * fontMetrics.maximumCharacterWidth
 
     Layout.fillHeight: true
