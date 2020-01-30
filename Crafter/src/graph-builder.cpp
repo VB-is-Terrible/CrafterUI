@@ -88,7 +88,7 @@ void CraftingGraph::build_graph(std::deque<std::string>& queue, std::unordered_s
 				distribution = {0, 1};
 			}
 			for (size_t i = 0; i < distribution.size(); i++) {
-				if (distribution[i] == 0) {
+				if (distribution[i] == 0 && i != default_recipe) {
 					continue;
 				}
 				build_graph_node(queue, seen, request, recipe_it->second[i]);
