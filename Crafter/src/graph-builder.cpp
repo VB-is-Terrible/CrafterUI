@@ -240,6 +240,9 @@ void CraftingGraph::make_distribution(craft_count &count)
 
 void CraftingGraph::link_ingredient(const std::string& ingredient) {
 	auto map = calc_ingredients(ingredient);
+	for (const auto& dest : graph.GetConnected(ingredient)) {
+		graph.SetWeight(ingredient, dest, 0);
+	}
 	for (const auto& pair : map) {
 		graph.SetWeight(ingredient, pair.first, pair.second);
 	}
