@@ -217,12 +217,7 @@ bool CraftingGraph::check_ingredient(const std::string& ingredient) {
 	count.ready = true;
 	link_ingredient(ingredient);
 
-	// Check if there are any dependencies
-	if (count.needed != 0) {
-		return true;
-	} else {
-		return false;
-	}
+	return true;
 }
 
 void CraftingGraph::make_distribution(craft_count &count)
