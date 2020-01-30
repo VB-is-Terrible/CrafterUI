@@ -1,4 +1,5 @@
 #include "graph-builder.h"
+#include <numeric>
 
 #if __GNUC__ > 7
 #include <filesystem>
@@ -163,6 +164,10 @@ void CraftingGraph::get_order (void) {
 	for (const auto& it : recipe_count) {
 		auto& name = it.first;
 		auto& craft = it.second;
+		// Ignore totally empty items
+		if (std::accumulate(craft.distribution.begin(), craft.distribution.end(), 0) == 0) {
+			continue;
+		}
 		if (craft.distribution[0] > 0) {
 			raw.insert(name);
 		}
