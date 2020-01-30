@@ -66,6 +66,7 @@ private:
 	void tally_count(const std::vector<std::string>&);
 	void tally_count(std::deque<std::string>&);
 	void get_order (void);
+	void handle_dangling_nodes(void);
 
 	bool check_ingredient(const std::string& ingredient);
 	static void make_distribution(craft_count& count);

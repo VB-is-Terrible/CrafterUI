@@ -484,7 +484,24 @@ void CraftingGraph::update(const std::vector<std::string>& updated) {
 	build_graph(updated);
 	pre_link(updated);
 	tally_count(updated);
+	handle_dangling_nodes();
 	get_order();
+}
+
+void CraftingGraph::handle_dangling_nodes(void) {
+	std::vector<std::string> dangling;
+	for (const auto& [name, count] : recipe_count) {
+		size_t sum = 0;
+		auto summer = [&sum, &graph = graph, &name = name](const std::string& parent) {
+			sum += graph.GetWeight(parent, name);
+		};
+		const auto parents = graph.GetIncoming(name);
+		std::for_each(parents.begin(), parents.end(), summer);
+		if (sum == 0) {
+			dangling.push_back(name);
+		}
+	}
+	tally_count(dangling);
 }
 
 void CraftingGraph::pre_link(const std::vector<std::string>& updated) {
