@@ -1,0 +1,12 @@
+Empowered Void Crystal:
+  ingredients:
+    Void Crystal: 1
+    Manasteel Ingot: 1
+    Block of Redstone: 1
+    Inert Blood-Iron Ingot: 1
+    Brick: 1
+    
+Void Crystal:
+  method: Atomic Reconstructor
+  ingredients:
+    Coal: 1

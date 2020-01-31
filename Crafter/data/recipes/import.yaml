@@ -296,7 +296,7 @@ Copper Solenoid:
 Copper Wire:
   method: Metal Press
   ingredients:
-    Copper Plate: 1
+    Copper Ingot: 1
   makes: 2
 Crystalized Menril Block:
   ingredients:
@@ -340,8 +340,10 @@ Electric Motor:
     Steel Ingot: 6
   makes: 1
 Electro Silicon:
+  method: Induction Smelter
   ingredients:
-    Electrotine Silicon Compound: 1
+    Silicon: 1
+    Electrotine: 5
   makes: 1
 Electrolytic Core:
   ingredients:
@@ -435,8 +437,10 @@ Energetic Infuser:
     Redstone Transmission Coil: 2
   makes: 1
 Energized Silicon:
+  method: Induction Smelter
   ingredients:
-    Glowing Silicon Compound: 1
+    Silicon: 1
+    Glowstone: 5
   makes: 1
 Energy Battery:
   ingredients:
@@ -591,8 +595,10 @@ Inferium Ingot:
     Inferium Esscence: 4
   makes: 1
 Infused Silicon:
+  method: Induction Smelter
   ingredients:
-    Red Silicon Compound: 1
+    Silicon: 1
+    Redstone: 5
   makes: 1
 Insightful Condenser:
   ingredients:
@@ -836,10 +842,6 @@ Mixed Metal Ingot:
     Inert Blood-Iron Ingot: 3
     Tin Ingot: 3
   makes: 5
-Molten Copper:
-  ingredients:
-    Copper Ingot: 1
-  makes: 1000
 Motor:
   ingredients:
     Copper Coil: 2
@@ -1192,7 +1194,7 @@ Wood Casing:
   makes: 1
 Wooden Gear:
   ingredients:
-    Sticks: 4
+    Stick: 4
   makes: 1
 Wooden Grip:
   ingredients:

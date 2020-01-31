@@ -296,3 +296,33 @@ Treated Wood Slab:
   makes: 4
   ingredients:
     Treated Wood Planks: 1
+
+Diesel Generator:
+  ingredients:
+    Steel Scaffolding: 6
+    Fluid Pipe: 5
+    Redstone Engineering Block: 1
+    Heavy Engineering Block: 13
+    Generator Block: 4
+    Radiator Block: 9
+    
+Generator Block:
+  makes: 2
+  ingredients:
+    Steel Ingot: 6
+    Electrum Ingot: 2
+    Kinetic Dynamo: 1
+    
+Radiator Block:
+  makes: 4
+  ingredients:
+    Steel Plate: 8
+    Copper Plate: 8
+    10k Coolant Cell: 4
+    Silicon Plate: 4
+    Cleaning Fan: 1
+
+Cleaning Fan:
+  ingredients:
+    Redstone: 4
+    Iron Bars: 4

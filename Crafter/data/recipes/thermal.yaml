@@ -70,3 +70,31 @@ Factorizer:
     Motor: 2
     Redstone Servo: 1
     Advanced Control Circuit: 1
+
+Redstone Energy Fluxduct:
+  method: Carpenter
+  makes: 12
+  ingredients:
+    Electrum Plate: 4
+    Red Alloy Plate: 2
+    Glass: 3
+    Molten Redstone: 500
+
+Signalum Fluxduct:
+  makes: 12
+  method: Carpenter
+  ingredients:
+    Red Alloy Plate: 2
+    Signalum Plate: 4
+    Glass: 3
+    Molten Redstone: 1000
+
+Molten Copper:
+  ingredients:
+    Copper Ingot: 1
+  makes: 144
+  
+Molten Nickel:
+  ingredients:
+    Nickel Ingot: 1
+  makes: 144

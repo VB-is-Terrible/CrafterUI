@@ -106,5 +106,11 @@ Saw Blade:
     Iron Ingot: 6
     Copper Ingot: 1
 
-
+Electric Pump:
+  ingredients:
+    Steel Plate: 7
+    Enriched Alloy: 2
+    Advanced Control Circuit: 1
+    Bucket: 1
+    Osmium Plate: 7
 

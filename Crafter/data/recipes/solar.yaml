@@ -1,0 +1,27 @@
+Solar Panel IV:
+  ingredients:
+    Photovoltaic Cell II: 5
+    Electrum Plate: 11
+    Triberium Ingot: 2
+    Solar Panel III: 1
+    Advanced Control Circuit: 2
+    Empowered Void Crystal: 1
+    Microchip <Tier 2>: 2
+    Overclocker Upgrade: 1
+    
+Photovoltaic Cell II:
+  makes: 3
+  ingredients:
+    Glass: 3
+    Gold Plate: 2
+    Clay: 1
+    Mirror: 2
+    Photovoltaic Cell I: 1
+
+Photovoltaic Cell I:
+  makes: 3
+  ingredients:
+    Glass: 3
+    Lapis Lazuli Plate: 3
+    Mirror: 3
+    

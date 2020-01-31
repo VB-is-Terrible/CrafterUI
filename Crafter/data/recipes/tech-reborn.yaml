@@ -44,3 +44,43 @@ Servomechanism:
     Redstone: 2
     Copper Gear: 1
     Steel Ingot: 2
+
+Overclocker Upgrade:
+  ingredients:
+    Circuit Plate: 4
+    Insulated Gold Cable: 3
+    Advanced Control Circuit: 1
+    Speed Upgrade I: 1
+    Super Glue: 3000
+    
+Speed Upgrade I:
+  ingredients:
+    Redstone: 6
+    Gold Gear: 2
+    Base Addon: 1
+
+Base Addon:
+  ingredients:
+    Paper: 4
+    Red Alloy Plate: 2
+    Electrotine Alloy Plate: 2
+    Program Card: 1
+    
+Program Card:
+  ingredients:
+    Paper: 3
+    Card Base: 1
+
+Insulated Gold Cable:
+  method: Carpenter
+  makes: 9
+  ingredients:
+    Gold Cable: 9
+    Silicone: 1000
+    
+Gold Cable:
+  method: Carpenter
+  makes: 7
+  ingredients:
+    Gold Ingot: 3
+    Molten Redstone: 250
