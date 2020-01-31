@@ -54,6 +54,7 @@ public:
 	ingredient_map calc_ingredients(const std::string& ingredient) const;
 	std::vector<ingredient_map> calc_ingredients(const std::string& name, const craft_count& count) const;
 	void update(const std::vector<std::string>&);
+	std::unordered_set<std::string> get_children(const std::string &);
 private:
 	void build_graph(const std::vector<Ingredients>&);
 	void build_graph(const std::vector<std::string>&);

@@ -510,6 +510,31 @@ void CraftingGraph::pre_link(const std::vector<std::string>& updated) {
 	}
 }
 
+std::unordered_set<std::string> CraftingGraph::get_children(const std::string & root) {
+	std::unordered_set<std::string> result;
+	std::deque<std::string> queue;
+	queue.push_back(root);
+
+	while (!queue.empty()) {
+		auto item = queue[0];
+		queue.pop_front();
+		if (result.count(item)) {
+			continue;
+		}
+		result.insert(item);
+		if (!graph.IsNode(item)) {
+			continue;
+		}
+		for (const auto& connected : graph.GetConnected(item)) {
+			if (graph.GetWeight(item, connected) != 0) {
+				queue.push_back(connected);
+			}
+		}
+	}
+	return result;
+}
+
+
 }
 
 void add_depend_recipe(crafter::depend_graph& graph, const crafter::Recipe& recipe) {
