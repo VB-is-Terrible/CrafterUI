@@ -90,35 +90,6 @@ Item {
                 z: -100
                 lineWidth: 4
             }
-
-            //            Shape {
-
-            //                id: shape
-            //                objectName: "shape"
-            //                width: 1920
-            //                height: 1080
-            //                z: -100
-            //                anchors.left: parent.left
-            //                anchors.leftMargin: 0
-            //                anchors.top: parent.top
-            //                anchors.topMargin: 0
-            //                LinePath {
-            //                    startX: 480
-            //                    startY: 208
-            //                    PathLine {
-            //                        x: 246
-            //                        y: 378
-            //                    }
-            //                }
-            //                LinePath {
-            //                    startX: 480
-            //                    startY: 208
-            //                    PathLine {
-            //                        x: 715
-            //                        y: 378
-            //                    }
-            //                }
-            //            }
         }
     }
 }
