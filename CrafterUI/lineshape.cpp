@@ -15,23 +15,29 @@ void LineShape::LineShape::add_lines(void) {
 }
 
 void LineShape::paint(QPainter *painter) {
-
     QPen base_pen(_base, _lineWidth), highlight_pen(_highlight, _lineWidth);
     painter->setRenderHints(QPainter::Antialiasing, true);
 
-    auto count = 0;
+    painter->setPen(base_pen);
     for (const auto& connection : lines) {
-        if (connection.highlighted) {
-            painter->setPen(highlight_pen);
-        } else {
-            painter->setPen(base_pen);
-        }
         painter->drawLine(connection.toQLineF());
-        count++;
+    }
+    painter->setPen(highlight_pen);
+    for (const auto& connection : highlighted) {
+        painter->drawLine(connection.toQLineF());
     }
 }
 
 void LineShape::setLines(std::vector<LineConnection> new_lines) {
+    lines.clear();
+    highlighted.clear();
+    for (const auto& line : new_lines) {
+        if (line.highlighted) {
+            highlighted.push_back(line);
+        } else {
+            lines.push_back(line);
+        }
+    }
     lines = new_lines;
     update();
 }

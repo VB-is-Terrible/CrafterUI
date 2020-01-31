@@ -41,6 +41,7 @@ signals:
 
 private:
     std::vector<LineConnection> lines;
+    std::vector<LineConnection> highlighted;
     void add_lines(void);
     QColor _base = "black";
     QColor _highlight = "pink";
