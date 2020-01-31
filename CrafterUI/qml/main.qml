@@ -8,7 +8,7 @@ ApplicationWindow {
     visible: true
     width: 1024
     height: 768
-    title: qsTr("Testing Layout")
+    title: qsTr("Crafting helper")
     color: 'orange'
 
     TestLayout {
