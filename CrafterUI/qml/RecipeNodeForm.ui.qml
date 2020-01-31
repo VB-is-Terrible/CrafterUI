@@ -10,7 +10,9 @@ Rectangle {
     property alias mouseArea: mouseArea
     property string contents: qsTr("1\t: Test Input\n2\t: Carpenter Recipe\n30\t: Liquid Redstone\n\n\n\n\n\n\n\n\n12\t: Stone Slabs\n10000\t: Really long recipe name that's meant to overflow the text area for testing purposes. Is this long enough?")
     property string heading: qsTr("Recipe name")
-    border.width: 1
+    property bool highlight: false
+    border.width: highlight ? 3 : 1
+    border.color: highlight ? "red" : "black"
     FontMetrics {
         id: fontMetrics
     }
