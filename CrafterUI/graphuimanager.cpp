@@ -21,8 +21,8 @@ void GraphUIManager::removeChildren(QQuickItem* parent) {
 void GraphUIManager::findScene(void) {
 	auto root = engine->rootObjects()[0];
 	auto rootLayout = root->findChild<QQuickItem *>("Centre of the Universe");
-	auto graph = rootLayout->property("mainGraph").value<QQuickItem*>();
-	flickable = graph->property("scene").value<QQuickItem*>();
+	graphView = rootLayout->property("mainGraph").value<QQuickItem*>();
+	flickable = graphView->property("scene").value<QQuickItem*>();
 	scene = flickable->findChild<QQuickItem *>("recipeStore");
 	lineShape = flickable->findChild<crafter::LineShape *>("betterShape");
 	sideColumn = rootLayout->property("sideColumn").value<QQuickItem*>();
@@ -259,4 +259,11 @@ void GraphUIManager::recipeAmountChanged(size_t amount) {
         this->populateRecipes(graph);
 }
 
+void GraphUIManager::resetSelected(void) {
+        std::cerr << "Trying to reset\n";
+        selected = "";
+        recipeIndex = 0;
+        highlightRecipes({});
+        populateRecipeLinks(graph->make_pairings(), {});
+}
 }

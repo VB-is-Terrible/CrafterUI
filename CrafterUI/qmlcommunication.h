@@ -21,6 +21,7 @@ public slots:
 	void addRecipe(QQuickItem* recipe);
 	void recipeSelected(int index);
 	void recipeAccept(int new_amount);
+	void backClicked(void);
 private:
 	GraphUIManager& graphui;
 };

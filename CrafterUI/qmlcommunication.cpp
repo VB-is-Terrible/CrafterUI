@@ -45,5 +45,13 @@ void QMLCommunication::recipeAccept(int new_amount) {
 void QMLCommunication::realConstructor() {
 	setRecipeAccept(graphui.recipeDisplay);
 	setRecipeSelector(graphui.recipeSelector);
+	QObject::connect(graphui.graphView, SIGNAL(backClicked()), this, SLOT(backClicked()));
 }
+
+void QMLCommunication::backClicked(void) {
+	graphui.resetSelected();
+	QMetaObject::invokeMethod(graphui.recipeDisplay, "toOverview");
+	QMetaObject::invokeMethod(graphui.sideColumn, "toRawMaterials");
+}
+
 }

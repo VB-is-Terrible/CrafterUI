@@ -53,12 +53,13 @@ private:
         void setDetailedRecipe(const std::string& name, const size_t recipe_index);
         void recipeSelected(int index);
         void recipeAmountChanged(size_t amount);
+        void resetSelected(void);
 
         friend QMLCommunication;
 
         QQmlApplicationEngine* engine;
         LineShape* lineShape;
-        QQuickItem *scene, *flickable, *sideStack, *rawDisplay,
+        QQuickItem *scene, *flickable, *graphView, *sideStack, *rawDisplay,
                    *recipeDisplay, *recipeMaterials, *recipeColumns,
                    *recipeSelector, *recipeSpinner, *sideColumn, *recipeAcceptor;
         QMLCommunication communicator;
