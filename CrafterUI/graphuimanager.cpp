@@ -152,7 +152,7 @@ void GraphUIManager::populateRawMaterials() {
 }
 
 void GraphUIManager::recipeClicked(const std::string& name) {
-	std::cerr << "Recieved click from " << name << "\n";
+	std::cout << "Recieved click from " << name << "\n";
         selected = name;
         const auto to_highlight = graph->get_children(selected);
 	highlightRecipes(to_highlight);
@@ -260,7 +260,7 @@ void GraphUIManager::recipeAmountChanged(size_t amount) {
 }
 
 void GraphUIManager::resetSelected(void) {
-        std::cerr << "Trying to reset\n";
+        std::cout << "Trying to reset\n";
         selected = "";
         recipeIndex = 0;
         highlightRecipes({});
