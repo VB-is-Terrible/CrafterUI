@@ -22,8 +22,8 @@ template <typename N, typename E>
 std::vector<N> tails(graph::Graph<N, E> g);
 
 craft_count::craft_count(const std::vector<Recipe>& recipes) {
-	distribution = decltype(distribution)();
-	makes = decltype(makes)();
+	distribution.clear();
+	makes.clear();
 	for (const auto& recipe : recipes) {
 		distribution.push_back(0);
 		makes.push_back(recipe.makes);
