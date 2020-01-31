@@ -221,7 +221,14 @@ QQuickItem* GraphUIManager::createSingleRecipe(const ingredient_map& ingredients
         QQmlComponent singleComponent(engine, QUrl(COLUMN_LOCATION));
         auto single = qobject_cast<QQuickItem *>(singleComponent.create());
         auto insert_point = single->property("column").value<QQuickItem*>();
+        std::unordered_map<std::string, size_t> counts;
+        std::vector<std::string> names;
         for (const auto& [name, count] : recipe.ingredients) {
+                names.push_back(name);
+                counts[name] = count;
+        }
+        std::sort(names.begin(), names.end());
+        for (const auto& name : names) {
                 auto row = createRow(name, ingredients.at(name));
                 row->setParentItem(insert_point);
         }
@@ -235,8 +242,15 @@ QQuickItem* GraphUIManager::createSingleRecipe(const Recipe& recipe) {
         QQmlComponent singleComponent(engine, QUrl(COLUMN_LOCATION));
         auto single = qobject_cast<QQuickItem *>(singleComponent.create());
         auto insert_point = single->property("column").value<QQuickItem*>();
+        std::unordered_map<std::string, size_t> counts;
+        std::vector<std::string> names;
         for (const auto& [name, count] : recipe.ingredients) {
-                auto row = createRow(name, count);
+                names.push_back(name);
+                counts[name] = count;
+        }
+        std::sort(names.begin(), names.end());
+        for (const auto& name : names) {
+                auto row = createRow(name, counts[name]);
                 row->setParentItem(insert_point);
         }
         single->setProperty("methodName", QString::fromStdString(recipe.method));
