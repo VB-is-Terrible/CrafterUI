@@ -258,7 +258,7 @@ Bagger:
     Block of Steel: 9
     Steel Scaffolding: 20
     
-Fermenter:
+Industrial Fermenter:
   ingredients:
     Steel Scaffolding: 6
     Fluid Pipe: 2

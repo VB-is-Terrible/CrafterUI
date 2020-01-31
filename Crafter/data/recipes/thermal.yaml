@@ -39,7 +39,7 @@ Filter Fluids:
   ingredients:
     Electrotine Alloy Ingot: 4
     String Mesh: 1
-    Sticks: 4
+    Stick: 4
 
 Itemduct:
   makes: 12
