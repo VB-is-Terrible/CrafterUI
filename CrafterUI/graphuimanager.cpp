@@ -59,9 +59,10 @@ struct size_comp {
     	}
 };
 
-location_map GraphUIManager::populateRecipes(void) {
+void GraphUIManager::populateRecipes(void) {
 	removeChildren(scene);
-	location_map result;
+	locations.clear();
+        recipes.clear();
 	const auto height = graph->order.size() * (recipe_height + recipe_margin_bottom) - recipe_margin_bottom;
 	const auto max_items = (*std::max_element(
     	                            graph->order.begin(), graph->order.end(),
@@ -81,13 +82,19 @@ location_map GraphUIManager::populateRecipes(void) {
         		recipe->setProperty("contents",
                                 QVariant(QString::fromStdString(
                                              output_ingredients(graph->calc_ingredients(recipe_name)))));
-			result[recipe_name] = std::pair(x_level, y_level);
+			locations[recipe_name] = std::pair(x_level, y_level);
 			appendRecipeDisplay(recipe);
+                        recipes[recipe_name] = recipe;
 			x_level += recipe_width + recipe_margin_right + gap;
 	        }
 	        y_level += recipe_height + recipe_margin_bottom;
 	}
-	return result;
+}
+
+void GraphUIManager::highlightRecipes(const std::unordered_set<std::string>& to_highlight) {
+        for (const auto& [name, recipe] : recipes) {
+                recipe->setProperty("highlight", static_cast<bool>(to_highlight.count(name)));
+        }
 }
 
 constexpr unsigned long GraphUIManager::calc_gap(size_t items, size_t width) {
@@ -95,7 +102,7 @@ constexpr unsigned long GraphUIManager::calc_gap(size_t items, size_t width) {
 	return (width - needed) / (items + 1);
 }
 
-void GraphUIManager::populateRecipeLinks(location_map locations, recipe_links links) {
+void GraphUIManager::populateRecipeLinks(recipe_links& links, const std::unordered_set<std::string>& to_highlight) {
 	std::vector<crafter::LineConnection> connections;
 	for (const auto& [source, destination] : links) {
 		crafter::LineConnection connection;
@@ -103,16 +110,18 @@ void GraphUIManager::populateRecipeLinks(location_map locations, recipe_links li
 		const auto destination_location = locations.at(destination);
 		connection.start = std::pair<double, double>(source_location.first + recipe_width / 2, source_location.second + recipe_height);
 		connection.end = std::pair<double, double>(destination_location.first + recipe_width / 2, destination_location.second);
+                connection.highlighted = to_highlight.count(source);
 		connections.push_back(connection);
 	}
 	lineShape->setLines(std::move(connections));
-
 }
 
 void GraphUIManager::populateRecipes(std::shared_ptr<crafter::CraftingGraph> graph) {
 	this->graph = graph;
-	const auto locations = populateRecipes();
-	populateRecipeLinks(locations, graph->make_pairings());
+        const auto to_highlight = graph->get_children(selected);
+	populateRecipes();
+        highlightRecipes(to_highlight);
+	populateRecipeLinks(graph->make_pairings(), to_highlight);
 	populateRawMaterials();
 }
 
@@ -145,6 +154,9 @@ void GraphUIManager::populateRawMaterials() {
 void GraphUIManager::recipeClicked(const std::string& name) {
 	std::cerr << "Recieved click from " << name << "\n";
         selected = name;
+        const auto to_highlight = graph->get_children(selected);
+	highlightRecipes(to_highlight);
+	populateRecipeLinks(graph->make_pairings(), to_highlight);
 	fillOutRecipe(name);
 }
 

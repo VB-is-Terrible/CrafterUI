@@ -29,7 +29,6 @@ static constexpr const auto recipe_margin_right = 30;
 class GraphUIManager {
 public:
         GraphUIManager(QQmlApplicationEngine* engine);
-        void populateRecipeLinks(location_map locations, recipe_links links);
         void populateRecipes(std::shared_ptr<crafter::CraftingGraph>);
 private:
         QQuickItem* createRecipeDisplay(std::string title);
@@ -37,7 +36,9 @@ private:
         void findScene();
         static std::string output_ingredients (const crafter::ingredient_map&);
         constexpr unsigned long calc_gap(size_t items, size_t width);
-        location_map populateRecipes(void);
+        void populateRecipes(void);
+        void highlightRecipes(const std::unordered_set<std::string>& to_highlight);
+        void populateRecipeLinks(recipe_links&, const std::unordered_set<std::string>&);
         void populateRawMaterials(void);
         void addRawMaterial(const std::string& name, const size_t count);
         void recipeClicked(const std::string& name);
@@ -64,6 +65,8 @@ private:
         std::shared_ptr<crafter::CraftingGraph> graph;
         std::string selected;
         int recipeIndex;
+        std::unordered_map<std::string, QQuickItem*> recipes;
+        location_map locations;
 };
 
 }
