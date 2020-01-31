@@ -44,7 +44,7 @@ private:
     std::vector<LineConnection> highlighted;
     void add_lines(void);
     QColor _base = "black";
-    QColor _highlight = "pink";
+    QColor _highlight = "orange";
     int _lineWidth = 6;
 };
 

@@ -6,7 +6,7 @@
 
 namespace crafter {
 
-LineShape::LineShape(QQuickItem *parent) : QQuickPaintedItem(parent), _base{"black"}, _highlight{"pink"} {
+LineShape::LineShape(QQuickItem *parent) : QQuickPaintedItem(parent) {
     add_lines();
 }
 
