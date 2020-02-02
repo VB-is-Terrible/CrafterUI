@@ -1,0 +1,112 @@
+Rune of Fire:
+  method: Runic Altar
+  ingredients:
+    Manasteel Ingot: 1
+    Basalt Ingot: 1
+    Gunpowder: 1
+    Nether Wart: 1
+    Blaze Powder: 1
+    Mana Powder: 1
+
+Mana Powder:
+  method: Mana Infusion
+  ingredients:
+    Pulverized Mana Infused Metal: 1
+
+Pulverized Mana Infused Metal:
+  method: Pulverizer
+  ingredients: 
+    Mana Infused Ingot: 1
+  
+Rosa Arcana:
+  method: Petal Apothecary
+  ingredients:
+    Voidstone (Rune): 2
+    Pink Petal Block: 1
+    Mystical Purple Petal: 2
+    Prudentium Ingot: 1
+    Rune of Mana: 1
+    
+Voidstone (Rune):
+  method: Chisel
+  ingredients: 
+    Voidstone: 1
+
+Voidstone:
+  makes: 4
+  ingredients:
+    Luminessence: 4
+    Eye of Ender: 2
+    Basalt Ingot: 2
+    Compressed Obsidian: 1
+
+Mana Spreader:
+  ingredients:
+    Livingwood: 16
+    Silicon Plate: 2
+    Gold Plate: 4
+    Bricks: 2
+    Lime Laser Lens (Inverted): 1
+    
+Lime Laser Lens (Inverted):
+  ingredients:
+    Iron Ingot: 4
+    Lime Stained Glass Pane: 1
+    
+Lime Laser Lens (Inverted):
+  ingredients:
+    Lime Dye: 1    
+    Light Gray Laser Lens (Inverted): 1
+    
+Lime Stained Glass Pane:
+  makes: 16
+  ingredients:
+    Lime Stained Glass: 6
+    
+Lime Stained Glass:
+  makes: 8
+  ingredients:
+    Glass: 8
+    Lime Dye: 1
+
+
+Lime Dye:
+  makes: 2
+  ingredients:
+    Cactus Green: 1
+    Bone Meal: 1
+    
+Rune of Mana:
+  method: Runic Altar
+  ingredients:
+    Mana Pearl: 1
+    Manasteel Ingot: 4
+    Mana Infused String: 1
+    Inferium Ingot: 1
+    Liquid Starlight Cell: 1
+    Mana Diamond: 1
+    
+Mana Pearl:
+  method: Mana Infusion
+  ingredients:
+    Ender Pearl: 1
+
+Mana Diamond:
+  method: Mana Infusion
+  ingredients:
+    Diamond: 1
+
+Mana Infused String:
+  method: Mana Infusion
+  ingredients:
+    String: 1
+
+Mana Pool:
+  ingredients:
+    Bricks: 2
+    Livingrock: 9
+    Infused Silicon: 3
+    
+Pink Petal Block:
+  ingredients:
+    Mystical Pink Petal: 9

@@ -1,0 +1,19 @@
+Basic Plating:
+  method: Rolling Machine
+  makes: 3
+  ingredients:
+    Graphite Ingot: 2
+    Dilithium Ingot: 1
+    Lead Plate: 3
+
+Graphite Ingot:
+  method: Furnace
+  ingredients: 
+    Graphite Dust: 1
+    
+Graphite Dust:
+  ingredients:
+    Pulverized Coal: 1
+    Gravel: 1
+
+    

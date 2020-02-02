@@ -1,0 +1,46 @@
+Test Top:
+  makes: 4
+  ingredients:
+    Test Middle: 3
+
+Test Middle:
+  makes: 1
+  ingredients:
+    Test Bottom: 2
+    Test Dirt: 1
+
+Test Bottom:
+  makes: 1
+  ingredients:
+    Test Ingot: 5
+
+Test Dirt:
+  makes: 4
+  ingredients:
+    Test Grass: 1
+
+Test Multi:
+  ingredients:
+    Test Middle: 5
+
+Test Multi:
+  ingredients:
+    Test Dirt: 4
+    Test Extern: 2
+
+Test Extern:
+  ingredients:
+    Test Extern 2: 5
+
+Test Multi:
+  makes: 50
+  ingredients:
+    Test Upper: 1
+
+Test Upper:
+  ingredients:
+    Test Multi: 2
+
+Test Nonexist:
+  ingredients:
+    Test Dirt: 10

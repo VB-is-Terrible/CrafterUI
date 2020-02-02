@@ -98,3 +98,113 @@ Molten Nickel:
   ingredients:
     Nickel Ingot: 1
   makes: 144
+
+Block of Crystalized Menril:
+  ingredients:
+    Crystalized Menril Chunk: 9
+
+Crystalized Menril Chunk:
+  method: Mechanical Squeezer
+  makes: 3
+  ingredients:
+    Menril Wood: 1
+
+Mana Infused Plate:
+  ingredients:
+    Mana Infused Ingot: 1
+
+Lapis Lazuli Block:
+  method: Factorizer
+  ingredients:
+    Lapis Lazuli: 9
+
+Block of Manasteel:
+  method: Factorizer
+  ingredients:
+    Manasteel Ingot: 9
+    
+Igneous Extruder:
+  ingredients:
+    Bronze Plate: 8
+    Constantan Plate: 8
+    Invar Ingot: 2
+    Bucket: 2
+    Basic Control Circuit: 1
+    Invar Gear: 2
+    CPU Core B500: 2
+
+Invar Gear:
+  ingredients:
+    Invar Ingot: 4
+
+Lumium Gear:
+  ingredients:
+    Lumium Ingot: 4
+
+Steam Dynamo:
+  ingredients:
+    Iron Ingot: 3
+    Copper Ingot: 8
+    Bucket: 1
+    Copper Plate: 5
+    10k Coolant Cell: 1
+    Chest: 1
+    Redstone Transmission Coil: 1
+    Silicon: 1
+
+Vacuumulator:
+  ingredients:
+    Iron Plate: 8
+    Tin Plate: 8
+    Bronze Gear: 2
+    Glass: 2
+    Basic Control Circuit: 1
+    Silicon: 1
+    Chest: 1
+    Cleaning Tube: 1
+    Filter: 1
+
+Block of Gold:
+  method: Factorizer
+  ingredients:
+    Gold Ingot: 9
+    
+Block of Steel:
+  method: Factorizer
+  ingredients:
+    Steel Ingot: 9
+
+Block of Nickel:
+  method: Factorizer
+  ingredients:
+    Nickel Ingot: 9
+    
+Block of Signalum:
+  method: Casting
+  ingredients:
+    Molten Signalum: 1296
+
+"Augment: Pyro-Concentrator":
+  method: Carpenter
+  ingredients:
+    Block of Nickel: 1
+    Block of Signalum: 1
+    Microchip <Tier 2>: 2
+    Nickel Plate: 2
+    Redstone Servo: 1
+    Pyrotheum Dust: 2
+    Liquid Crystalline: 4000
+
+Blazing Pyrotheum:
+  makes: 250
+  ingredients:
+    Pyrotheum Dust: 1
+
+Pyrotheum Dust:
+  method: Carpenter
+  makes: 4
+  ingredients:
+    Sulfur: 2
+    Blaze Powder: 2
+    Evil Dust: 1
+    Magic Compound: 1

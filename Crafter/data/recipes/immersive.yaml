@@ -110,6 +110,15 @@ Empowered Palis Crystal:
   ingredients:
     Empowered Palis Crystal Block: 1
 
+Empowered Palis Crystal:
+  makes: 1
+  ingredients:
+    Block of Redstone: 1
+    Brick: 1
+    Manasteel Ingot: 1
+    Inert Blood-Iron Ingot: 1
+    Palis Crystal: 1
+
 Empowered Palis Crystal Block:
   ingredients:
     Block of Redstone: 1

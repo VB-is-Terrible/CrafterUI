@@ -114,3 +114,91 @@ Electric Pump:
     Bucket: 1
     Osmium Plate: 7
 
+Electrolytic Separator:
+  ingredients:
+    Osmium Plate: 8
+    Steel Plate: 8
+    Reinforced Alloy: 2
+    Liquid Cleaning Tube: 2
+    Advanced Control Circuit: 1
+    Redstone: 3
+    Electrolytic Core: 1
+
+Electrolytic Core:
+  ingredients:
+    Enriched Alloy: 5
+    Pulverized Gold: 1
+    Pulverized Iron: 1
+    Osmium Dust: 2
+
+Chemical Infuser:
+  ingredients:
+    Osmium Plate: 16
+    Enriched Alloy: 4
+    Basic Control Circuit: 2
+    Dynamic Tank: 1
+    Basic Gas Tank: 2
+    
+Basic Gas Tank:
+  ingredients:
+    Tank Valve: 1
+    Iron Ingot: 10
+    Silicon Plate: 1
+    Iron Plate: 1
+
+Dynamic Tank:
+  makes: 3
+  ingredients:
+    Manasteel Plate: 4
+    Glass Pipe: 2
+    Stone Tank: 2
+    Block of Steel: 1
+
+Chemical Injection Chamber:
+  ingredients:
+    Osmium Plate: 16
+    Compressed Redstone: 2
+    Electrolytic Core: 1
+    Liquid Cleaning Tube: 1
+    Basic Control Circuit: 1
+    Tin Tank: 1
+    Silicon: 2
+    Chest: 1
+    
+Thermal Evaporation Block:
+  ingredients:
+    Steel Plate: 8
+    Basic Plating: 8
+    Graphite Ingot: 8
+    Block of Copper: 1
+    
+Thermal Evaporation Valve:
+  ingredients:
+    Thermal Evaporation Block: 4
+    Advanced Control Circuit: 1
+
+Thermal Evaporation Controller:
+  ingredients:
+    Advanced Control Circuit: 2
+    Glass Pane: 1
+    Bucket: 1
+    Thermal Evaporation Block: 5
+    
+Advanced Solar Generator:
+  ingredients:
+    Photovoltaic Cell II: 10
+    Gold Coil: 2
+    Copper Battery Cell: 2
+    Advanced Control Circuit: 1
+    Infused Silicon: 2
+    Osmium Plate: 22
+    
+Compressed Redstone:
+  method: Enrichment Chamher
+  ingredients:
+    Redstone: 1
+
+Reinforced Alloy:
+  ingredients:
+    Diamond Dust: 1
+    Enriched Alloy: 1

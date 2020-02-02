@@ -10,3 +10,9 @@ Void Crystal:
   method: Atomic Reconstructor
   ingredients:
     Coal: 1
+
+Empowered Palis Gear:
+  method: Metal Press
+  ingredients:
+    Empowered Palis Crystal: 4
+    

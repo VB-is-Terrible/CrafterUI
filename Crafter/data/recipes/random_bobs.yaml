@@ -76,3 +76,54 @@ Electrotine:
   makes: 24
   ingredients:
     Electrotine Essence: 8
+
+Tin Tank:
+  ingredients:
+    Tin Plate: 19
+    Hardened Glass: 5
+    Glass: 25
+
+Iron Tank:
+  ingredients:
+    Iron Plate: 18
+    Hardened Steel Glass: 15
+    Glass: 15
+    Diamatine Plate: 1
+
+Thermionic Fabricator:
+  ingredients:
+    Mana Infused Plate: 8
+    Steel Plate: 8
+    Empowered Palis Gear: 1
+    Servomechanism: 2
+    Heat Conductor: 1
+    Motor: 1
+    30k Coolant Cell: 2
+    Glass Pipe: 4
+    Data Storage Circuit: 1
+
+Diamatine Plate:
+  method: Compactor
+  ingredients: 
+    Diamatine Crystal: 1
+
+Diamatine Crystal:
+  method: Atomic Reconstructor
+  ingredients:
+    Diamond: 1
+  
+Compressed Obsidian:
+  ingredients:
+    Obsidian: 9
+
+Basic Drawers 2x2:
+  makes: 4
+  ingredients:
+    Chest: 4
+    Wooden Planks: 5
+    
+Stone Tank:
+  ingredients:
+    Stone: 13
+    Glass: 12
+

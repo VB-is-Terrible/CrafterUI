@@ -84,3 +84,114 @@ Gold Cable:
   ingredients:
     Gold Ingot: 3
     Molten Redstone: 250
+
+Gold Coil:
+  method: Rolling Machine
+  makes: 4
+  default: true
+  ingredients:
+    Wooden Planks: 1
+    Block of Gold: 1
+    Block of Redstone: 1
+
+Iron Coil:
+  default: true
+  method: Rolling Machine
+  makes: 4
+  ingredients:
+    Wooden Planks: 1
+    Block of Iron: 1
+    Block of Redstone: 1
+
+Copper Coil:
+  method: Rolling Machine
+  makes: 4
+  default: true
+  ingredients:
+    Wooden Planks: 1
+    Block of Copper: 1
+    Block of Redstone: 1
+
+Iron Bars:
+  method: Rolling Machine
+  makes: 10
+  ingredients:
+    Iron Rod: 7
+
+Empty Cell:
+  method: Rolling Machine
+  makes: 24
+  ingredients:
+    Tin Ingot: 4
+
+Empty Cell:
+  default: true
+  
+Iron Rod:
+  default: true
+  makes: 2
+  method: Rolling Machine
+  ingredients:
+    Iron Ingot: 1
+
+Hopper:
+  method: Rolling Machine
+  ingredients:
+    Chest: 1
+    Iron Plate: 5
+    
+Bucket:
+  makes: 2
+  method: Rolling Machine
+  ingredients:
+    Iron Ingot: 5
+    
+Aluminum Rod:
+  makes: 2
+  method: Rolling Machine
+  ingredients:
+    Aluminum Ingot: 1
+    
+Steel Rod:
+  default: true
+  makes: 2
+  method: Rolling Machine
+  ingredients:
+    Steel Ingot: 1
+  
+Glowstone Ingot:
+  method: Rolling Machine
+  makes: 3
+  ingredients:
+    Osmium Ingot: 3
+    Energetic Blend: 3
+
+Energetic Blend:
+  makes: 2
+  ingredients:
+    Redstone: 1
+    Glowstone: 1
+
+Refined Obsidian Ingot:
+  method: Rolling Machine
+  makes: 3
+  ingredients:
+    Osmium Ingot: 3
+    Refined Obsidian Dust: 3
+
+Refined Obsidian Dust:
+  method: Metallurgic Infuser
+  ingredients:
+    Pulverized Obsidian: 1
+    Diamond Dust: 1
+
+Diamond Dust:
+  method: Pulverizer
+  ingredients:
+    Diamond: 1
+
+Eye of Ender:
+  method: Chemical Reactor
+  ingredients:
+    Blaze Powder: 1
+    Ender Pearl: 1

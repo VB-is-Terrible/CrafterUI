@@ -104,6 +104,7 @@ Basic Control Circuit:
     Transistor: 2
   makes: 1
 Battery:
+  method: Carpenter
   ingredients:
     Block of Copper: 1
     Crystalized Menril Chunk: 2
@@ -493,6 +494,7 @@ Formation Core:
     Lumium Plate: 2
   makes: 1
 Galena Dust:
+  method: Pulverizer
   ingredients:
     Galena Ore: 1
   makes: 2
@@ -544,12 +546,13 @@ Hardened Glass:
     Vanadium Dust: 1
   makes: 2
 Hardened Upgrade Kit:
+  method: Carpenter
   ingredients:
     Basic Control Circuit: 1
-    Copper Gear: 4
-    Invar Plate: 8
-    Liquid Crystalline: 2000
-    Red Alloy Ingot: 4
+    Copper Gear: 2
+    Invar Plate: 4
+    Liquid Crystalline: 1000
+    Red Alloy Ingot: 2
   makes: 1
 Heat Conductor:
   ingredients:
@@ -870,9 +873,9 @@ Orange Dye:
     Yellow Dye: 1
   makes: 2
 Osmium Dust:
+  method: Pulverizer
   ingredients:
-    Osmium Ore: 1
-  makes: 2
+    Osmium Ingot: 1
 Ovium Ingot:
   ingredients:
     Galena Dust: 2
@@ -1022,12 +1025,13 @@ Refined Glowstone Plate:
     Glowstone Ingot: 1
   makes: 1
 Reinforced Upgrade Kit:
+  method: Carpenter
   ingredients:
     Advanced Control Circuit: 1
-    Electrum Plate: 8
-    Hardened Glass: 4
-    Liquid Crystalline: 3000
-    Silver Gear: 4
+    Electrum Plate: 4
+    Hardened Glass: 2
+    Liquid Crystalline: 2000
+    Silver Gear: 2
   makes: 1
 Resonating Redstone Crystal:
   ingredients:
@@ -1202,6 +1206,7 @@ Wooden Grip:
     Stick: 6
   makes: 1
 Wooden Planks:
+  method: Sawmill
   ingredients:
     Wood: 1
   makes: 6
