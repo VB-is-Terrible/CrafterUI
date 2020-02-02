@@ -54,6 +54,8 @@ private:
         void recipeSelected(int index);
         void recipeAmountChanged(size_t amount);
         void resetSelected(void);
+        
+        size_t find_max_items(void);
 
         friend QMLCommunication;
 

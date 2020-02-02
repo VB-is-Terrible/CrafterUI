@@ -59,15 +59,24 @@ struct size_comp {
     	}
 };
 
+size_t GraphUIManager::find_max_items(void) {
+	const auto& largest = (std::max_element(
+	                            graph->order.begin(), graph->order.end(),
+	                            size_comp<decltype(graph->order.at(0))>())
+	                      );
+	if (largest == graph->order.end()) {
+		return 0;
+	} else {
+		return (*largest).size();
+	}
+}    
+
 void GraphUIManager::populateRecipes(void) {
 	removeChildren(scene);
 	locations.clear();
-        recipes.clear();
+	recipes.clear();
 	const auto height = graph->order.size() * (recipe_height + recipe_margin_bottom) - recipe_margin_bottom;
-	const auto max_items = (*std::max_element(
-    	                            graph->order.begin(), graph->order.end(),
-    	                            size_comp<decltype(graph->order.at(0))>())
-	                        ).size();
+	const auto max_items = find_max_items();
 	const auto width = max_items * (recipe_width + recipe_margin_right) - recipe_margin_right;
 	flickable->setProperty("contentHeight", QVariant(static_cast<unsigned long long>(height)));
 	flickable->setProperty("contentWidth", QVariant(static_cast<unsigned long long>(width)));
