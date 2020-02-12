@@ -362,7 +362,7 @@ requests get_requests_from_input (const recipe_store& recipes) {
 	while (in != "") {
 		auto it = recipes.find(in);
 		if (it == recipes.end()) {
-			std::cerr << "Recipe not found\n";
+			std::cerr << "Recipe '" << in << "' not found\n";
 		} else {
 			requests.push_back(crafter::Ingredients(in, 1));
 		}
@@ -534,6 +534,29 @@ std::unordered_set<std::string> CraftingGraph::get_children(const std::string & 
 	return result;
 }
 
+std::unordered_set<std::string> CraftingGraph::get_parents(const std::string & root) {
+	std::unordered_set<std::string> result;
+	std::deque<std::string> queue;
+	queue.push_back(root);
+
+	while (!queue.empty()) {
+		auto item = queue[0];
+		queue.pop_front();
+		if (result.count(item)) {
+			continue;
+		}
+		result.insert(item);
+		if (!graph.IsNode(item)) {
+			continue;
+		}
+		for (const auto& connected : graph.GetIncoming(item)) {
+			if (graph.GetWeight(connected, item) != 0) {
+				queue.push_back(connected);
+			}
+		}
+	}
+	return result;
+}
 
 }
 

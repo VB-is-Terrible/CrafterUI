@@ -69,7 +69,7 @@ size_t GraphUIManager::find_max_items(void) {
 	} else {
 		return (*largest).size();
 	}
-}    
+}
 
 void GraphUIManager::populateRecipes(void) {
 	removeChildren(scene);
@@ -127,7 +127,10 @@ void GraphUIManager::populateRecipeLinks(recipe_links& links, const std::unorder
 
 void GraphUIManager::populateRecipes(std::shared_ptr<crafter::CraftingGraph> graph) {
 	this->graph = graph;
-        const auto to_highlight = graph->get_children(selected);
+        const auto children = graph->get_children(selected);
+        const auto parents = graph->get_parents(selected);
+        auto to_highlight = decltype(parents)();
+        std::set_union(children.begin(), children.end(), parents.begin(), parents.end(), std::inserter(to_highlight, to_highlight.begin()));
 	populateRecipes();
         highlightRecipes(to_highlight);
 	populateRecipeLinks(graph->make_pairings(), to_highlight);
@@ -163,7 +166,10 @@ void GraphUIManager::populateRawMaterials() {
 void GraphUIManager::recipeClicked(const std::string& name) {
 	std::cout << "Recieved click from " << name << "\n";
         selected = name;
-        const auto to_highlight = graph->get_children(selected);
+        const auto children = graph->get_children(selected);
+        const auto parents = graph->get_parents(selected);
+        auto to_highlight = decltype(parents)();
+        std::set_union(children.begin(), children.end(), parents.begin(), parents.end(), std::inserter(to_highlight, to_highlight.begin()));
 	highlightRecipes(to_highlight);
 	populateRecipeLinks(graph->make_pairings(), to_highlight);
 	fillOutRecipe(name);
