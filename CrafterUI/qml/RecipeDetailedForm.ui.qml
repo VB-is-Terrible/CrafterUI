@@ -6,6 +6,7 @@ Item {
     FontMetrics {
         id: fontMetrics
     }
+    clip: true
     id: element
     property string recipeName: qsTr("Your recipe name here")
     property var recipeValues: ["The", "names", "of", "recipes", "here"]
