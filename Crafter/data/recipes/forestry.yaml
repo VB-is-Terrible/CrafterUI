@@ -1,0 +1,13 @@
+Diamantine Electron Tube:
+  makes: 4
+  method: Thermionic Fabricator
+  ingredients:
+    Diamond: 5
+    Redstone: 2
+
+Emerald Electron Tube:
+  makes: 4
+  method: Thermionic Fabricator
+  ingredients:
+    Emerald: 5
+    Redstone: 2

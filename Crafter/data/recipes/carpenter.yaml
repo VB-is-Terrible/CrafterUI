@@ -39,35 +39,6 @@ Hardened Fluxduct:
     Red Alloy Plate: 2
     Silicone: 500
   makes: 12
-Basic Smelting Factory:
-  ingredients:
-    Red Alloy Ingot: 2
-    Electrotine Alloy Ingot: 2
-    Furnace: 2
-    Advanced Control Circuit: 1
-    Silver Plate: 8
-    Steel Plate: 8
-    Energized Smelter: 1
-    Heat Conductor: 1
-Basic Enrichment Factory:
-  ingredients:
-    Enriched Alloy: 4
-    Advanced Control Circuit: 2
-    Silver Plate: 8
-    Steel Plate: 8
-    Battery: 1
-    Heat Conductor: 1
-    Enrichment Chamber: 1
-Basic Crushing Factory:
-  ingredients:
-    Steel Plate: 8
-    Silver Plate: 8
-    Enriched Alloy: 2
-    Chest: 2
-    Advanced Control Circuit: 1
-    Saw Blade: 1
-    30k Coolant Cell: 2
-    Crusher <Mekanism>: 1
 Furnace:
   ingredients:
     Cobblestone: 8

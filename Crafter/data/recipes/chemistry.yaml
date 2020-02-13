@@ -1,0 +1,35 @@
+Chemical Combiner:
+  method: Advanced Crafting
+  ingredients:
+    Vanadium Plate: 8
+    Empowered Void Plate: 8
+    Osram Ingot: 2
+    Chest: 2
+    CPU Core S1000: 1
+    Elite Control Circuit: 1
+    Electric Motor: 1
+    Diamatine Gear: 2
+    60k Coolant Cell: 1
+    
+Chemical Dissolver:
+  method: Advanced Crafting
+  ingredients:
+    Vanadium Plate: 8
+    Empowered Void Plate: 8
+    CPU Core B500: 1
+    Magma Cream: 1
+    Copper Battery Cell: 1
+    Diamatine Gear: 2
+    Electric Motor: 1
+    Advanced Control Circuit: 1
+    Silicon: 2
+
+Carbon Ingot:
+  method: Chemical Combiner
+  ingredients:
+    Carbon: 16
+
+Carbon:
+  makes: 8
+  ingredients:
+    Coal: 1

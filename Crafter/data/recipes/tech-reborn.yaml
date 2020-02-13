@@ -136,6 +136,7 @@ Iron Rod:
 
 Hopper:
   method: Rolling Machine
+  makes: 2
   ingredients:
     Chest: 1
     Iron Plate: 5
@@ -170,7 +171,7 @@ Energetic Blend:
   makes: 2
   ingredients:
     Redstone: 1
-    Glowstone: 1
+    Glowstone Dust: 1
 
 Refined Obsidian Ingot:
   method: Rolling Machine
@@ -195,3 +196,129 @@ Eye of Ender:
   ingredients:
     Blaze Powder: 1
     Ender Pearl: 1
+
+Carbon Fiber:
+  makes: 2
+  ingredients:
+    Pulverized Coal: 4
+    Diamond Dust: 1
+
+Carbon Mesh:
+  ingredients:
+    Carbon Fiber: 2
+
+Carbon Plate:
+  method: Compactor
+  ingredients:
+    Carbon Ingot: 1
+
+Carbon Plate:
+  method: Compactor
+  ingredients:
+    Carbon Mesh: 1
+
+Alloy Smelter:
+  method: Compactor
+  ingredients:
+    Electrotine Alloy Plate: 8
+    Iron Plate: 8
+    Furnace: 2
+    Chest: 1
+    Heat Conductor: 1
+    10k Coolant Cell: 2
+    Red Alloy Ingot: 2
+    Advanced Control Circuit: 1
+
+Energy Storage Upgrade:
+  method: Carpenter
+  ingredients:
+    Super Glue: 3000
+    Insulated Gold Cable: 3
+    Advanced Control Circuit: 1
+    Circuit Plate: 4
+    Battery: 1
+
+Industrial Blast Furnace:
+  method: Elite Crafting
+  ingredients:
+    Refined Obsidian Plate: 12
+    Advanced Alloy Plate: 12
+    Reinforced Glass (Tech Reborn): 4
+    Cleaning Fan: 6
+    Cupronickel Heating Coil: 3
+    60k Coolant Cell: 2
+    Liquid Cleaner: 1
+    Advanced Control Circuit: 2
+    Aluminum Gear: 2
+    Osram Block: 2
+    Cleaning Machine: 1
+    Empowered Emeradic Gear: 1
+    CPU Core S1000: 1
+    
+Cupronickel Heating Coil:
+  method: Rolling Machine
+  makes: 3
+  ingredients:
+    Copper Ingot: 4
+    Nickel Ingot: 4
+    
+Reinforced Glass (Tech Reborn):
+  method: Advanced Crafting
+  makes: 4
+  ingredients:
+    Compressed Obsidian: 4
+    Hardened Glass: 12
+    Advanced Alloy Plate: 4
+    2x Compressed Stone: 4
+    Tiberium Block: 1
+
+Reinforced Machine Casing (Tech Reborn):
+  ingredients:
+    Cupronickel Heating Coil: 2
+    Steel Plate: 6
+    Advanced Machine Frame: 1
+
+Advanced Machine Frame:
+  ingredients:
+    Advanced Alloy Plate: 2
+    Carbon Plate: 2
+    Triberium Ingot: 1
+
+Chrome Plate:
+  method: Compactor
+  ingredients:
+    Chrome Ingot: 1
+
+Chrome Ingot:
+  method: Industrial Blast Furnace
+  ingredients:
+    Chrome Dust: 1
+    
+Chrome Dust:
+  method: Industrial Electrylyzer
+  ingredients:
+    Ruby Dust: 9
+
+Ruby Dust:
+  method: Pulverizer
+  ingredients:
+    Ruby: 1
+    
+Fluid Infuser:
+  method: Advanced Crafting
+  ingredients:
+    Advanced Plating: 8
+    Titanium Plate: 8
+    Cleaning Machine: 1
+    Electric Motor: 1
+    Servomechanism: 1
+    Advanced Control Circuit: 1
+    Chest: 1
+    CPU Core S1000: 1
+    Infused Silicon: 1
+    Hyper Linking Card: 1
+    
+Titanium Plate:
+  method: Compactor
+  ingredients:
+    Titanium Ingot: 1

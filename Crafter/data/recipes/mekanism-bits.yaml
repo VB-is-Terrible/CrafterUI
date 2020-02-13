@@ -46,9 +46,10 @@ Osmium Plate:
     Osmium Ingot: 1
 
 Wool Cloth:
-  makes: 4
+  makes: 2
+  method: Sawmill
   ingredients:
-    Wool: 4
+    Wool: 1
 
 Item Filter:
   ingredients:
@@ -202,3 +203,165 @@ Reinforced Alloy:
   ingredients:
     Diamond Dust: 1
     Enriched Alloy: 1
+
+Resistive Heater:
+  ingredients:
+    Tin Ingot: 4
+    Redstone: 3
+    Superheating Element: 1
+    Energy Tablet: 1
+    
+Superheating Element:
+  ingredients:
+    Copper Ingot: 4
+    Redstone: 4
+    Steel Casing: 1
+    
+Steel Casing:
+  ingredients:
+    Hardened Glass: 4
+    Steel Plate: 4
+    Block of Steel: 1
+
+Energy Tablet:
+  ingredients:
+    Gold Ingot: 3
+    Redstone: 4
+    Enriched Alloy: 2
+
+Basic Smelting Factory:
+  ingredients:
+    Red Alloy Ingot: 2
+    Electrotine Alloy Ingot: 2
+    Furnace: 2
+    Advanced Control Circuit: 1
+    Silver Plate: 8
+    Steel Plate: 8
+    Energized Smelter: 1
+    Heat Conductor: 1
+Basic Enrichment Factory:
+  ingredients:
+    Enriched Alloy: 4
+    Advanced Control Circuit: 2
+    Silver Plate: 8
+    Steel Plate: 8
+    Battery: 1
+    Heat Conductor: 1
+    Enrichment Chamber: 1
+Basic Crushing Factory:
+  ingredients:
+    Steel Plate: 8
+    Silver Plate: 8
+    Enriched Alloy: 2
+    Chest: 2
+    Advanced Control Circuit: 1
+    Saw Blade: 1
+    30k Coolant Cell: 2
+    Crusher <Mekanism>: 1
+    
+Basic Purifying Factory:
+  ingredients:
+    Steel Plate: 8
+    Silver Plate: 8
+    Filter (Extra Planets): 2
+    Enriched Alloy: 1
+    Advanced Control Circuit: 1
+    Chest: 2
+    Infused Silicon: 2
+    Purification Chamber: 1
+
+Advanced Smelting Factory:
+  method: Elite Crafting
+  ingredients:
+    Alumite Plate: 36
+    Furnace: 5
+    Cleaning Tube: 6
+    Heat Conductor: 2
+    Electrotine Alloy Plate: 1
+    10k Coolant Cell: 2
+    Basic Smelting Factory: 1
+    Silicon Plate: 2
+    Elite Control Circuit: 1
+    Chest: 5
+    
+Advanced Enriching Factory:
+  method: Elite Crafting
+  ingredients:
+    Alumite Plate: 36
+    Cleaning Tube: 6
+    Heat Conductor: 2
+    Electrotine Alloy Plate: 1
+    10k Coolant Cell: 2
+    Basic Enriching Factory: 1
+    Silicon Plate: 2
+    Elite Control Circuit: 1
+    Chest: 10
+    
+    
+Advanced Crushing Factory:
+  method: Elite Crafting
+  ingredients:
+    Alumite Plate: 36
+    Cleaning Tube: 4
+    Basic Crushing Factory: 1
+    Elite Control Circuit: 1
+    Chest: 9
+    Electric Motor: 2
+    Energized Silicon: 1
+    String Mesh: 2
+    Saw Blade: 4
+    Diamond Saw Blade: 1
+    
+Advanced Purifying Factory:
+  method: Elite Crafting
+  ingredients:
+    Alumite Plate: 36
+    Liquid Cleaning Tube: 4
+    Basic Purifying Factory: 1
+    Silicon Plate: 2
+    Elite Control Circuit: 1
+    Chest: 9
+    Filter (Extra Planets): 3
+    Saw Blade: 2
+    Advanced Gas Tank: 2
+
+Speed Upgrade:
+  method: Carpenter
+  ingredients:
+    Gold Plate: 4
+    Plastic: 2
+    Microchip <Tier 1>: 1
+    Enriched Alloy: 2
+    Liquid Crystalline: 2000
+    
+Energy Upgrade: 
+  method: Carpenter
+  ingredients:
+    Enchanted Plate: 4
+    Plastic: 2
+    Microchip <Tier 1>: 1
+    Enriched Alloy: 2
+    Liquid Crystalline: 2000
+    
+Elite Control Circuit:
+  method: Carpenter
+  ingredients:
+    Advanced Control Circuit: 2
+    Compressed Diamond: 2
+    Energized Silicon: 2
+    Reinforced Alloy: 2
+    Iridium Plate: 1
+    Super Glue: 2000
+    
+Elite Control Circuit:
+  method: Carpenter
+  makes: 3
+  ingredients:
+    Advanced Control Circuit: 2
+    Compressed Diamond: 2
+    Energized Silicon: 1
+    Reinforced Alloy: 2
+    Iridium Plate: 1
+    Super Glue: 2000
+    Boosting Mixture: 1
+    

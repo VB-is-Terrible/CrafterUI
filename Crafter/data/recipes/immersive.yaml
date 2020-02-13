@@ -335,3 +335,24 @@ Cleaning Fan:
   ingredients:
     Redstone: 4
     Iron Bars: 4
+
+Reinforced Blast Brick:
+  ingredients:
+    Manasteel Plate: 2
+    Steel Plate: 2
+    Blast Brick: 1
+    
+Blast Brick:
+  method: Advanced Crafting
+  makes: 4
+  ingredients:
+    Brick: 8
+    Nether Brick: 8
+    Sandy Glass: 4
+    Soul Dust: 4
+    Blaze Powder: 1
+
+Nether Brick:
+  method: Furnace
+  ingredients:
+    Netherrack: 1

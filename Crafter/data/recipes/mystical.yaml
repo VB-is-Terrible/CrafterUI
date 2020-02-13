@@ -1,0 +1,148 @@
+Prudentium Furnace:
+  method: Advanced Crafting
+  ingredients:
+    Manasteel Plate: 4
+    Prudentium Plate: 12
+    Block of Prudentium Essence: 2
+    Inferium Furnace: 1
+    Iron Chest: 1
+    2x Compressed Cobblestone: 5
+   
+Block of Prudentium Essence:
+  ingredients:
+    Block of Inferium Essence: 4
+    
+Block of Prudentium Essence:
+  ingredients:
+    Prudentium Essence: 9
+    
+Inferium Furnace:
+  method: Advanced Crafting
+  ingredients:
+    Iron Plate: 4
+    Inferium Ingot: 12
+    Block of Inferium Essence: 2
+    Furnace: 1
+    Chest: 1
+    1x Compressed Cobblestone: 5
+    
+Block of Inferium Essence:
+  ingredients:
+    Inferium Essence: 9
+
+Block of Inferium Essence:
+  default: true
+  
+Prudentium Essence:
+  ingredients:
+    Inferium Essence: 4
+    Infusion Crystal Use: 1
+
+Base Crafting Seed:
+  ingredients:
+    Seeds: 1
+    Prosperity Shard: 4
+
+Tier 1 Crafting Seed:
+  ingredients:
+    Base Crafting Seed: 1
+    Inferium Essence: 8
+
+Tier 2 Crafting Seed:
+  ingredients:
+    Tier 1 Crafting Seed: 1
+    Prudentium Essence: 8
+
+Tier 3 Crafting Seed:
+  ingredients:
+    Tier 2 Crafting Seed: 1
+    Dilithium Ingot: 1
+    Manasteel Ingot: 2
+    Block of Intermedium Essence: 2
+    Intermedium Essence: 2
+  
+Tier 4 Crafting Seed:
+  ingredients:
+    Tier 3 Crafting Seed: 1
+    Terrax Ingot: 1
+    Dyonite Ingot: 1
+    Inert Blood-Iron Ingot: 2
+    Block of Superium Essence: 2
+    Superium Essence: 2
+
+Tier 5 Crafting Seed:
+  ingredients:
+    Tier 4 Crafting Seed: 1
+    Solarium Ingot: 2
+    Blood Infused Iron Ingot: 2
+    Block of Supremium Essence: 2
+    Supremium Essence: 2
+
+Block of Intermedium Essence:
+  ingredients:
+    Block of Prudentium Essence: 4
+    
+Block of Superium Essence:
+  ingredients:
+    Block of Intermedium Essence: 4
+    
+Block of Supremium Essence:
+  ingredients:
+    Block of Superium Essence: 4
+    
+Soul Dust:
+  method: Furnace
+  ingredients:
+    Soulstone: 1
+    
+Dark Gem Seeds:
+  ingredients:
+    Dark Power Gem Block: 4
+    Intermedium Essence: 4
+    Tier 3 Crafting Seed: 1
+
+Glowstone Seeds:
+  ingredients:
+    Glowstone: 4
+    Intermedium Essence: 4
+    Tier 3 Crafting Seed: 1
+
+Diamond Seeds:
+  method: Advanced Crafting
+  ingredients:
+    Block of Diamond: 4
+    Diamond: 4
+    Supremium Essence: 16
+    Tier 5 Crafting Seed: 1
+
+Platinum Seeds:
+  method: Advanced Crafting
+  ingredients:
+    Block of Platinum: 4
+    Platinum Ingot: 4
+    Supremium Essence: 16
+    Tier 5 Crafting Seed: 1
+   
+Ruby Seeds:
+  method: Advanced Crafting
+  ingredients:
+    Superium Essence: 16
+    Ruby: 4
+    Block of Ruby: 4
+    Tier 4 Crafting Seed: 1
+
+Gold Seeds:
+  method: Advanced Crafting
+  ingredients:
+    Superium Essence: 16
+    Gold Ingot: 4
+    Block of Gold: 4
+    Tier 4 Crafting Seed: 1
+
+Mithril Seeds:
+  method: Advanced Crafting
+  ingredients:
+    Superium Essence: 16
+    Mana Infused Ingot: 4
+    Block of Mana Infused Metal: 4
+    Tier 4 Crafting Seed: 1

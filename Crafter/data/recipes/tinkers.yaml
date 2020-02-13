@@ -1,3 +1,88 @@
 Tiberium Block:
   ingredients:
     Tiberium Ingot: 9
+
+Casting Channel:
+  makes: 3
+  ingredients:
+    Seared Brick: 5
+
+Osram Block:
+  method: Factorizer
+  ingredients:
+    Osram Ingot: 9
+    
+Silver Battery Cell:
+  method: Casting
+  ingredients:
+    Molten Silver: 432
+
+Molten Silver:
+  makes: 144
+  ingredients:
+    Silver Ingot: 1
+
+Osmium Battery Cell:
+  method: Casting
+  ingredients:
+    Molten Osmium: 432
+
+Molten Osmium:
+  makes: 144
+  ingredients:
+    Osmium Ingot: 1
+
+Enchanted Ingot:
+  method: Induction Smelter
+  ingredients:
+    Glowstone Ingot: 1
+    Gold Ingot: 2
+
+Enchanted Plate:
+  method: Compactor
+  ingredients:
+    Enchanted Ingot: 1
+    
+Terrax Ingot:
+  method: Advanced Alloy Smelting Factory
+  makes: 3
+  ingredients:
+    Ovium Ingot: 1
+    Jauxum Ingot: 1
+    Karmesine Ingot: 1
+
+Dyonite Ingot:
+  method: Advanced Alloy Smelting Factory
+  makes: 4
+  ingredients:
+    Triberium Ingot: 3
+    Osram Ingot: 1
+    Seisumum Ingot: 1
+    Fractum Ingot: 1
+    
+Seisumum Ingot:
+  method: Advanced Alloy Smelting Factory
+  makes: 5
+  ingredients:
+    Triberium Ingot: 2
+    Obsidian: 2
+    Eezo Ingot: 1
+    
+Fractum Ingot:
+  method: Advanced Alloy Smelting Factory
+  makes: 3
+  ingredients:
+    Triberium Ingot: 3
+    Obsidian: 2
+    Abyssum Ingot: 1
+    
+Reinforcement:
+  method: Advanced Crafting
+  ingredients:
+    Compressed Obsidian: 8
+    Reinforced Blast Brick: 8
+    Ferroboron Alloy: 3
+    Triberium Block: 2
+    Hard Carbon Alloy: 3
+    Rune of Earth: 1
+    

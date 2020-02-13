@@ -110,3 +110,14 @@ Mana Pool:
 Pink Petal Block:
   ingredients:
     Mystical Pink Petal: 9
+
+Rune of Earth:
+  method: Runic Altar
+  ingredients:
+    Tin Ingot: 1
+    Manasteel Ingot: 1
+    Bone: 1
+    Bog Earth: 1
+    Block of Inferium Coal: 1
+    Mana Powder: 1
+    

@@ -84,7 +84,7 @@ Automated User:
     Silicon: 1
     Silicon Chip: 1
   makes: 1
-Base Esscence Ingot:
+Base Essence Ingot:
   ingredients:
     Iron Ingot: 1
     Prosperity Shard: 4
@@ -140,7 +140,7 @@ Block of Silver:
 Blood Infused Glowstone Dust:
   ingredients:
     Blood <LP>: 2500
-    Glowstone: 1
+    Glowstone Dust: 1
   makes: 1
 Bronze Gear:
   ingredients:
@@ -188,14 +188,6 @@ Carbon Fiber:
     Pulverized Coal: 4
     Pulverized Diamond: 1
   makes: 2
-Carbon Mesh:
-  ingredients:
-    Carbon Fiber: 2
-  makes: 1
-Carbon Plate:
-  ingredients:
-    Carbon Mesh: 1
-  makes: 1
 Card Base:
   ingredients:
     Basic Control Circuit: 1
@@ -237,7 +229,7 @@ Circuit Board:
   makes: 1
 Circuit Plate:
   ingredients:
-    -Any Stone-: 1
+    Stone: 1
   makes: 2
 Cleaning Tube:
   ingredients:
@@ -267,8 +259,9 @@ Constantan Plate:
     Constantan Ingot: 1
   makes: 1
 Copper Battery Cell:
+  method: Casting
   ingredients:
-    Molten Copper: 3000
+    Molten Copper: 432
   makes: 1
 Copper Coil:
   ingredients:
@@ -441,7 +434,7 @@ Energized Silicon:
   method: Induction Smelter
   ingredients:
     Silicon: 1
-    Glowstone: 5
+    Glowstone Dust: 5
   makes: 1
 Energy Battery:
   ingredients:
@@ -504,7 +497,7 @@ Glass:
   makes: 1
 Glowing Silicon Compound:
   ingredients:
-    Glowstone: 8
+    Glowstone Dust: 8
     Silicon: 1
   makes: 1
 Gold Coil:
@@ -594,8 +587,8 @@ Inert Blood-Iron Ingot:
   makes: 1
 Inferium Ingot:
   ingredients:
-    Base Esscence Ingot: 1
-    Inferium Esscence: 4
+    Base Essence Ingot: 1
+    Inferium Essence: 4
   makes: 1
 Infused Silicon:
   method: Induction Smelter
@@ -612,10 +605,10 @@ Insightful Condenser:
     Solidified Experience: 4
     Tin Plate: 8
   makes: 1
-Intermedium Esscence:
+Intermedium Essence:
   ingredients:
     Infusion Crystal Use: 1
-    Prudentium Esscence: 4
+    Prudentium Essence: 4
   makes: 1
 Intermedium Gear:
   ingredients:
@@ -624,7 +617,7 @@ Intermedium Gear:
   makes: 1
 Intermedium Ingot:
   ingredients:
-    Intermedium Esscence: 4
+    Intermedium Essence: 4
     Prudentium Ingot: 1
   makes: 1
 Invar Ingot:
@@ -740,7 +733,7 @@ Logic Processor:
   makes: 1
 Luminessence:
   ingredients:
-    Glowstone: 2
+    Glowstone Dust: 2
     Gunpowder: 1
     Redstone: 1
   makes: 2
@@ -750,13 +743,6 @@ Molten Lumium:
     Silver Ingot: 1
     Tin Ingot: 1
   makes: 144
-Lumium Ingot:
-  ingredients:
-    Molten Lumium: 144
-Lumium Plate:
-  ingredients:
-    Lumium Ingot: 1
-  makes: 1
 Lunar Panel:
   ingredients:
     Copper Plate: 9
@@ -842,9 +828,9 @@ Mirror:
 Mixed Metal Ingot:
   ingredients:
     Bronze Ingot: 3
-    Inert Blood-Iron Ingot: 3
+    Steel Ingot: 3
     Tin Ingot: 3
-  makes: 5
+  makes: 3
 Motor:
   ingredients:
     Copper Coil: 2
@@ -904,15 +890,15 @@ Printed Circuit Board <PCB>:
     Gold Nugget: 1
     Grog: 1
   makes: 1
-Prudentium Esscence:
+Prudentium Essence:
   ingredients:
-    Inferium Esscence: 4
+    Inferium Essence: 4
     Infusion Crystal Use: 1
   makes: 1
 Prudentium Ingot:
   ingredients:
     Inferium Ingot: 1
-    Prudentium Esscence: 4
+    Prudentium Essence: 4
   makes: 1
 Pulverized Coal:
   ingredients:
@@ -1084,11 +1070,12 @@ Silver Gear:
     Silver Ingot: 4
   makes: 1
 Single Battery:
+  method: Carpenter
   ingredients:
     Advanced Coil: 1
-    Enori Plate: 10
+    Enori Crystal Block: 1
     Silicon: 1
-    Silicone: 2000
+    Silicone: 1000
     Tin Plate: 1
   makes: 1
 Solar Panel II:
@@ -1135,25 +1122,25 @@ Super Glue:
   ingredients:
     Glue Compound: 1
   makes: 1000
-Superium Esscence:
+Superium Essence:
   ingredients:
     Infusion Crystal Use: 1
-    Intermedium Esscence: 4
+    Intermedium Essence: 4
   makes: 1
 Superium Ingot:
   ingredients:
     Intermedium Ingot: 1
-    Superium Esscence: 4
+    Superium Essence: 4
   makes: 1
-Supremium Esscence:
+Supremium Essence:
   ingredients:
     Infusion Crystal Use: 1
-    Superium Esscence: 4
+    Superium Essence: 4
   makes: 1
 Supremium Ingot:
   ingredients:
     Superium Ingot: 1
-    Supremium Esscence: 4
+    Supremium Essence: 4
   makes: 1
 Tin Plate:
   ingredients:
@@ -1172,6 +1159,18 @@ Transistor:
 Triberium Block:
   ingredients:
     Triberium Ingot: 9
+  makes: 1
+Triberium Ingot:
+  method: Advanced Alloy Smelting Factory
+  makes: 2
+  ingredients:
+    Basalt Ingot: 4
+    Tiberium Ingot: 5
+  makes: 1
+Triberium Ingot:
+  ingredients:
+    Basalt Ingot: 4
+    Tiberium Ingot: 5
   makes: 1
 Triberium Ingot:
   ingredients:

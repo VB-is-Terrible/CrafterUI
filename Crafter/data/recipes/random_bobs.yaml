@@ -127,3 +127,277 @@ Stone Tank:
     Stone: 13
     Glass: 12
 
+Machine Blueprint:
+  ingredients:
+    Modularium: 2
+    Refined Obsidian Ingot: 2
+    IC Blueprint: 1
+
+IC Blueprint:
+  ingredients:
+    Paper: 4
+    Laplis Lazuli: 4
+    Redstone: 1
+
+Machine Controller:
+  method: Advanced Crafting
+  ingredients:
+    Refined Obsidian Plate: 8
+    Machine Casing (Modular): 8
+    Advanced Control Circuit: 2
+    Screen: 1
+    Refined Obsidian Gear: 2
+    Graphics Card <Tier 2>: 1
+    Emerald Gear: 1
+    Platinum Gear: 1
+    Microchip <Tier 3>: 1
+
+Machine Gearbox:
+  ingredients:
+    Enchanted Gear: 2
+    Emerald Electron Tube: 2
+    Electric Motor: 1
+    Empowered Restonia Gear: 2
+    Steel Casing: 1
+    Sensor <Tier 4>: 1
+    
+
+Sensor <Tier 4>:
+  ingredients:
+    Reinforced Alloy: 1
+    Basic Control Circuit: 2
+    IO Bus: 1
+    Sensor <Tier 3>: 1
+
+Sensor <Tier 3>:
+  ingredients:
+    Enriched Alloy: 1
+    Basic Control Circuit: 2
+    IO Bus: 1
+    Sensor <Tier 2>: 1
+
+Sensor <Tier 2>:
+  ingredients:
+    Enriched Iron: 1
+    Basic Control Circuit: 2
+    IO Bus: 1
+    Sensor <Tier 1>: 1
+
+Sensor <Tier 1>:
+  ingredients:
+    Redstone: 4
+    Wooden Planks: 1
+
+Enriched Iron:
+  method: Metallurigc Infuser
+  ingredients:
+    Carbon <Mekanism>: 10
+    Iron Ingot: 1
+
+IO Bus:
+  ingredients:
+    Gold Ingot: 1
+    Iron Ingot: 1
+    Redstone: 3
+
+Graphics Card <Tier 2>:
+  ingredients:
+    Memory <Tier 2>: 1
+    Microchip <Tier 2>: 2
+    Graphics Card <Tier 1>: 1
+
+Iron Chest:
+  ingredients:
+    Iron Plate: 8
+    Chest: 1
+
+Machine Casing (Modular):
+  makes: 2
+  ingredients:
+    Block of Redstone: 1
+    Modularium: 4
+    
+Screen:
+  ingredients:
+    Glass: 5
+    Machine Base: 1
+    Iron Ingot: 3
+
+Machine Base:
+  ingredients:
+    Iron Plate: 2
+    Gold Plate: 3
+    Machine Casing: 1
+    
+Machine Casing:
+  ingredients:
+    Special Infused Iron Plate: 8
+    Hardened Cell Frame: 1
+
+Special Infused Iron Plate:
+  method: Compactor
+  ingredients:
+    Special Infused Iron: 1
+    
+Special Infused Iron:
+  method: Induction Smelter
+  ingredients:
+    Iron Ingot: 1
+    Nether Quartz: 1
+    
+Memory <Tier 2>:
+  ingredients:
+    Microchip <Tier 2>: 3
+    Memory <Tier 1.5>: 2
+    Printed Circuit Board <PCB>: 1
+    
+Memory <Tier 1.5>:
+  ingredients:
+    Microchip <Tier 1>: 3
+    Memory <Tier 1>: 2
+    Printed Circuit Board <PCB>: 1
+    
+Gold Nugget:
+  default: true
+
+Reinforced Machine Casing (Modular):
+  makes: 8
+  ingredients:
+    Advanced Alloy Plate: 4
+    Machine Casing (Modular): 4
+    Refined Obsidian Plate: 1
+
+Firebox Casing:
+  makes: 2
+  ingredients:
+    Redstone: 4
+    Flint: 1
+    Iron Ingot: 1
+    Machine Casing (Modular): 2
+
+Reinforced Item Input:
+  ingredients:
+    Hopper: 1
+    Machine Casing (Modular): 2
+    Chest: 1
+    Compressed Obsidian: 1
+
+Reinforced Item Output:
+  ingredients:
+    Hopper: 1
+    Machine Casing (Modular): 2
+    Chest: 1
+    Compressed Obsidian: 1
+
+Normal Fluid Input Hatch:
+  ingredients:
+    Wood Tank: 1
+    Machine Casing (Modular): 2
+    Bucket: 1
+    Servomechanism: 1
+
+Normal Energy Input Hatch:
+  ingredients:
+    Machine Casing (Modular): 2
+    Single Battery: 2
+    Advanced Control Circuit: 1
+
+Wood Tank:
+  ingredients:
+    Glass: 7
+    Wood: 1
+
+Lava Fabricator:
+  method: Advanced Crafting
+  ingredients:
+    Steel Plate: 8
+    Refined Obsidian Plate: 8
+    60k Coolant Cell: 1
+    Lava Cell: 2
+    Stone Tank: 2
+    Compressed Diamond: 2
+    Blaze Mesh: 1
+    Advanced Control Circuit: 1
+    
+Lava Cell:
+  method: World Interaction
+  ingredients:
+    Empty Cell: 1
+    
+Blaze Mesh:
+  ingredients:
+    Blaze Rod: 9
+    
+Copper Chest:
+  ingredients:
+    Chest: 1
+    Copper Plate: 8
+
+Cleaning Machine:
+  ingredients:
+    Cleaning Tube: 6
+    Cleaning Core: 1
+    
+Cleaning Core:
+  ingredients:
+    Iron Ingot: 3
+    Cleaning Tube: 4
+    Cleaning Fan: 2
+    
+Liquid Cleaner:
+  ingredients:
+    Liquid Cleaning Tube: 6
+    Liquid Cleaning Core: 1
+
+Liquid Cleaning Core:
+  ingredients:
+    Iron Ingot: 3
+    Liquid Cleaning Tube: 4
+    Cleaning Fan: 2
+
+Leadstone Exchanger:
+  method: Elite Crafting
+  ingredients:
+    Lead Plate: 20
+    Red Alloy Ingot: 2
+    Eye of Ender: 1
+    Silicon: 7
+    Basic Control Circuit: 1
+    Thermal Expansion Exchanger Core (Tier 1): 1
+    Lead Gear: 2
+    Silver Battery Cell: 1
+    
+Hardened Exchanger:
+  method: Elite Crafting
+  ingredients:
+    Invar Plate: 20
+    Red Alloy Ingot: 2
+    Eye of Ender: 1
+    Silicon Plate: 4
+    Advanced Control Circuit: 1
+    Thermal Expansion Exchanger Core (Tier 1): 1
+    Invar Gear: 2
+    Osmium Battery Cell: 3
+    TE-Exchanger Upgrade 1: 1
+
+TE-Exchanger Upgrade 1:
+  ingredients:
+    Leadstone Exchanger: 1
+
+Thermal Expansion Exchanger Core (Tier 1):
+  ingredients:
+    Copper Gear: 4
+    Lead Ingot: 4
+    Molten Ender Bucket: 1
+    
+Molten Ender Bucket:
+  ingredients:
+    Bucket: 1
+    Molten Ender: 1000
+
+Hyper Linking Card:
+  ingredients:
+    Chrome Plate: 3
+    Infused Silicon: 2
+    Hardened Glass: 2
+    

@@ -16,4 +16,124 @@ Graphite Dust:
     Pulverized Coal: 1
     Gravel: 1
 
+Heat Exchanger Frame:
+  makes: 2
+  ingredients:
+    Heat Exchanger Shell: 4
+    Steel Gear: 1
+    Diamantine Electron Tube: 4
     
+Heat Exchanger Shell:
+  makes: 4
+  ingredients:
+    Steel Ingot: 4
+    Stone: 4
+    Steel Frame: 1
+    
+Steel Frame:
+  ingredients:
+    Tough Alloy: 6
+    Bronze Plate: 2
+    Steel Casing: 1
+
+Tough Alloy:
+  method: Induction Smelter
+  makes: 2
+  ingredients:
+    Ferroboron Alloy: 1
+    Lithium Ingot: 1
+
+Rock Crusher:
+  method: Advanced Crafting
+  ingredients:
+    Advanced Plating: 8
+    Compressed Steel: 8
+    60k Coolant Cell: 1
+    CPU Core S1000: 1
+    Linear Actuator: 1
+    Piston: 1
+    Advanced Control Circuit: 1
+    Electric Motor: 2
+    Cleaning Tube: 1
+    Diamond Grinding Head: 1
+    
+Advanced Plating:
+  method: Rolling Machine
+  makes: 3
+  ingredients:
+    Gold Plate: 3
+    Jauxum Ingot: 1
+    Tough Alloy: 1
+    Ovium Ingot: 1
+
+Compressed Steel:
+  method: Rolling Machine
+  ingredients:
+    Steel Plate: 4
+    
+Diamond Grinding Head:
+  method: Advanced Crafting
+  ingredients:
+    Constantan Plate: 8
+    Diamond Dust: 4
+    Diamond: 1
+
+Melter:
+  ingredients:
+    Advanced Plating: 8
+    Compressed Steel: 8
+    Advanced Control Circuit: 1
+    Servomechanism: 1
+    Energized Silicon: 1
+    CPU Core S1000: 1
+    Seismum Ingot: 2
+    Bucket: 1
+    Electric Motor: 1
+    Empowered Restonia Plate: 1
+    
+Ingot Former:
+  method: Advanced Crafting
+  ingredients:
+    Basic Plating: 8
+    Silver Plate: 8
+    Cobalt Gear: 2
+    CPU Core S1000: 1
+    Bucket: 1
+    Advanced Control Circuit: 1
+    60k Coolant Cell: 1
+    Ferroboron Alloy: 1
+    Electric Motor: 1
+    Casting Channel: 1
+    
+Chemical Reactor (Nuclearcraft):
+  method: Advanced Crafting
+  ingredients:
+    Manasteel Plate: 8
+    Advanced Plating: 8
+    Electrolytic Core: 2
+    CPU Core S1000: 1
+    Bucket: 2
+    Empowered Palis Gear: 1
+    Electric Motor: 1
+    Servomechanism: 1
+    Advanced Control Circuit: 1
+
+Extreme Alloy:
+  method: Advanced Alloy Smelting Factory
+  ingredients:
+    Tough Alloy: 1
+    Hard Carbon Alloy: 1
+    
+Hard Carbon Alloy:
+  method: Advanced Alloy Smelting Factory
+  makes: 3
+  ingredients:
+    Diamond: 1
+    Graphite Ingot: 2
+
+Thermoconducting Alloy:
+  method: Advanced Alloy Smelting Factory
+  makes: 3
+  ingredients:
+    Extreme Alloy: 1
+    Boron Arsenide: 1

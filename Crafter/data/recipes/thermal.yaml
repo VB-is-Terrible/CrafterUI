@@ -208,3 +208,166 @@ Pyrotheum Dust:
     Blaze Powder: 2
     Evil Dust: 1
     Magic Compound: 1
+
+Aqueous Accumulator:
+  ingredients:
+    Iron Plate: 8
+    Tin Plate: 8
+    Redstone Servo: 1
+    Glass: 2
+    Enriched Alloy: 2
+    Bucket: 1
+    Liquid Cleaning Tube: 3
+
+Hardened Servo:
+  ingredients:
+    Servo: 1
+    Glass: 3
+    Invar Plate: 2
+    Redstone Servo: 1
+    
+Reinforced Servo:
+  ingredients:
+    Hardened Servo: 1
+    Glass: 3
+    Electrum Plate: 2
+    Redstone Servo: 1
+
+Signalum Servo:
+  ingredients:
+    Reinforced Servo: 1
+    Glass: 3
+    Signalum Plate: 2
+    Redstone Servo: 1
+    
+Resonant Servo:
+  ingredients:
+    Signalum Servo: 1
+    Glass: 3
+    Signalum Plate: 2
+    Enderium Servo: 1
+
+Iridium Plate:
+  method: Compactor
+  ingredients:
+    Iridium Ingot: 1
+    
+Emerald Gear:
+  ingredients:
+    Emerald: 4
+    
+Enchanted Gear:
+  method: Metal Press
+  ingredients:
+    Enchanted Ingot: 4
+
+Platinum Gear:
+  ingredients:
+    Platinum Ingot: 4
+    
+Prudentium Plate:
+  method: Compactor
+  ingredients:
+    Prudentium Ingot: 1
+    
+Refined Obsidian Gear:
+  method: Metal Press
+  ingredients:
+    Refined Obsidian Ingot: 4
+    
+Refined Obsidian Plate:
+  method: Compactor
+  ingredients:
+    Refined Obsidian Ingot: 1
+    
+Hardened Cell Frame:
+  ingredients:
+    Glass: 2
+    Invar Plate: 4
+    Infused Silicon: 2
+    Silver Gear: 1
+    
+Enchanted Ingot:
+  method: Induction Smelter
+  ingredients:
+    Gold Ingot: 2
+    Glowstone Ingot: 1
+
+"Augment: Auxiliary Reception Coil":
+  method: Carpenter
+  ingredients:
+    Liquid Crystalline: 4000
+    Gold Plate: 2
+    Block of Gold: 2
+    Redstone Transmission Coil: 2
+    Drill Speed Augment I: 1
+    Glass Pipe: 2
+    
+Silver Plate:
+  method: Compactor
+  ingredients:
+    Silver Ingot: 1
+
+Filter (Thermal):
+  ingredients:
+    Iron Ingot: 2
+    Paper: 1
+    Iron Nugget: 2
+    Glass: 1
+    
+Hardened Filter:
+  ingredients:
+    Invar Ingot: 1
+    Filter (Thermal): 1
+
+Reinforced Filter:
+  ingredients:
+    Electrum Ingot: 1
+    Filter (Thermal): 1
+
+Signalum Filter:
+  ingredients:
+    Signalum Ingot: 1
+    Filter (Thermal): 1
+
+Resonant Filter:
+  ingredients:
+    Enderium Ingot: 1
+    Filter (Thermal): 1
+
+Lumium Ingot:
+  method: Advanced Alloy Smelting Factory
+  ingredients:
+    Silver Ingot: 1
+    Tin Ingot: 1
+    Glowstone Dust: 1
+
+Lumium Ingot:
+  ingredients:
+    Molten Lumium: 144
+
+Lumium Plate:
+  ingredients:
+    Lumium Ingot: 1
+  makes: 1
+
+Aluminum Gear:
+  ingredients:
+    Aluminum Ingot: 4
+    
+Molten Ender:
+  makes: 250
+  ingredients:
+    Ender Pearl: 1
+
+Fluid Transposer:
+  method: Advanced Crafting
+  ingredients:
+    Bronze Plate: 8
+    Steel Plate: 8
+    Liquid Cleaning Tube: 2
+    Stone Tank: 1
+    Copper Gear: 2
+    Bucket: 2
+    Basic Control Circuit: 1
+    Glass: 1

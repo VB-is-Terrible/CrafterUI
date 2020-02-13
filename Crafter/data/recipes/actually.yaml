@@ -1,4 +1,12 @@
 Empowered Void Crystal:
+  makes: 9
+  ingredients:
+    Empowered Void Crystal Block: 1
+    
+
+
+Empowered Void Crystal:
+  method: Empowerer
   ingredients:
     Void Crystal: 1
     Manasteel Ingot: 1
@@ -11,8 +19,80 @@ Void Crystal:
   ingredients:
     Coal: 1
 
+Void Crystal Block:
+  method: Atomic Reconstructor
+  ingredients:
+    Block of Coal: 1
+
+    
 Empowered Palis Gear:
   method: Metal Press
   ingredients:
     Empowered Palis Crystal: 4
     
+Diamatine Gear:
+  method: Metal Press
+  ingredients:
+    Diamatine Crystal: 4
+    
+Empowered Void Plate:
+  method: Compactor
+  ingredients:
+    Empowered Void Crystal: 1
+    
+Empowered Void Crystal Block:
+  method: Empowerer
+  ingredients:
+    Void Crystal Block: 1
+    Block of Manasteel: 1
+    Block of Redstone: 1
+    Inert Blood-Iron Ingot: 1
+    Bricks: 1
+    
+Empowered Enori Crystal Block:
+  method: Empowerer
+  ingredients:
+    Enori Crystal Block: 1
+    Block of Manasteel: 1
+    Block of Redstone: 1
+    Inert Blood-Iron Ingot: 1
+    Bricks: 1
+
+    
+Enori Crystal Block:
+  method: Atomic Reconstructor
+  ingredients:
+    Block of Iron: 1
+    
+Restonia Crystal Block:
+  method: Atomic Reconstructor
+  ingredients:
+    Block of Redstone: 1
+
+
+Empowered Restonia Crystal Block:
+  method: Empowerer
+  ingredients:
+    Restonia Crystal Block: 1
+    Block of Manasteel: 1
+    Block of Redstone: 1
+    Inert Blood-Iron Ingot: 1
+    Bricks: 1
+    
+Empowered Restonia Crystal:
+  makes: 9
+  ingredients:
+    Empowered Restonia Crystal Block: 1
+
+Drill Speed Augment I:
+  ingredients:
+    Enori Crystal: 4
+    Sugar: 4
+    Restonia Crystal: 1
+
+Empowered Emeradic Gear:
+  method: Metal Press
+  ingredients:
+    Empowered Emeradic Crystal: 4
+
+
