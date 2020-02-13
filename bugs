@@ -9,3 +9,5 @@ Empty defaults
 Long Item names cross over into the raw materials
 
 Saving custom recipe options
+
+It's possible for a recipe to wait on a parent that won't call it

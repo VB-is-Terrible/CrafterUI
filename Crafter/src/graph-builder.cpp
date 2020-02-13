@@ -151,8 +151,14 @@ void CraftingGraph::tally_count(std::deque<std::string>& queue) {
 		auto ready = check_ingredient(request);
 		if (ready) {
 			seen.insert(request);
-			for (const auto& ingredient : graph.GetConnected(request)) {
-				queue.push_back(ingredient);
+			if (recipes.count(request)) {
+				for (const auto& recipe : recipes.at(request)) {
+					for (const auto& ingredient : recipe.ingredients) {
+						if (recipe_count.count(ingredient.name)) {
+							queue.push_back(ingredient.name);
+						}
+					}
+				}
 			}
 		}
 	}

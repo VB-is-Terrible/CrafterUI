@@ -7,15 +7,15 @@ Prudentium Furnace:
     Inferium Furnace: 1
     Iron Chest: 1
     2x Compressed Cobblestone: 5
-   
+
 Block of Prudentium Essence:
   ingredients:
     Block of Inferium Essence: 4
-    
+
 Block of Prudentium Essence:
   ingredients:
     Prudentium Essence: 9
-    
+
 Inferium Furnace:
   method: Advanced Crafting
   ingredients:
@@ -25,14 +25,14 @@ Inferium Furnace:
     Furnace: 1
     Chest: 1
     1x Compressed Cobblestone: 5
-    
+
 Block of Inferium Essence:
   ingredients:
     Inferium Essence: 9
 
 Block of Inferium Essence:
   default: true
-  
+
 Prudentium Essence:
   ingredients:
     Inferium Essence: 4
@@ -60,7 +60,7 @@ Tier 3 Crafting Seed:
     Manasteel Ingot: 2
     Block of Intermedium Essence: 2
     Intermedium Essence: 2
-  
+
 Tier 4 Crafting Seed:
   ingredients:
     Tier 3 Crafting Seed: 1
@@ -81,20 +81,20 @@ Tier 5 Crafting Seed:
 Block of Intermedium Essence:
   ingredients:
     Block of Prudentium Essence: 4
-    
+
 Block of Superium Essence:
   ingredients:
     Block of Intermedium Essence: 4
-    
+
 Block of Supremium Essence:
   ingredients:
     Block of Superium Essence: 4
-    
+
 Soul Dust:
   method: Furnace
   ingredients:
     Soulstone: 1
-    
+
 Dark Gem Seeds:
   ingredients:
     Dark Power Gem Block: 4
@@ -122,7 +122,7 @@ Platinum Seeds:
     Platinum Ingot: 4
     Supremium Essence: 16
     Tier 5 Crafting Seed: 1
-   
+
 Ruby Seeds:
   method: Advanced Crafting
   ingredients:

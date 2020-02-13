@@ -890,16 +890,6 @@ Printed Circuit Board <PCB>:
     Gold Nugget: 1
     Grog: 1
   makes: 1
-Prudentium Essence:
-  ingredients:
-    Inferium Essence: 4
-    Infusion Crystal Use: 1
-  makes: 1
-Prudentium Ingot:
-  ingredients:
-    Inferium Ingot: 1
-    Prudentium Essence: 4
-  makes: 1
 Pulverized Coal:
   ingredients:
     Coal: 1

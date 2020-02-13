@@ -25,6 +25,12 @@ int main(int argc, char *argv[])
 
         std::cout << "Current path is " << std::filesystem::current_path() << '\n';
 
+        const auto recipes = crafter::read_templates();
+        const auto dependencies = crafter::build_depend_graph(recipes);
+        const auto requests = crafter::get_requests(recipes, input_file);
+
+        std::shared_ptr<crafter::CraftingGraph> graph = std::make_shared<crafter::CraftingGraph>(requests, recipes, dependencies);
+
         QCoreApplication::setAttribute(Qt::AA_EnableHighDpiScaling);
 
         QGuiApplication app(argc, argv);
@@ -44,13 +50,6 @@ int main(int argc, char *argv[])
         engine.load(url);
 
         crafter::GraphUIManager main_graph(&engine);
-
-        const auto recipes = crafter::read_templates();
-        const auto dependencies = crafter::build_depend_graph(recipes);
-        const auto requests = crafter::get_requests(recipes, input_file);
-
-        std::shared_ptr<crafter::CraftingGraph> graph = std::make_shared<crafter::CraftingGraph>(requests, recipes, dependencies);
-
         main_graph.populateRecipes(graph);
 
         return app.exec();
