@@ -38,7 +38,7 @@ private:
         constexpr unsigned long calc_gap(size_t items, size_t width);
         void populateRecipes(void);
         void highlightRecipes(const std::unordered_set<std::string>& to_highlight);
-        void populateRecipeLinks(recipe_links&, const std::unordered_set<std::string>&);
+        void populateRecipeLinks(recipe_links&, const std::unordered_set<std::string>& children_highlight, const std::unordered_set<std::string>& parent_highlight);
         void populateRawMaterials(void);
         void addRawMaterial(const std::string& name, const size_t count);
         void recipeClicked(const std::string& name);
@@ -54,7 +54,7 @@ private:
         void recipeSelected(int index);
         void recipeAmountChanged(size_t amount);
         void resetSelected(void);
-        
+
         size_t find_max_items(void);
 
         friend QMLCommunication;
