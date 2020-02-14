@@ -111,7 +111,10 @@ constexpr unsigned long GraphUIManager::calc_gap(size_t items, size_t width) {
 	return (width - needed) / (items + 1);
 }
 
-void GraphUIManager::populateRecipeLinks(recipe_links& links, const std::unordered_set<std::string>& to_highlight) {
+void GraphUIManager::populateRecipeLinks(
+        recipe_links& links,
+        const std::unordered_set<std::string>& children_highlight,
+        const std::unordered_set<std::string>& parent_highlight) {
 	std::vector<crafter::LineConnection> connections;
 	for (const auto& [source, destination] : links) {
 		crafter::LineConnection connection;
@@ -119,7 +122,7 @@ void GraphUIManager::populateRecipeLinks(recipe_links& links, const std::unorder
 		const auto destination_location = locations.at(destination);
 		connection.start = std::pair<double, double>(source_location.first + recipe_width / 2, source_location.second + recipe_height);
 		connection.end = std::pair<double, double>(destination_location.first + recipe_width / 2, destination_location.second);
-                connection.highlighted = to_highlight.count(source);
+                connection.highlighted = children_highlight.count(source) || parent_highlight.count(destination);
 		connections.push_back(connection);
 	}
 	lineShape->setLines(std::move(connections));
@@ -133,7 +136,7 @@ void GraphUIManager::populateRecipes(std::shared_ptr<crafter::CraftingGraph> gra
         std::set_union(children.begin(), children.end(), parents.begin(), parents.end(), std::inserter(to_highlight, to_highlight.begin()));
 	populateRecipes();
         highlightRecipes(to_highlight);
-	populateRecipeLinks(graph->make_pairings(), to_highlight);
+	populateRecipeLinks(graph->make_pairings(), children, parents);
 	populateRawMaterials();
 }
 
@@ -171,7 +174,7 @@ void GraphUIManager::recipeClicked(const std::string& name) {
         auto to_highlight = decltype(parents)();
         std::set_union(children.begin(), children.end(), parents.begin(), parents.end(), std::inserter(to_highlight, to_highlight.begin()));
 	highlightRecipes(to_highlight);
-	populateRecipeLinks(graph->make_pairings(), to_highlight);
+	populateRecipeLinks(graph->make_pairings(), children, parents);
 	fillOutRecipe(name);
 }
 
@@ -293,6 +296,6 @@ void GraphUIManager::resetSelected(void) {
         selected = "";
         recipeIndex = 0;
         highlightRecipes({});
-        populateRecipeLinks(graph->make_pairings(), {});
+        populateRecipeLinks(graph->make_pairings(), {}, {});
 }
 }
