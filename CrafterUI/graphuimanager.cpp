@@ -208,7 +208,7 @@ void GraphUIManager::makeRecipeColumns(const std::string& name) {
                 if (list.empty()) {
                         continue;
                 }
-                auto column = createSingleRecipe(list, recipe, count.distribution[i]);
+                auto column = createSingleRecipe(list, recipe, count.distribution[i] * count.makes[i]);
                 column->setParentItem(recipeColumns);
         }
 }
