@@ -25,7 +25,6 @@ void QMLCommunication::setRecipeSelector(QQuickItem * selector) {
 
 void QMLCommunication::recipeSelected(int index) {
 	if (index != graphui.recipeIndex) {
-		std::cout << "Firing on index " << index << "\n";
 		graphui.recipeSelected(index);
 	}
 }

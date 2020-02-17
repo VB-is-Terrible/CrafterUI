@@ -167,7 +167,6 @@ void GraphUIManager::populateRawMaterials() {
 }
 
 void GraphUIManager::recipeClicked(const std::string& name) {
-	std::cout << "Recieved click from " << name << "\n";
         selected = name;
         const auto children = graph->get_children(selected);
         const auto parents = graph->get_parents(selected);
@@ -285,14 +284,12 @@ void GraphUIManager::recipeSelected(int index) {
 
 void GraphUIManager::recipeAmountChanged(size_t amount) {
         if (graph->recipe_count.at(selected).distribution[recipeIndex] == amount) {return;}
-        std::cout << "Would set recipe " << recipeIndex << " of " << selected << " to " << amount << "\n";
         graph->recipe_count.at(selected).distribution[recipeIndex] = amount;
         graph->update({selected});
         this->populateRecipes(graph);
 }
 
 void GraphUIManager::resetSelected(void) {
-        std::cout << "Trying to reset\n";
         selected = "";
         recipeIndex = 0;
         highlightRecipes({});
