@@ -12,6 +12,13 @@ namespace fs = std::experimental::filesystem;
 
 static constexpr int STRING_PAD = 30;
 void add_depend_recipe(crafter::depend_graph& graph, const crafter::Recipe& recipe);
+bool recipe_empty(const crafter::Recipe& recipe) {
+	if (recipe.ingredients.size() == 0) {
+		return true;
+	} else {
+		return false;
+	}
+}
 
 namespace crafter {
 
@@ -24,9 +31,19 @@ std::vector<N> tails(graph::Graph<N, E> g);
 craft_count::craft_count(const std::vector<Recipe>& recipes) {
 	distribution.clear();
 	makes.clear();
+	auto first = true;
 	for (const auto& recipe : recipes) {
 		distribution.push_back(0);
-		makes.push_back(recipe.makes);
+		if (first) {
+			first = false;
+			makes.push_back(recipe.makes);
+		} else {
+			if (recipe_empty(recipe)) {
+				makes.push_back(0);
+			} else {
+				makes.push_back(recipe.makes);
+			}
+		}
 	}
 }
 
@@ -240,9 +257,15 @@ void CraftingGraph::make_distribution(craft_count &count)
 			}
 			has += count.distribution[i] * count.makes[i];
 		}
-		has = std::min(has, count.needed);
-		auto needed = count.needed - has;
-		count.distribution[default_recipe] = ceil(needed / (double) count.makes[default_recipe]);
+		if (count.makes[default_recipe] == 0) {
+			has -= count.distribution[0];
+			has = std::min(has, count.needed);
+			count.distribution[0] = count.needed - has;
+		} else {
+			has = std::min(has, count.needed);
+			auto needed = count.needed - has;
+			count.distribution[default_recipe] = ceil(needed / (double) count.makes[default_recipe]);
+		}
 	}
 }
 

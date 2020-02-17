@@ -8,6 +8,8 @@
 
 #include "yaml-cpp/yaml.h"
 
+bool isDefault(const YAML::Node& recipe);
+
 namespace crafter {
 
 	recipe_store read_in(std::string file_name, bool pre_populate) {
@@ -44,7 +46,12 @@ namespace crafter {
 					recipes[name].push_back(default_recipe);
 				}
 			}
-			recipes[name].push_back(Recipe(name, recipe));
+			const auto recipe_obj = Recipe(name, recipe);
+			if (isDefault(recipe)) {
+				recipes[name].emplace(recipes[name].begin() + 1, recipe_obj);
+			} else {
+				recipes[name].push_back(recipe_obj);
+			}
 		}
 	}
 
@@ -154,4 +161,16 @@ namespace crafter {
         return "world";
     }
 
+}
+
+bool isDefault(const YAML::Node& recipe) {
+	auto default_ = recipe["default"];
+	if (!default_.IsDefined() || !default_.IsScalar()) {
+		return false;
+	}
+	if (default_.as<bool>() == true) {
+		return true;
+	} else {
+		return false;
+	}
 }

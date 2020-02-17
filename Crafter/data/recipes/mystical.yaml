@@ -9,12 +9,9 @@ Prudentium Furnace:
     2x Compressed Cobblestone: 5
 
 Block of Prudentium Essence:
+  method: Master Infusion Crystal
   ingredients:
     Block of Inferium Essence: 4
-
-Block of Prudentium Essence:
-  ingredients:
-    Prudentium Essence: 9
 
 Inferium Furnace:
   method: Advanced Crafting
@@ -32,6 +29,11 @@ Block of Inferium Essence:
 
 Block of Inferium Essence:
   default: true
+
+Prudentium Essence:
+  makes: 9
+  ingredients:
+    Block of Prudentium Essence: 1
 
 Prudentium Essence:
   ingredients:
@@ -80,14 +82,17 @@ Tier 5 Crafting Seed:
     Supremium Essence: 2
 
 Block of Intermedium Essence:
+  method: Master Infusion Crystal
   ingredients:
     Block of Prudentium Essence: 4
 
 Block of Superium Essence:
+  method: Master Infusion Crystal
   ingredients:
     Block of Intermedium Essence: 4
 
 Block of Supremium Essence:
+  method: Master Infusion Crystal
   ingredients:
     Block of Superium Essence: 4
 
@@ -151,12 +156,12 @@ Mithril Seeds:
 Block of Inferium Coal:
   ingredients:
     Inferium Coal: 9
-    
+
 Blood Infused Iron Ingot:
   method: Blood Altar
   ingredients:
     Inert Blood-Iron Ingot: 1
-    
+
 Inferium Coal:
   ingredients:
     Coal: 1
@@ -166,7 +171,7 @@ Superium Gear:
   method: Metal Press
   ingredients:
     Superium Ingot: 4
-    
+
 Prudentium Ingot:
   ingredients:
     Inferium Ingot: 1
@@ -176,3 +181,72 @@ Superium Plate:
   method: Compactor
   ingredients:
     Superium Ingot: 1
+
+Base Essence Ingot:
+  ingredients:
+    Iron Ingot: 1
+    Prosperity Shard: 4
+  makes: 1
+
+Inferium Ingot:
+  ingredients:
+    Base Essence Ingot: 1
+    Inferium Essence: 4
+  makes: 1
+
+Intermedium Essence:
+  makes: 9
+  ingredients:
+    Block of Intermedium Essence: 1
+
+Intermedium Essence:
+  ingredients:
+    Infusion Crystal Use: 1
+    Prudentium Essence: 4
+  makes: 1
+
+Intermedium Gear:
+  ingredients:
+    Copper Ingot: 1
+    Intermedium Ingot: 4
+  makes: 1
+
+Intermedium Ingot:
+  ingredients:
+    Intermedium Essence: 4
+    Prudentium Ingot: 1
+  makes: 1
+
+Superium Ingot:
+  ingredients:
+    Intermedium Ingot: 1
+    Superium Essence: 4
+  makes: 1
+
+Supremium Essence:
+  makes: 9
+  ingredients:
+    Block of Supremium Essence: 1
+
+Supremium Essence:
+  method: Infusion Crystal
+  ingredients:
+    Superium Essence: 4
+  makes: 1
+
+Supremium Ingot:
+  ingredients:
+    Superium Ingot: 1
+    Supremium Essence: 4
+  makes: 1
+
+Superium Essence:
+  ingredients:
+    Block of Superium Essence: 1
+  makes: 9
+
+Superium Essence:
+  method: Infusion Crystal
+  ingredients:
+    Intermedium Essence: 4
+  makes: 1
