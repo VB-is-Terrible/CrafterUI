@@ -230,7 +230,7 @@ void GraphUIManager::setDetailedRecipe(const std::string& name, const size_t rec
         auto row = createSingleRecipe(recipe);
         row->setParentItem(recipeMaterials);
         const auto needed = count.distribution[recipe_index];
-        recipeSpinner->setProperty("value", static_cast<  int>(needed));
+        recipeSpinner->setProperty("value", static_cast<int>(needed));
         recipeDisplay->setProperty("isDefaultRecipe", recipe_index == default_recipe);
         recipeDisplay->setProperty("recipeCount", static_cast<int>(needed));
 }
