@@ -234,10 +234,10 @@ Item Allocator:
     Bronze Gear: 2
     Basic Control Circuit: 1
     Chest: 1
-    Filter: 1
+    Filter (Extra Utilities): 1
     Redstone Servo: 2
     
-Filter:
+Filter (Extra Utilities):
   ingredients:
     Red Alloy Ingot: 4
     Stick: 4
@@ -356,3 +356,13 @@ Nether Brick:
   method: Furnace
   ingredients:
     Netherrack: 1
+
+Redstone Wire Coil:
+  method: Carpenter
+  makes: 10
+  ingredients:
+    Redstone: 4
+    Red Alloy Gear: 2
+    Wood Planks: 1
+    Tin Cable: 2
+    Super Glue: 800

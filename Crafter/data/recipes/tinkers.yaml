@@ -85,4 +85,20 @@ Reinforcement:
     Triberium Block: 2
     Hard Carbon Alloy: 3
     Rune of Earth: 1
+
+Solarium Block:
+  method: Factorizer
+  ingredients:
+    Solarium Ingot: 9
     
+Evil Infused Gear:
+  method: Metal Press
+  ingredients:
+    Evil Infused Ingot: 4
+
+Tritonite Ingot:
+  method: Advanced Alloy Smelting Factory
+  makes: 3
+  ingredients:
+    Cobalt Ingot: 3
+    Terrax Ingot: 2

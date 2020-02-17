@@ -95,4 +95,35 @@ Empowered Emeradic Gear:
   ingredients:
     Empowered Emeradic Crystal: 4
 
+Empowered Diamatine Gear:
+  method: Metal Press
+  ingredients:
+    Empowered Diamatine Crystal: 4
+    
+Empowered Diamatine Crystal:
+  makes: 9
+  ingredients:
+    Empowered Diamatine Crystal Block: 1
+    
+Empowered Diamatine Crystal Block:
+  method: Empowerer
+  ingredients:
+    Diamatine Crystal Block: 1
+    Block of Terrasteel: 1
+    Block of Redstone: 1
+    Blood Infused Glowstone: 1
+    Inert Blood-Iron Ingot: 1
+    
+Blood Infused Glowstone:
+  ingredients:
+    Blood Infused Glowstone Dust: 9
 
+Diamatine Crystal Block:
+  method: Atomic Reconstructor
+  ingredients:
+    Block of Diamond: 1
+
+Empowered Restonia Plate:
+  method: Compactor
+  ingredients:
+    Empowered Restonia Crystal: 1

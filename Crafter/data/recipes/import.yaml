@@ -241,6 +241,7 @@ Clear Laser Lens:
     Glass: 7
   makes: 1
 Compressed Diamond:
+  method: Enrichment Chamber
   ingredients:
     Diamond: 1
   makes: 1
@@ -738,10 +739,9 @@ Luminessence:
     Redstone: 1
   makes: 2
 Molten Lumium:
+  method: Magma Crucible
   ingredients:
-    Glowstone Dust: 1
-    Silver Ingot: 1
-    Tin Ingot: 1
+    Lumium Ingot: 1
   makes: 144
 Lunar Panel:
   ingredients:

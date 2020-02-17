@@ -162,7 +162,7 @@ Vacuumulator:
     Silicon: 1
     Chest: 1
     Cleaning Tube: 1
-    Filter: 1
+    Filter (Extra Utilities): 1
 
 Block of Gold:
   method: Factorizer
@@ -337,14 +337,15 @@ Resonant Filter:
 
 Lumium Ingot:
   method: Advanced Alloy Smelting Factory
+  makes: 2
   ingredients:
     Silver Ingot: 1
     Tin Ingot: 1
     Glowstone Dust: 1
 
-Lumium Ingot:
-  ingredients:
-    Molten Lumium: 144
+#Lumium Ingot:
+  #ingredients:
+    #Molten Lumium: 144
 
 Lumium Plate:
   ingredients:
@@ -371,3 +372,127 @@ Fluid Transposer:
     Bucket: 2
     Basic Control Circuit: 1
     Glass: 1
+
+Block of Mana Infused Metal:
+  method: Factorizer
+  ingredients:
+    Mana Infused Ingot: 9
+    
+Block of Platinum:
+  method: Factorizer
+  ingredients:
+    Platinum Ingot: 9
+    
+Block of Diamond:
+  method: Factorizer
+  ingredients:
+    Diamond: 9
+
+Block of Ruby:
+  method: Factorizer
+  ingredients:
+    Ruby: 9
+    
+Dark Power Gem Block:
+  ingredients:
+    Dark Power Gem: 9
+    
+Dark Power Gem:
+  method: Blood Infuser
+  ingredients:
+    Dark Gem: 1
+    
+Iridium Ingot:
+  method: Fluid Infuser
+  ingredients:
+    Essence of the Gods: 1000
+    Thermoconducting Alloy: 1
+    
+Centrifugal Separator:
+  method: Advanced Crafting
+  ingredients:
+    CPU Core EX2000: 1
+    Compressed Steel: 8
+    Enderium Plate: 4
+    Iridium Plate: 4
+    Electric Motor: 1
+    Filter (Extra Utilities): 1
+    Hyper Linking Card: 1
+    Empowered Diamatine Gear: 1
+    Copper Tank: 1
+    60k Coolant Cell: 1
+    Cleaning Machine: 1
+    Liquid Cleaner: 1
+    
+Block of Terrasteel:
+  method: Factorizer
+  ingredients:
+    Terrasteel Ingot: 9
+
+Enderium Plate:
+  method: Compactor
+  ingredients:
+    Enderium Ingot: 1
+
+Enderium Ingot:
+  method: Advanced Alloy Smelting Factory
+  makes: 2
+  ingredients:
+    Ender Pearl: 1
+    Platinum Ingot: 1
+    Lead Ingot: 1
+    
+Reinforced Jetpack:
+  method: Elite Crafting
+  ingredients:
+    Electrum Plate: 26
+    Tritonite Ingot: 2
+    Gold Promise Acceptor: 2
+    Majestic Component: 1
+    Redstone Transmission Coil: 2
+    CPU Core EX2000: 2
+    Superium Gear: 1
+    Elite Control Circuit: 2
+    Hardened Jetpack: 1
+    30k Coolant Cell: 2
+    Reinforced Thruster: 4
+
+Reinforced Thruster:
+  ingredients:
+    Electrum Ingot: 4
+    Redstone Energy Fluxduct: 2
+    Redstone Reception Coil: 1
+    Molten Redstone Bucket: 1
+    Magmatic Dynamo: 1
+    
+Magmatic Dynamo:
+  method: Advanced Crafting
+  ingredients:
+    Iron Ingot: 3
+    Invar Ingot: 8
+    Invar Gear: 1
+    Invar Plate: 5
+    Redstone Transmission Coil: 1
+    Bucket: 1
+    10k Coolant Cell: 2
+    
+Molten Redstone Bucket:
+  ingredients:
+    Bucket: 1
+    Molten Redstone: 1000
+    
+Gold Promise Acceptor:
+  method: Blood Infuser
+  ingredients:
+    Block of Gold: 1
+
+Block of Lumium:
+  method: Factorizer
+  ingredients:
+    Lumium Ingot: 9
+
+Block of Enderium:
+  method: Factorizer
+  ingredients:
+    Enderium Ingot: 9
+

@@ -11,3 +11,28 @@ Emerald Electron Tube:
   ingredients:
     Emerald: 5
     Redstone: 2
+
+Bog Earth:
+  makes: 8
+  ingredients:
+    Dirt: 4
+    Sand: 4
+    Water Cell: 1
+
+Apiary:
+  ingredients:
+    Wood Slab: 3
+    Wooden Plank: 5
+    Impregnated Casing: 1
+
+Impregnated Casing:
+  method: Carpenter
+  ingredients:
+    Wood: 8
+    Seed Oil: 250
+
+Seed Oil:
+  makes: 50
+  method: Squeezer
+  ingredients:
+    Cherry: 1

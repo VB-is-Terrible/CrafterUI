@@ -120,6 +120,7 @@ Chemical Reactor (Nuclearcraft):
 
 Extreme Alloy:
   method: Advanced Alloy Smelting Factory
+  makes: 2
   ingredients:
     Tough Alloy: 1
     Hard Carbon Alloy: 1

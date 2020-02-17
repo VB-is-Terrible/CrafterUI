@@ -399,5 +399,93 @@ Hyper Linking Card:
   ingredients:
     Chrome Plate: 3
     Infused Silicon: 2
-    Hardened Glass: 2
+    Hardened Glass: 4
+    
+CPU Core EX2000:
+  method: Rolling Machine
+  ingredients:
+    Dimensional Shard: 4
+    Data Storage Circuit: 1
+    Elite Component: 1
+    Elite Control Circuit: 1
+    CPU Core S1000: 1
+    Advanced PCB (Steve Carts): 1
+    
+Advanced PCB (Steve Carts):
+  ingredients:
+    Lumium Plate: 2
+    Advanced Control Circuit: 2
+    Advanced Alloy Plate: 2
+    Simple PCB: 2
+    CPU Core S1000: 1
+    
+Simple PCB:
+  ingredients:
+    Circuit Plate: 4
+    Gold Plate: 4
+    Card Base: 1
+
+Essence of the Gods:
+  makes: 1000
+  method: Magma Crucible
+  ingredients:
+    Majestic Dust: 1
+
+Majestic Dust:
+  method: Induction Smelter
+  ingredients:
+    White Magic Dust: 1
+    Dark Magic Dust: 1
+    
+White Magic Dust:
+  ingredients:
+    Illumination Powder: 1
+    Mana Powder: 1
+    Glowstone Dust: 1
+    Beeswax: 1
+
+Dark Magic Dust:
+  ingredients:
+    Pulverized Coal: 1
+    Evil Dust: 1
+    Glowstone Dust: 1
+    Blaze Powder: 1
+    
+Elite Component:
+  ingredients:
+    Luminessence: 1
+    Diamond: 2
+    Black Iron Slate: 1
+    
+Evil Dust:
+  method: Pulverizer
+  ingredients:
+    Dark Gem: 1
+    
+Ender Hook:
+  method: Advanced Crafting
+  ingredients:
+    Empowered Emeradic Plate: 2
+    Majestic Component: 1
+    Blaze Rod: 4
+    Wooden Grip: 1
+    Titanium Plate: 4
+    Block of Enderium: 2
+    Eye of Ender: 1
+    Red Hook: 1
+    Range Addon (+9): 1
+    Rope: 12
+    
+Red Hook:
+  method: Advanced Crafting
+  ingredients:
+    Diamond Hook: 1
+    Compressed Redstone: 4
+    Empowered Restonia Plate: 2
+    Redstone Wire Coil: 4
+    Majestic Ingot: 1
+    Rope: 2
+    Iron Chain: 1
+    Wooden Grip: 1
+    Range Addon (+8): 1
     

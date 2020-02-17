@@ -60,6 +60,7 @@ Tier 3 Crafting Seed:
     Manasteel Ingot: 2
     Block of Intermedium Essence: 2
     Intermedium Essence: 2
+    Osram Ingot: 1
 
 Tier 4 Crafting Seed:
   ingredients:
@@ -146,3 +147,32 @@ Mithril Seeds:
     Mana Infused Ingot: 4
     Block of Mana Infused Metal: 4
     Tier 4 Crafting Seed: 1
+
+Block of Inferium Coal:
+  ingredients:
+    Inferium Coal: 9
+    
+Blood Infused Iron Ingot:
+  method: Blood Altar
+  ingredients:
+    Inert Blood-Iron Ingot: 1
+    
+Inferium Coal:
+  ingredients:
+    Coal: 1
+    Inferium Essence: 2
+
+Superium Gear:
+  method: Metal Press
+  ingredients:
+    Superium Ingot: 4
+    
+Prudentium Ingot:
+  ingredients:
+    Inferium Ingot: 1
+    Prudentium Essence: 4
+
+Superium Plate:
+  method: Compactor
+  ingredients:
+    Superium Ingot: 1

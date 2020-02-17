@@ -365,3 +365,41 @@ Elite Control Circuit:
     Super Glue: 2000
     Boosting Mixture: 1
     
+Digital Miner:
+  method: Elite Crafting
+  ingredients:
+    Invar Plate: 13
+    Superium Plate: 12
+    Teleportation Core: 2
+    Electric Motor: 2
+    Linear Actuator: 1
+    Logistical Sorter: 2
+    Electro Silicon: 2
+    Advanced Control Circuit: 1
+    60k Coolant Cell: 2
+    CPU Core EX2000: 1
+    Microchip <Tier 3>: 1
+    Evil Infused Iron Gear: 2
+    Solarium Block: 1
+    Cleaning Machine: 2
+    Silicon Block: 2
+    
+Logistical Sorter:
+  ingredients:
+    Iron Ingot: 7
+    Basic Control Circuit: 1
+    Piston: 1
+    
+Teleportation Core:
+  ingredients:
+    Block of Lumium: 2
+    Empowered Palis Plate: 2
+    Compressed Diamond: 1
+    Block of Platinum: 1
+    Atomic Alloy: 3
+    
+Atomic Alloy:
+  method: Metallurgic Infuser
+  ingredients:
+    Reinforced Alloy: 1
+    Refined Obsidian Dust: 1

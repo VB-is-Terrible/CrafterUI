@@ -322,3 +322,10 @@ Titanium Plate:
   method: Compactor
   ingredients:
     Titanium Ingot: 1
+
+Liquid Crystalline:
+  method: Magma Crucible
+  makes: 250
+  default: true
+  ingredients:
+    Ruby: 1
