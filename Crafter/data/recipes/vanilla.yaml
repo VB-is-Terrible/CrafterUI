@@ -1,0 +1,13 @@
+Red Dye:
+  default: true
+  makes: 10
+  method: Mechanical Squeezer
+  ingredients:
+    Rose Bush: 1
+
+Yellow Dye:
+  default: true
+  makes: 10
+  method: Mechanical Squeezer
+  ingredients:
+    Sunflower: 1

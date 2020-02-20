@@ -104,6 +104,15 @@ Empowered Diamatine Crystal:
   makes: 9
   ingredients:
     Empowered Diamatine Crystal Block: 1
+
+Empowered Diamatine Crystal:
+  method: Empowerer
+  ingredients:
+    Diamatine Crystal: 1
+    Terrasteel Ingot: 1
+    Block of Redstone: 1
+    Blood Infused Glowstone Dust: 1
+    Inert Blood-Iron Ingot: 1
     
 Empowered Diamatine Crystal Block:
   method: Empowerer
@@ -127,3 +136,71 @@ Empowered Restonia Plate:
   method: Compactor
   ingredients:
     Empowered Restonia Crystal: 1
+
+Small Storage Crate:
+  method: Advanced Crafting
+  ingredients:
+    Wood Casing: 9
+    Silicon: 1
+    Chest: 1
+    Enori Plate: 1
+
+Medium Storage Crate:
+  method: Advanced Crafting
+  ingredients:
+    Wood Casing: 13
+    Infused Silicon: 2
+    Chest: 2
+    Copper Chest: 1
+    Enori Plate: 3
+    Tier 1 Storage Module: 1
+    
+Tier 1 Storage Module:
+  ingredients:
+    Chest: 1
+    Gold Plate: 2
+    Iron Gear: 1
+    Red Alloy Ingot: 1
+    Nether Quartz Plate: 2
+    
+Large Storage Crate:
+  method: Elite Crafting
+  ingredients:
+    Wood Casing: 19
+    Energized Silicon: 4
+    Chest: 4
+    Iron Chest: 1
+    Tier 2 Storage Module: 1
+    Diamatine Plate: 5
+    
+Tier 2 Storage Module:
+  ingredients:
+    Tier 1 Storage Module: 1
+    Chest: 1
+    Block of Quartz: 2
+    Diamond Gear: 1
+    Block of Gold: 2
+  
+Empowered Diamatine Plate:
+  method: Compactor
+  ingredients:
+    Empowered Diamatine Crystal: 1
+    
+Fluid Placer:
+  method: Advanced Crafting
+  ingredients:
+    Stone: 18
+    Palis Crystal: 3
+    Copper Gear: 2
+    Basic Coil: 1
+    Bucket: 1
+    
+Fluid Collector:
+  method: Advanced Crafting
+  ingredients:
+    Stone: 1
+    Palis Crystal: 4
+    Copper Gear: 2
+    Basic Coil: 1
+    Bucket: 2
+    

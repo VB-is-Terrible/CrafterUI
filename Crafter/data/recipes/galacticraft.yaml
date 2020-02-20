@@ -1,0 +1,35 @@
+Circuit Fabricator:
+  method: Advanced Crafting
+  ingredients:
+    Steel Plate: 8
+    Alumite Plate: 8
+    Aluminum Gear: 2
+    Cleaning Machine: 1
+    Blazing Electron Tube: 2
+    Seismum Ingot: 1
+    Elite Control Circuit: 1
+    Energized Silicon: 2
+
+Electric Compressor:
+  method: Advanced Crafting
+  ingredients:
+    Alumite Plate: 8
+    Steel Plate: 8
+    CPU Core S1000: 1
+    Hyper Linking Card: 1
+    Aluminum Gear: 1
+    Linear Actuator: 1
+    60k Coolant Cell: 1
+    Servomechanism: 1
+    Electric Motor: 1
+    Basic Wafer: 1
+    Elite Control Circuit: 1
+    
+Basic Wafer:
+  method: Circuit Fabricator
+  makes: 2
+  ingredients:
+    Mana Diamond: 1
+    Block of Redstone: 1
+    Silicon: 2
+    Advanced Control Circuit: 1

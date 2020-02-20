@@ -489,3 +489,50 @@ Red Hook:
     Wooden Grip: 1
     Range Addon (+8): 1
     
+Block of Electrotine:
+  method: Factorizer
+  ingredients:
+    Electrotine Ingot: 9
+    
+Bronze Plate:
+  method: Elite Crafting
+  ingredients:
+    Bronze Plate: 16
+    Enchanted Plate: 2
+    Empowered Diamatine Plate: 1
+    Hardened Steel Glass: 15
+    Glass: 15
+    
+Silver Tank:
+  method: Elite Crafting
+  ingredients:
+    Silver Plate: 18
+    Empowered Diamatine Plate: 1
+    Hardened Platinum Glass: 15
+    Glass: 15
+    
+Gold Tank:
+  method: Elite Crafting
+  ingredients:
+    Block of Gold: 18
+    Empowered Emeradic Plate: 1
+    Majestic Ingot: 1
+    Hardened Platinum Glass: 29
+
+Quantum Compressor:
+  method: Elite Crafting
+  ingredients:
+    Manyallyn Plate: 12
+    Platinum Plate: 12
+    Energized Silicon: 4
+    Servomechanism: 4
+    Linear Actuator: 2
+    Nether Star: 1
+    Elite Control Circuit: 2
+    Hyper Linking Card: 2
+    Reinforced Glass: 2
+    CPU Core EX2000: 1
+    Basic Wafer: 1
+    Electric Motor: 4
+    
+    

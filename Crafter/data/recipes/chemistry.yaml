@@ -30,6 +30,7 @@ Carbon Ingot:
     Carbon: 16
 
 Carbon:
+  method: Chemical Dissolver
   makes: 8
   ingredients:
     Coal: 1

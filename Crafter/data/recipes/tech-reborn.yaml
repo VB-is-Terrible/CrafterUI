@@ -329,3 +329,28 @@ Liquid Crystalline:
   default: true
   ingredients:
     Ruby: 1
+
+Industrial Centrifuge:
+  method: Advanced Crafting
+  ingredients:
+    Steel Plate: 8
+    Advanced Alloy Plate: 8
+    Cleaning Tube: 1
+    Liquid Cleaning Tube: 1
+    CPU Core S1000: 1
+    Elite Control Circuit: 2
+    60k nak Coolant Cell: 1
+    Superium Gear: 2
+    Carbon Plate: 1
+    
+Advanced Machine Frame:
+  ingredients:
+    Carbon Plate: 2
+    Advanced Alloy Plate: 2
+    Triberium Ingot: 1
+
+Highly Advanced Machine Frame:
+  ingredients:
+    Chrome Plate: 4
+    Titanium Plate: 4
+    Advanced Machine Frame: 1

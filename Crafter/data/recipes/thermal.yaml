@@ -496,3 +496,36 @@ Block of Enderium:
   ingredients:
     Enderium Ingot: 9
 
+Alumite Plate:
+  method: Compactor
+  ingredients:
+    Alumite Ingot: 1
+    
+Alumite Ingot:
+  method: Advanced Alloy Smelting Factory
+  makes: 4
+  ingredients:
+    Aluminum Ingot: 5
+    Iron Ingot: 2
+    Obsidian: 1
+
+Diamond Gear:
+  ingredients:
+    Diamond: 4
+
+Iron Gear:
+  ingredients:
+    Iron Ingot: 4
+
+
+Hardened Platinum Glass:
+  method: Induction Smelter
+  makes: 2
+  ingredients:
+    Pulverized Platinum: 1
+    Hardened Glass: 2
+    
+Pulverized Platinum:
+  method: Pulverizer
+  ingredients:
+    Platinum Ingot: 1
