@@ -4,10 +4,10 @@
 namespace crafter {
 
 GraphUIManager::GraphUIManager(QQmlApplicationEngine* engine)
-        : communicator{*this} {
+        {
 	this->engine = engine;
 	findScene();
-        communicator.realConstructor();
+        communicator = std::make_unique<QMLCommunication>(*this);
 }
 
 void GraphUIManager::removeChildren(QQuickItem* parent) {
@@ -49,7 +49,7 @@ QQuickItem* GraphUIManager::createRecipeDisplay(std::string title) {
 void GraphUIManager::appendRecipeDisplay (QQuickItem* recipe) {
 	recipe->setParentItem(scene);
 	engine->setObjectOwnership(recipe, QQmlEngine::JavaScriptOwnership);
-	communicator.addRecipe(recipe);
+	communicator->addRecipe(recipe);
 }
 
 template <typename T>

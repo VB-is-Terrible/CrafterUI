@@ -64,7 +64,7 @@ private:
         QQuickItem *scene, *flickable, *graphView, *sideStack, *rawDisplay,
                    *recipeDisplay, *recipeMaterials, *recipeColumns,
                    *recipeSelector, *recipeSpinner, *sideColumn, *recipeAcceptor;
-        QMLCommunication communicator;
+        std::unique_ptr<QMLCommunication> communicator;
         std::shared_ptr<crafter::CraftingGraph> graph;
         std::string selected;
         int recipeIndex;

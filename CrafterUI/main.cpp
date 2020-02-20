@@ -49,8 +49,8 @@ int main(int argc, char *argv[])
         }, Qt::QueuedConnection);
         engine.load(url);
 
-        crafter::GraphUIManager main_graph(&engine);
-        main_graph.populateRecipes(graph);
+        auto main_graph = std::make_shared<crafter::GraphUIManager>(&engine);
+        main_graph->populateRecipes(graph);
 
         return app.exec();
 }

@@ -13,7 +13,6 @@ class QMLCommunication : public QObject {
 	Q_OBJECT
 public:
 	QMLCommunication(class GraphUIManager&);
-	void realConstructor(void);
 public slots:
 	void setRecipeSelector(QQuickItem*);
 	void setRecipeAccept(QQuickItem*);
