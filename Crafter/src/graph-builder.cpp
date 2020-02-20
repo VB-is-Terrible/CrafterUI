@@ -227,6 +227,7 @@ bool CraftingGraph::check_ingredient(const std::string& ingredient) {
 		}
 	}
 
+	std::cout << "Doing " << ingredient << "\n";
 	for (const auto& parent : graph.GetIncoming(ingredient)) {
 		if (!recipe_count.count(parent)) {
 			continue;
@@ -434,8 +435,8 @@ bool valid_extension(std::string extension) {
 depend_graph build_depend_graph (const recipe_store& recipe_store) {
 	depend_graph result;
 	for (const auto& [_, recipes] : recipe_store) {
-		for (const auto& recipe : recipes) {
-			add_depend_recipe(result, recipe);
+		if (recipes.size() > 1) {
+			add_depend_recipe(result, recipes.at(default_recipe));
 		}
 	}
 	return result;
