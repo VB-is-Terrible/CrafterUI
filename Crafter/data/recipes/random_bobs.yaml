@@ -492,7 +492,7 @@ Red Hook:
 Block of Electrotine:
   method: Factorizer
   ingredients:
-    Electrotine Ingot: 9
+    Electrotine Alloy Ingot: 9
     
 Bronze Plate:
   method: Elite Crafting
@@ -522,7 +522,7 @@ Gold Tank:
 Quantum Compressor:
   method: Elite Crafting
   ingredients:
-    Manyallyn Plate: 12
+    Manyullyn Plate: 12
     Platinum Plate: 12
     Energized Silicon: 4
     Servomechanism: 4
@@ -534,5 +534,19 @@ Quantum Compressor:
     CPU Core EX2000: 1
     Basic Wafer: 1
     Electric Motor: 4
+    Niob Ingot: 2
     
-    
+Sodium Cell:
+  method: Industrial Electrolyzer
+  ingredients:
+    Clay Dust: 10
+
+Clay Dust:
+  method: Pulverizer
+  ingredients:
+    Clay Ball: 1
+      
+Potassium Cell:
+  makes: 2
+  ingredients:
+    Saltpeter Dust: 10    

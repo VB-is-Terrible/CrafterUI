@@ -11,3 +11,9 @@ Yellow Dye:
   method: Mechanical Squeezer
   ingredients:
     Sunflower: 1
+
+Magma Cream:
+  method: Pulverizer
+  makes: 4
+  ingredients:
+    Magma Block: 1

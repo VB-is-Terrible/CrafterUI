@@ -273,7 +273,7 @@ Basic Purifying Factory:
 Advanced Smelting Factory:
   method: Elite Crafting
   ingredients:
-    Alumite Plate: 36
+    Alumite Plate: 24
     Furnace: 5
     Cleaning Tube: 6
     Heat Conductor: 2
@@ -287,7 +287,7 @@ Advanced Smelting Factory:
 Advanced Enriching Factory:
   method: Elite Crafting
   ingredients:
-    Alumite Plate: 36
+    Alumite Plate: 24
     Cleaning Tube: 6
     Heat Conductor: 2
     Electrotine Alloy Plate: 1
@@ -301,7 +301,7 @@ Advanced Enriching Factory:
 Advanced Crushing Factory:
   method: Elite Crafting
   ingredients:
-    Alumite Plate: 36
+    Alumite Plate: 24
     Cleaning Tube: 4
     Basic Crushing Factory: 1
     Elite Control Circuit: 1
@@ -315,7 +315,7 @@ Advanced Crushing Factory:
 Advanced Purifying Factory:
   method: Elite Crafting
   ingredients:
-    Alumite Plate: 36
+    Alumite Plate: 24
     Liquid Cleaning Tube: 4
     Basic Purifying Factory: 1
     Silicon Plate: 2
@@ -324,6 +324,7 @@ Advanced Purifying Factory:
     Filter (Extra Planets): 3
     Saw Blade: 2
     Advanced Gas Tank: 2
+    Energized Silicon: 1
 
 Speed Upgrade:
   method: Carpenter
@@ -403,3 +404,26 @@ Atomic Alloy:
   ingredients:
     Reinforced Alloy: 1
     Refined Obsidian Dust: 1
+
+Advanced Control Circuit:
+  method: Carpenter
+  makes: 5
+  default: true
+  ingredients:
+    Super Glue: 1000
+    Platinum Ingot: 2
+    Advanced Alloy Ingot: 2
+    Gold Ingot: 2
+    Basic Control Circuit: 2
+    Circuit Plate: 1
+
+Basic Control Circuit:
+  method: Carpenter
+  makes: 5
+  default: true
+  ingredients:
+    Platinum Ingot: 4
+    Transistor: 2
+    Electro Silicon: 2
+    Infused Silicon: 1
+    Super Glue: 500

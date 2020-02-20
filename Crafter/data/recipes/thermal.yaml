@@ -529,3 +529,26 @@ Pulverized Platinum:
   method: Pulverizer
   ingredients:
     Platinum Ingot: 1
+    
+Manyullyn Plate:
+  method: Compactor
+  ingredients:
+    Manyullyn Ingot: 1
+
+Manyullyn Ingot:
+  method: Advanced Alloy Smelting Factory
+  makes: 3
+  ingredients:
+    Cobalt Ingot: 2
+    Ardite Ingot: 2
+
+Platinum Plate:
+  method: Compactor
+  ingredients:
+    Platinum Ingot: 1
+
+Aluminum Plate:
+  method: Compactor
+  ingredients:
+    Aluminum Ingot: 1
+    

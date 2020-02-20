@@ -33,3 +33,94 @@ Basic Wafer:
     Block of Redstone: 1
     Silicon: 2
     Advanced Control Circuit: 1
+
+Standard Wrench:
+  ingredients:
+    Compressed Steel: 1
+    Compressed Bronze: 2
+    
+Compressed Bronze:
+  method: Rolling Machine
+  ingredients:
+    Bronze Plate: 4
+
+Compressed Tin:
+  method: Rolling Machine
+  ingredients:
+    Tin Plate: 4
+
+Compressed Copper:
+  method: Rolling Machine
+  ingredients:
+    Copper Plate: 4
+    
+Refinery (Galacticraft):
+  method: Advanced Crafting
+  ingredients:
+    Alumite Plate: 8
+    Compressed Tin: 8
+    Bronze Electron Tube: 2
+    Bucket: 2
+    Electric Motor: 1
+    Electrolytic Core: 1
+    Copper Canister: 2
+    Elite Control Circuit: 1
+    
+Copper Canister:
+  ingredients:
+    Copper Ingot: 4
+    Energized Silicon: 1
+    Compressed Copper: 3
+    
+Oxygen Fan:
+  ingredients:
+    Compressed Steel: 4
+    Basic Wafer: 1
+    Redstone: 1
+    
+Oxygen Vent:
+  ingredients:
+    Compressed Steel: 1
+    Compressed Tin: 3
+    
+Oxygen Collector:
+  method: Elite Crafting
+  ingredients:
+    Aluminum Plate: 24
+    Reinforced Glass: 4
+    Meteorite Ingot: 2
+    Basic Wafer: 4
+    Oxygen Fan: 4
+    Oxygen Vent: 4
+    Gold Gear: 2
+    Tin Canister: 4
+    Oxygen Concentrator: 1
+
+Oxygen Compressor:
+  method: Elite Crafting
+  ingredients:
+    Aluminum Plate: 24
+    Reinforced Glass: 2
+    Yrdeen Ingot: 4
+    Basic Wafer: 2
+    Red Alloy Plate: 4
+    Oxygen Vent: 4
+    60k Coolant Cell: 4
+    Electric Motor: 4
+    Oxygen Concentrator: 1
+    Elite Control Circuit: 2
+    
+Tin Canister:
+  ingredients:
+    Tin Ingot: 4
+    Compressed Tin: 3
+    Energized Silicon: 1
+    
+Oxygen Concentrator:
+  ingredients:
+    Compressed Steel: 4
+    Compressed Tin: 3
+    Tin Canister: 1
+    Oxygen Vent: 1
+    
+

@@ -36,3 +36,11 @@ Seed Oil:
   method: Squeezer
   ingredients:
     Cherry: 1
+
+Bronze Electron Tube:
+  method: Thermionic Fabricator
+  makes: 4
+  ingredients:
+    Bronze Ingot: 5
+    Redstone: 2
+    

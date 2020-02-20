@@ -354,3 +354,41 @@ Highly Advanced Machine Frame:
     Chrome Plate: 4
     Titanium Plate: 4
     Advanced Machine Frame: 1
+    
+Diamond Saw Blade:
+  makes: 4
+  ingredients:
+    Steel Ingot: 4
+    Diamond Dust: 4
+    
+Industrial Centrifuge:
+  method: Advanced Crafting
+  ingredients:
+    Steel Plate: 8
+    Advanced Alloy Plate: 8
+    Cleaning Tube: 1
+    Liquid Cleaning Tube: 1
+    CPU Core S1000: 1
+    Elite Control Circuit: 2
+    60k nak Coolant Cell: 1
+    Carbon Plate: 1
+    Superium Gear: 2
+    
+    
+Reinforced Glass:
+  method: Advanced Crafting
+  makes: 4
+  ingredients:
+    Compressed Obsidian: 4
+    Hardened Glass: 12
+    Advanced Alloy Plate: 4
+    2x Compressed Stone: 4
+    Tiberium Block: 1
+    
+60k nak Coolant Cell:
+  ingredients:
+    Sodium Cell: 2
+    30k Coolant Cell: 1
+    Potassium Cell: 2
+    Ovium Ingot: 2
+    Yrdeen Ingot: 2

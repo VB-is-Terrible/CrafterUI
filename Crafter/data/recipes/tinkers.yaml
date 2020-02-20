@@ -102,3 +102,43 @@ Tritonite Ingot:
   ingredients:
     Cobalt Ingot: 3
     Terrax Ingot: 2
+    
+Yrdeen Ingot:
+  method: Casting
+  ingredients:
+    Yrdeen Fluid: 144
+    
+Yrdeen Fluid:
+  method: Alloying
+  makes: 5
+  ingredients:
+    Liquid Crystalline: 1
+    Liquid Concrete: 4
+    Nitronite Fluid: 2
+    
+Nitronite Fluid:
+  method: Alloying
+  makes: 6
+  ingredients:
+    Liquid Magma: 6
+    Osram Fluid: 1
+    
+Liquid Magma:
+  method: Smelting
+  makes: 72
+  ingredients:
+    Magma Block: 1
+
+Osram Fluid:
+  method: Smelting
+  makes: 144
+  ingredients:
+    Osram Ingot: 1
+
+Liquid Concrete:
+  method: Mixer
+  makes: 500
+  ingredients:
+    Sand: 2
+    Gravel: 1
+    Clay Ball: 1
