@@ -57,6 +57,17 @@ CraftingGraph::CraftingGraph (
 	get_order();
 }
 
+CraftingGraph::CraftingGraph(
+	const CraftingGraphState& state,
+	const recipe_store& recipes,
+	const depend_graph& dependencies) : recipes{recipes}, dependencies{dependencies} {
+	build_graph(state.requests);
+	setDistribution(state.distributions);
+	tally_count(state.requests);
+	get_order();
+
+}
+
 pairings CraftingGraph::make_pairings(void) const {
 	pairings result;
 	for (const auto& item : graph) {
@@ -137,7 +148,12 @@ void CraftingGraph::tally_count(const std::vector<Ingredients>& requests) {
 
 	for (const auto& node : requests) {
 		auto needed = static_cast<size_t>(node.count);
-		craft_count craft(recipes.at(node.name));
+		craft_count craft;
+		if (recipe_count.count(node.name)) {
+			craft = recipe_count.at(node.name);
+		} else {
+			craft = (recipes.at(node.name));
+		}
 		craft.base_needed = needed;
 		recipe_count[node.name] = craft;
 		queue.push_back(node.name);
@@ -585,6 +601,47 @@ std::unordered_set<std::string> CraftingGraph::get_parents(const std::string & r
 		}
 	}
 	return result;
+}
+
+CraftingGraphState CraftingGraph::getState(void) {
+	CraftingGraphState result;
+	for (const auto& [recipe, count] : recipe_count) {
+		if (count.base_needed) {
+			result.requests.emplace_back(recipe, count.base_needed);
+		}
+		if (count.distribution.size() > (default_recipe)) {
+			auto other_recipes = std::accumulate(
+				count.distribution.cbegin() + default_recipe + 1,
+				count.distribution.cend(),
+				0
+			);
+			if (count.makes[default_recipe] != 0) {
+				other_recipes += count.distribution[0];
+			}
+			if (other_recipes != 0) {
+				result.distributions[recipe] = count.distribution;
+			}
+		}
+	}
+
+	return result;
+}
+
+void CraftingGraph::setDistribution(const distribution_map& dist) {
+	for (const auto& [name, distribution] : dist) {
+		if (!recipe_count.count(name)) {
+			if (recipes.count(name)) {
+				recipe_count[name] = craft_count(recipes.at(name));
+			} else {
+				recipe_count[name] = craft_count();
+			}
+
+		}
+		craft_count& count = recipe_count.at(name);
+		for (size_t i = 0; i < distribution.size(); i++) {
+			count.distribution[i] = distribution[i];
+		}
+	}
 }
 
 }

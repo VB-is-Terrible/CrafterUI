@@ -12,6 +12,7 @@ namespace crafter {
 	};
 	struct Ingredients {
 		Ingredients (YAML::Node);
+		Ingredients() = default;
 		Ingredients(std::string name_, int count_) : name{name_}, count{count_} {};
 		std::string name;
 		int count;
