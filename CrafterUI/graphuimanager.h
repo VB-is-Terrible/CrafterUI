@@ -28,7 +28,7 @@ static constexpr const auto recipe_margin_right = 30;
 
 class GraphUIManager {
 public:
-        GraphUIManager(QQmlApplicationEngine* engine);
+        GraphUIManager(QQmlApplicationEngine* engine, const std::string& temp_file);
         void populateRecipes(std::shared_ptr<crafter::CraftingGraph>);
 private:
         QQuickItem* createRecipeDisplay(std::string title);
@@ -55,6 +55,8 @@ private:
         void recipeAmountChanged(size_t amount);
         void resetSelected(void);
 
+        static YAML::Node convertState(CraftingGraphState);
+
         size_t find_max_items(void);
 
         friend QMLCommunication;
@@ -64,9 +66,9 @@ private:
         QQuickItem *scene, *flickable, *graphView, *sideStack, *rawDisplay,
                    *recipeDisplay, *recipeMaterials, *recipeColumns,
                    *recipeSelector, *recipeSpinner, *sideColumn, *recipeAcceptor;
-        QMLCommunication communicator;
+        std::unique_ptr<QMLCommunication> communicator;
         std::shared_ptr<crafter::CraftingGraph> graph;
-        std::string selected;
+        std::string selected, tempFile;
         int recipeIndex;
         std::unordered_map<std::string, QQuickItem*> recipes;
         location_map locations;

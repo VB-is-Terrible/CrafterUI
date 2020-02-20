@@ -8,6 +8,7 @@
 #include <deque>
 #include <math.h>
 #include <algorithm>
+#include "yaml-cpp/yaml.h"
 
 #include "import.h"
 #include "graph.h"
@@ -35,10 +36,23 @@ using depend_graph = std::unordered_map<std::string, std::vector<std::string>>;
 using ingredient_map = std::unordered_map<std::string, int>;
 using recipe_order = std::vector<std::vector<std::string>>;
 using pairings = std::vector<std::pair<std::string, std::string>>;
+using distribution_map = std::unordered_map<std::string, std::vector<size_t>>;
+
+struct CraftingGraphState {
+	crafter::requests requests;
+	distribution_map distributions;
+};
+
 class CraftingGraph {
 public:
 	CraftingGraph (
 		const requests& requests,
+		const recipe_store& recipes,
+		const depend_graph& dependencies
+	);
+
+	CraftingGraph(
+		const CraftingGraphState& state,
 		const recipe_store& recipes,
 		const depend_graph& dependencies
 	);
@@ -56,6 +70,7 @@ public:
 	void update(const std::vector<std::string>&);
 	std::unordered_set<std::string> get_children(const std::string &);
 	std::unordered_set<std::string> get_parents(const std::string &);
+	CraftingGraphState getState();
 private:
 	void build_graph(const std::vector<Ingredients>&);
 	void build_graph(const std::vector<std::string>&);
@@ -80,6 +95,7 @@ private:
 	void mark(const std::vector<Ingredients>&);
 	void mark(const std::vector<std::string>&);
 	void mark(std::deque<std::string>&);
+	void setDistribution(const distribution_map&);
 	friend std::ostream& operator<< (std::ostream& os, const CraftingGraph&);
 	friend std::ostream& output_recipe (std::ostream& os, const CraftingGraph&, const std::string& name);
 };
@@ -89,4 +105,66 @@ requests get_requests_from_input (const recipe_store& recipes);
 recipe_store read_templates(std::string template_location = data_location);
 bool valid_extension(std::string);
 depend_graph build_depend_graph (const recipe_store& recipes);
+
+}
+
+namespace YAML {
+template <>
+struct convert<crafter::Ingredients> {
+	static Node encode(const crafter::Ingredients& ingredient) noexcept {
+		Node result;
+		result["name"] = ingredient.name;
+		result["count"] = ingredient.count;
+		return result;
+	}
+	static bool decode(const Node& node, crafter::Ingredients& ingredient) {
+		if(!node.IsMap() || node.size() != 2) {
+			return false;
+		}
+		ingredient.count = node["count"].as<int>();
+		ingredient.name = node["name"].as<std::string>();
+		return true;
+	}
+};
+
+template <>
+struct convert<crafter::distribution_map> {
+	static Node encode(const crafter::distribution_map& distribution) {
+		Node node;
+		for (const auto& [name, value] : distribution) {
+			node[name] = value;
+		}
+		return node;
+	}
+	static bool decode(const Node& node, crafter::distribution_map& distribution) {
+		if (!node.IsMap()) {
+			return false;
+		}
+		for (const auto& it : node) {
+			const auto name = it.first.as<std::string>();
+			const auto one_distribution = it.second.as<std::vector<size_t>>();
+			distribution[name] = one_distribution;
+		}
+		return true;
+	}
+};
+
+template <>
+struct convert<crafter::CraftingGraphState> {
+	static Node encode(const crafter::CraftingGraphState& state) {
+		Node result;
+		result["requests"] = state.requests;
+		result["distributions"] = state.distributions;
+		return result;
+	}
+	static bool decode (const Node& node, crafter::CraftingGraphState& state) {
+		if(!node.IsMap() || node.size() != 2) {
+			return false;
+		}
+		state.requests = node["requests"].as<crafter::requests>();
+		state.distributions = node["distributions"].as<crafter::distribution_map>();
+		return true;
+	}
+};
+
 }

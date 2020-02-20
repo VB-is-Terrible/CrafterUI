@@ -10,6 +10,7 @@
 #include <filesystem>
 #include <memory>
 #include <QIcon>
+#include "yaml-cpp/yaml.h"
 
 #include "lineshape.h"
 #include "graphuimanager.h"
@@ -17,6 +18,7 @@
 
 std::string read_args (int argc, char *argv[]);
 
+constexpr auto TEMP_FILE = "/tmp/CrafterUIContinue.yaml";
 
 int main(int argc, char *argv[])
 {
@@ -27,9 +29,20 @@ int main(int argc, char *argv[])
 
         const auto recipes = crafter::read_templates();
         const auto dependencies = crafter::build_depend_graph(recipes);
-        const auto requests = crafter::get_requests(recipes, input_file);
+        std::shared_ptr<crafter::CraftingGraph> graph;
+        if (input_file == "" && std::filesystem::exists(TEMP_FILE)) {
+                auto yaml_file = YAML::LoadFile(TEMP_FILE);
+                crafter::CraftingGraphState state;
+                YAML::convert<crafter::CraftingGraphState>::decode(yaml_file, state);
+                graph = std::make_shared<crafter::CraftingGraph>(
+                        state,
+                        recipes, dependencies);
+        } else {
+                const auto requests = crafter::get_requests(recipes, input_file);
+                graph = std::make_shared<crafter::CraftingGraph>(
+                        requests, recipes, dependencies);
+        }
 
-        std::shared_ptr<crafter::CraftingGraph> graph = std::make_shared<crafter::CraftingGraph>(requests, recipes, dependencies);
 
         QCoreApplication::setAttribute(Qt::AA_EnableHighDpiScaling);
 
@@ -49,8 +62,8 @@ int main(int argc, char *argv[])
         }, Qt::QueuedConnection);
         engine.load(url);
 
-        crafter::GraphUIManager main_graph(&engine);
-        main_graph.populateRecipes(graph);
+        auto main_graph = std::make_shared<crafter::GraphUIManager>(&engine, TEMP_FILE);
+        main_graph->populateRecipes(graph);
 
         return app.exec();
 }
