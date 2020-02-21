@@ -15,9 +15,3 @@ ApplicationWindow {
         objectName: "Centre of the Universe"
     }
 }
-
-/*##^##
-Designer {
-    D{i:2;invisible:true}
-}
-##^##*/

@@ -29,10 +29,3 @@ Item {
         }
     }
 }
-
-/*##^##
-Designer {
-    D{i:0;autoSize:true;height:480;width:640}D{i:1;anchors_height:100;anchors_width:100;anchors_x:126;anchors_y:107}
-D{i:2;anchors_height:400;anchors_width:200;anchors_x:155;anchors_y:66}
-}
-##^##*/

@@ -93,10 +93,3 @@ Item {
         }
     }
 }
-
-/*##^##
-Designer {
-    D{i:4;anchors_height:400;anchors_width:400}
-}
-##^##*/
-

@@ -59,11 +59,3 @@ Rectangle {
         }
     }
 }
-
-/*##^##
-Designer {
-    D{i:1;anchors_width:134;anchors_x:8;anchors_y:8}D{i:2;anchors_height:157;anchors_width:184;anchors_x:8;anchors_y:35}
-D{i:3;anchors_x:32;anchors_y:68}
-}
-##^##*/
-

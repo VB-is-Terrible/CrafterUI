@@ -98,10 +98,3 @@ Item {
         }
     }
 }
-
-/*##^##
-Designer {
-    D{i:4;anchors_width:100;anchors_x:23;anchors_y:16}D{i:7;anchors_width:646}
-}
-##^##*/
-

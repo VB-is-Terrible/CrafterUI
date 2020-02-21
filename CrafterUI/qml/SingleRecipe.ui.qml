@@ -57,9 +57,3 @@ Item {
         anchors.topMargin: hasMethod ? fontMetrics.height * .2 : 0
     }
 }
-
-/*##^##
-Designer {
-    D{i:0;autoSize:true;height:480;width:640}
-}
-##^##*/
