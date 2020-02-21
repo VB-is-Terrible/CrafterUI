@@ -7,22 +7,29 @@ RecipeDetailedForm {
         }
     }
     cancel {
-        onClicked: {
-            swiper.setCurrentIndex(0);
-            spinBox.value = this.recipeCount;
-        }
+        onClicked: cancel_change();
     }
     editChange {
         onClicked: {
             swiper.setCurrentIndex(1);
         }
     }
-    accept {
-        onClicked: {
-            swiper.setCurrentIndex(0);
-            changeRecipe(spinBox.value);
-        }
+    spinBox {
     }
+    accept {
+        onClicked: accept_change();
+    }
+
+    function accept_change() {
+        swiper.setCurrentIndex(0);
+        changeRecipe(spinBox.value);
+    }
+
+    function cancel_change() {
+        swiper.setCurrentIndex(0);
+        spinBox.value = this.recipeCount;
+    }
+
     function toOverview () {
         swiper.setCurrentIndex(0);
     }

@@ -98,6 +98,7 @@ Item {
                 editable: true
                 to: 999999
                 enabled: !isDefaultRecipe
+                Keys.onReturnPressed: accept_change();
             }
             RowLayout {
                 id: baseRow
@@ -112,12 +113,14 @@ Item {
                     text: qsTr("Cancel")
                     Layout.fillWidth: true
                     Layout.fillHeight: true
+                    Keys.onReturnPressed: cancel_change();
                 }
                 Button {
                     id: accept
                     text: qsTr("Accept")
                     Layout.fillWidth: true
                     Layout.fillHeight: true
+                    Keys.onReturnPressed: accept_change();
                 }
             }
         }
