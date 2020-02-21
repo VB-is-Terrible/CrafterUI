@@ -243,7 +243,6 @@ bool CraftingGraph::check_ingredient(const std::string& ingredient) {
 		}
 	}
 
-	std::cout << "Doing " << ingredient << "\n";
 	for (const auto& parent : graph.GetIncoming(ingredient)) {
 		if (!recipe_count.count(parent)) {
 			continue;
