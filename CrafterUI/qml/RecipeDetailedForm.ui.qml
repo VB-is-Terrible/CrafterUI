@@ -99,6 +99,7 @@ Item {
                 to: 999999
                 enabled: !isDefaultRecipe
                 Keys.onReturnPressed: accept_change();
+                Keys.onEnterPressed: accept_change();
             }
             RowLayout {
                 id: baseRow
@@ -114,6 +115,7 @@ Item {
                     Layout.fillWidth: true
                     Layout.fillHeight: true
                     Keys.onReturnPressed: cancel_change();
+                    Keys.onEnterPressed: cancel_change();
                 }
                 Button {
                     id: accept
@@ -121,6 +123,7 @@ Item {
                     Layout.fillWidth: true
                     Layout.fillHeight: true
                     Keys.onReturnPressed: accept_change();
+                    Keys.onEnterPressed: accept_change();
                 }
             }
         }
