@@ -2,7 +2,7 @@
 A tool to help with crafting long recipes in modded minecraft
 
 ## Setup and building
-Once cloned, run setup.bash, and build.bash to build, run.bash to run
+Once cloned, run setup.bash, and release.bash to build, run.bash to run
 If you have a preferred build location, alter setup.bash to use it instead
 
 ## Dependencies
