@@ -60,7 +60,6 @@ Item {
             }
 
             Label {
-                text: qsTr("You are on Main Graph.")
                 anchors.centerIn: parent
             }
             Item {

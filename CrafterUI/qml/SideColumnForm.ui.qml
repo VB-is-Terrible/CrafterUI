@@ -26,7 +26,6 @@ Item {
         anchors.fill: parent
         color: 'plum'
         Label {
-            text: qsTr("You are on the side bar.")
             anchors.centerIn: parent
         }
 
