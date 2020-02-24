@@ -63,6 +63,7 @@ CraftingGraph::CraftingGraph(
 	const depend_graph& dependencies) : recipes{recipes}, dependencies{dependencies} {
 	build_graph(state.requests);
 	setDistribution(state.distributions);
+	build_graph(state.requests);
 	tally_count(state.requests);
 	get_order();
 
