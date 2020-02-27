@@ -170,8 +170,9 @@ void GraphUIManager::populateRawMaterials() {
 void GraphUIManager::recipeClicked(const std::string& name) {
         selected = name;
         const auto children = graph->get_children(selected);
-        const auto parents = graph->get_parents(selected);
-        auto to_highlight = decltype(parents)();
+        const auto incoming = graph->graph.GetIncoming(selected);
+        const std::unordered_set<std::string> parents(incoming.begin(), incoming.end());
+        auto to_highlight = decltype(children)();
         std::set_union(children.begin(), children.end(), parents.begin(), parents.end(), std::inserter(to_highlight, to_highlight.begin()));
 	highlightRecipes(to_highlight);
 	populateRecipeLinks(graph->make_pairings(), children, parents);
