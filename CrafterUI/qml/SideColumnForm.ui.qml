@@ -9,6 +9,7 @@ Item {
     }
 
     height: 800
+    property alias selectInput: button
     property alias button1: button1
     property alias mainView: mainView
     width: 18 * fontMetrics.maximumCharacterWidth
@@ -71,12 +72,15 @@ Item {
             clip: true
             interactive: false
             Item {
+                RecipeInput {}
+            }
+
+            Item {
                 BetterColumn {
                     column {
                         id: rawPage
                         objectName: "rawPage"
                     }
-
                 }
             }
             Item {

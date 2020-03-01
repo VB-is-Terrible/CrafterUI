@@ -16,5 +16,7 @@
         <file>qml/BetterColumn.ui.qml</file>
         <file>qml/SingleRecipe.ui.qml</file>
         <file>icon.png</file>
+        <file>qml/RecipeInput.qml</file>
+        <file>qml/RecipeInputForm.ui.qml</file>
     </qresource>
 </RCC>
