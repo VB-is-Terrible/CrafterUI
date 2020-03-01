@@ -175,7 +175,7 @@ void GraphUIManager::recipeClicked(const std::string& name) {
         auto to_highlight = decltype(children)();
         std::set_union(children.begin(), children.end(), parents.begin(), parents.end(), std::inserter(to_highlight, to_highlight.begin()));
 	highlightRecipes(to_highlight);
-	populateRecipeLinks(graph->make_pairings(), children, parents);
+	populateRecipeLinks(graph->make_pairings(), children, {selected});
 	fillOutRecipe(name);
 }
 
