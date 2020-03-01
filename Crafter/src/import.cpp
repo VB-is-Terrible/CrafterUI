@@ -158,8 +158,8 @@ namespace crafter {
 	}
 
 	std::string hello (void) {
-        return "world";
-    }
+        	return "world";
+	}
 
 }
 
