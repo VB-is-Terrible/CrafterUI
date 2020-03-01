@@ -127,7 +127,7 @@ Liquid Magma:
   method: Smelting
   makes: 72
   ingredients:
-    Magma Block: 1
+    Magma Cream: 1
 
 Osram Fluid:
   method: Smelting
@@ -142,3 +142,16 @@ Liquid Concrete:
     Sand: 2
     Gravel: 1
     Clay Ball: 1
+    
+Triberium Dust:
+  method: Pulverizer
+  ingredients:
+    Triberium Ingot: 1
+
+Ignitz Ingot:
+  method: Advanced Alloy Smelting Factory
+  makes: 3
+  ingredients:
+    Osram Ingot: 1
+    Terrax Ingot: 2
+    Ardite Ingot: 2

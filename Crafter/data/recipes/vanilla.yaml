@@ -17,3 +17,13 @@ Magma Cream:
   makes: 4
   ingredients:
     Magma Block: 1
+    
+Block of Emerald:
+  method: Factorizer
+  ingredients:
+    Emerald: 9
+    
+Redstone Torch:
+  ingredients:
+    Stick: 1
+    Redstone: 1

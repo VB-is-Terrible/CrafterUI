@@ -246,31 +246,17 @@ Filter (Extra Utilities):
 Industrial Squeezer:
   ingredients:
     Steel Scaffolding: 6
-    Fluid Pipe: 2
+    Fluid Pipe (Immersive): 2
     Redstone Engineering Block: 1
     Light Engineering Block: 2
     Wooden Barrel: 4
     Piston: 1
     Steel Fence: 3
 
-Excavator:
-  ingredients:
-    Steel Scaffolding: 6
-    Steel Sheetmetal: 15
-    Redstone Engineering Block: 1
-    Light Engineering Block: 9
-    Heavy Engineering Block: 5
-    Radiator Block: 3
-
-Bagger:
-  ingredients:
-    Block of Steel: 9
-    Steel Scaffolding: 20
-    
 Industrial Fermenter:
   ingredients:
     Steel Scaffolding: 6
-    Fluid Pipe: 2
+    Fluid Pipe (Immersive): 2
     Redstone Engineering Block: 1
     Light Engineering Block: 2
     Cauldron: 4
@@ -279,7 +265,7 @@ Industrial Fermenter:
 Refinery:
   ingredients:
     Steel Scaffolding: 8
-    Fluid Pipe: 5
+    Fluid Pipe (Immersive): 5
     Redstone Engineering Block: 1
     Light Engineering Block: 2
     Heavy Engineering Block: 2
@@ -290,7 +276,7 @@ Wooden Barrel:
     Treated Wood Planks: 5
     Treated Wood Slab: 3
 
-Fluid Pipe:
+Fluid Pipe (Immersive):
   makes: 8
   ingredients:
     Iron Plate: 6
@@ -309,7 +295,7 @@ Treated Wood Slab:
 Diesel Generator:
   ingredients:
     Steel Scaffolding: 6
-    Fluid Pipe: 5
+    Fluid Pipe (Immersive): 5
     Redstone Engineering Block: 1
     Heavy Engineering Block: 13
     Generator Block: 4
@@ -366,3 +352,35 @@ Redstone Wire Coil:
     Wood Planks: 1
     Tin Cable: 2
     Super Glue: 800
+
+Core Sample Drill:
+  method: Advanced Crafting
+  ingredients:
+    Steel Scaffolding: 8
+    Light Engineering Block: 4
+    Manasteel Gear: 1
+    Block of Manasteel: 1
+    Analyzer: 1
+    
+Excavator:
+  method: Multiblock
+  ingredients:
+    Excavator Controller: 1
+    Excavator Wheel: 1
+    
+
+Excavator Controller:
+  method: Multiblock
+  ingredients:
+    Steel Scaffolding: 6
+    Steel Sheetmetal: 15
+    Redstone Engineering Block: 1
+    Light Engineering Block: 9
+    Heavy Engineering Block: 5
+    Radiator Block: 3
+    
+Excavator Wheel:
+  method: Multiblock
+  ingredients:
+    Block of Steel: 9
+    Steel Scaffolding: 20

@@ -245,11 +245,6 @@ Configuration Card:
     Basic Control Circuit: 1
     Enriched Alloy: 4
   makes: 1
-Constantan Ingot:
-  ingredients:
-    Copper Ingot: 1
-    Nickel Ingot: 1
-  makes: 2
 Constantan Plate:
   ingredients:
     Constantan Ingot: 1
@@ -1167,19 +1162,14 @@ Glue Compound:
 Signalum Plate:
   ingredients:
     Signalum Ingot: 1
-Signalum Ingot:
-  ingredients:
-    Molten Signalum: 144
 Molten Signalum:
   ingredients:
-    Molten Redstone: 300
-    Molten Constantan: 144
-  makes: 432
+    Signalum Ingot: 1
+  makes: 144
 Molten Constantan:
   ingredients:
-    Molten Nickel: 1
-    Molten Copper: 1
-  makes: 2
+    Constantan Ingot: 1
+  makes: 144
 Pulverized Nickel:
   ingredients:
     Nickel Ingot: 1

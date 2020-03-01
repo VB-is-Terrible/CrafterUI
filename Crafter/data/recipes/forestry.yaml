@@ -44,3 +44,8 @@ Bronze Electron Tube:
     Bronze Ingot: 5
     Redstone: 2
     
+Crushed Ice:
+  method: Supercooler
+  ingredients:
+    Water: 1000
+    

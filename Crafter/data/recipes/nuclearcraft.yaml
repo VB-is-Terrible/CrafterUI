@@ -138,3 +138,125 @@ Thermoconducting Alloy:
   ingredients:
     Extreme Alloy: 1
     Boron Arsenide: 1
+
+Ferroboron Alloy:
+  method: Advanced Alloy Smelting Factory
+  makes: 3
+  default: true
+  ingredients:
+    Boron Ingot: 1
+    Steel Ingot: 1
+    
+Tough Alloy:
+  method: Advanced Alloy Smelting Factory
+  makes: 3
+  default: true
+  ingredients:
+    Ferroboron Alloy: 1
+    Lithium Ingot: 1
+
+Supercooler:
+  method: Advanced Crafting
+  ingredients:
+    Advanced Plating: 8
+    Steel Plate: 8
+    Empowered Emeradic Gear: 2
+    Electric Motor: 1
+    Hard Carbon Alloy: 1
+    60k nak Coolant Cell: 2
+    Rune of Envy: 1
+    Gold Promise Acceptor: 1
+    Servomechanism: 1
+    
+Speed Upgrade (Nuclearcraft):
+  method: Carpenter
+  ingredients:
+    Blessed Vanadium Plates: 4
+    Enriched Alloy: 2
+    Microchip <Tier 1>: 1
+    Plastic: 2
+    Liquid Crystalline: 2000
+    
+Isotope Separator:
+  method: Advanced Crafting
+  ingredients:
+    Basic Plating: 8
+    Steel Plate: 8
+    Electric Motor: 1
+    Silicon Plate: 1
+    Cleaning Machine: 1
+    Reinforced Glass: 2
+    Advanced Control Circuit: 1
+    Iron Gear: 2
+    Filter (Extra Planets): 1
+    
+Fission Controller:
+  method: Advanced Crafting
+  ingredients:
+    Advanced Plating: 8
+    Signalum Plate: 8
+    Advanced Control Circuit: 2
+    Chest: 2
+    CPU Core S1000: 1
+    Electric Motor: 1
+    Magnesium Diboride Solenoid: 2
+    Heat Conductor: 1
+
+Magnesium Diboride Solenoid:
+  makes: 2
+  ingredients:
+    Tough Alloy: 2
+    Magnesium Diboride Alloy: 4
+
+Magnesium Diboride Alloy:
+  method: Advanced Alloy Smelting Factory
+  makes: 4
+  ingredients:
+    Boron Ingot: 2
+    Magnesium Ingot: 1
+
+Reactor Cell:
+  ingredients:
+    Tough Alloy: 4
+    Glass: 4
+  
+Graphite Block:
+  ingredients:
+    Graphite Ingot: 9
+    
+Water Cooler:
+  ingredients:
+    Empty Cooler: 1
+    Water: 1000
+    
+Redstone Cooler:
+  ingredients:
+    Empty Cooler: 1
+    Block of Redstone: 2
+    Redstone: 2
+    
+Empty Cooler:
+  method: Advanced Crafting
+  makes: 4
+  ingredients:
+    Silicon Plate: 8
+    Steel Plate: 8
+    Ovium Ingot: 6
+    Tough Alloy: 2
+    10k Coolant Cell: 1
+    
+Fission Reactor Port:
+  ingredients:
+    Hopper: 1
+    Copper Solenoid: 2
+    Fission Reactor Casing: 2
+    
+Reactor Door:
+  ingredients:
+    Fission Reactor Casing: 6
+
+Fission Reactor Casing:
+  makes: 4
+  ingredients:
+    Basic Plating: 4
+    Tough Alloy: 1

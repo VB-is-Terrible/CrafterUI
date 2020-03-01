@@ -392,3 +392,34 @@ Reinforced Glass:
     Potassium Cell: 2
     Ovium Ingot: 2
     Yrdeen Ingot: 2
+
+Tungstensteel Ingot:
+  method: Fluid Transposer - Fill
+  ingredients:
+    Molten Cryotheum: 1000
+    Hot Tungstensteel Ingot: 1
+
+Hot Tungstensteel Ingot:
+  method: Industrial Blast Furnace
+  ingredients:
+    Tungsten Ingot: 1
+    Steel Ingot: 1
+    
+Tungsten Grinding Head:
+  method: Advanced Crafting
+  ingredients:
+    Tungsten Ingot: 8
+    Compressed Diamond: 4
+    Block of Steel: 1
+    
+Sodium Cell:
+  method: Industrial Electrolyzer
+  ingredients:
+    Clay Dust: 10
+
+Potassium Cell:
+  method: Industrial Electrolyzer
+  makes: 2
+  ingredients:
+    Saltpeter Dust: 10    
+

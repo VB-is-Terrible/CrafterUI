@@ -136,7 +136,7 @@ Machine Blueprint:
 IC Blueprint:
   ingredients:
     Paper: 4
-    Laplis Lazuli: 4
+    Lapis Lazuli: 4
     Redstone: 1
 
 Machine Controller:
@@ -536,17 +536,158 @@ Quantum Compressor:
     Electric Motor: 4
     Niob Ingot: 2
     
-Sodium Cell:
-  method: Industrial Electrolyzer
-  ingredients:
-    Clay Dust: 10
-
 Clay Dust:
   method: Pulverizer
   ingredients:
     Clay Ball: 1
-      
-Potassium Cell:
+  
+Upgrade Template:
+  method: Carpenter
+  makes: 4
+  ingredients:
+    Stick: 4
+    Wood Casing: 4
+    Filter Module: 1
+    
+Filter Module:
+  method: Carpenter
   makes: 2
   ingredients:
-    Saltpeter Dust: 10    
+    Hopper: 1
+    Redstone: 2
+    Iron Ingot: 1
+    Paper: 1
+
+Tier 3 Storage Module:
+  ingredients:
+    Chest: 1
+    Tier 2 Storage Module: 1
+    Block of Gold: 2
+    Block of Emerald: 2
+    Empowered Restonia Crystal Block: 1
+
+Storage Upgrade (I):
+  method: Advanced Crafting
+  ingredients:
+    Upgrade Template: 2
+    Wooden Planks: 2
+    Tier 1 Storage Module: 1
+    Obsidian: 8
+
+Storage Upgrade (II):
+  method: Advanced Crafting
+  ingredients:
+    Upgrade Template: 2
+    Wooden Planks: 2
+    Tier 1 Storage Module: 1
+    Iron Ingot: 8
+
+Storage Upgrade (III):
+  method: Advanced Crafting
+  ingredients:
+    Upgrade Template: 2
+    Wooden Planks: 2
+    Tier 2 Storage Module: 1
+    Gold Ingot: 8
+
+Storage Upgrade (IV):
+  method: Advanced Crafting
+  ingredients:
+    Upgrade Template: 2
+    Wooden Planks: 2
+    Tier 2 Storage Module: 1
+    Diamond: 8
+
+Storage Upgrade (V):
+  method: Advanced Crafting
+  ingredients:
+    Upgrade Template: 2
+    Wooden Planks: 2
+    Tier 3 Storage Module: 1
+    Diamond: 8
+
+Ultimate Component:
+  ingredients:
+    Emerald: 2
+    Luminessence: 1
+    Black Iron Slate: 1
+    
+Exchanger Core (Tier 2):
+  ingredients:
+    Iron Ingot: 4
+    Eye of Ender: 2
+    Lapis Lazuli: 2
+    Exchanger Core (Tier 1): 1
+
+Exchanger Core (Tier 1):
+  ingredients:
+    Wood: 4
+    Ender Pearl: 1
+    Red Dye: 4
+    
+Electrotine Alloy Gear:
+  method: Metal Press
+  ingredients:
+    Electrotine Alloy Ingot: 4
+    
+Bronze Tank:
+  method: Elite Crafting
+  ingredients:
+    Bronze Plate: 16
+    Enchanted Plate: 2
+    Empowered Diamatine Plate: 1
+    Hardened Steel Glass: 15
+    Glass: 15
+
+Tank Valve:
+  method: Carpenter
+  default: true
+  ingredients:
+    Paper: 2
+    Wool Cloth: 2
+    Iron Ingot: 2
+    Tin Ingot: 2
+    String Mesh: 1
+    Compressed Air: 1000
+    
+Chemical Compound:
+  method: Carpenter
+  makes: 2
+  ingredients:
+    Energetic Blend: 1
+    Concentrated Compound: 1
+    Managlass Vial: 1
+    
+Concentrated Compound:
+  method: Induction Smelter
+  ingredients:
+    Triberium Dust: 1
+    Magic Apatite: 8
+    
+Blessed Vanadium Plates:
+  method: Mana Infusion
+  ingredients:
+    Vanadium Plate: 1
+    
+Osgloglas Plate:
+  method: Compactor
+  ingredients:
+    Osgloglas Ingot: 1
+    
+Osgloglas Ingot:
+  method: Advanced Alloy Smelting Factory
+  makes: 2
+  ingredients:
+    Glowstone Ingot: 1
+    Refined Obsidian Ingot: 1
+    Osmium Ingot: 1
+    
+Analyzer:
+  ingredients:
+    Redstone Torch: 1
+    Transistor: 1
+    Microchip <Tier 1>: 1
+    Printed Circuit Board <PCB>: 1
+    Gold Nugget: 2
+    
+

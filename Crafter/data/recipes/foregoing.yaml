@@ -17,3 +17,27 @@ Range Addon (+8):
     Block of Gold: 2
     Advanced Control Circuit: 1
     Liquid Crystalline: 3000
+
+Mob Slaughter Factory:
+  method: Advanced Crafting
+  ingredients:
+    Steel Plate: 8
+    Osgloglas Plate: 8
+    Stone Tank: 2
+    Elite Control Circuit: 1
+    Plastic: 2
+    Diamond Sword: 2
+    Atomic Alloy: 1
+    Tungsten Grinding Head: 1
+    
+Fluid Sieving Machine:
+  method: Advanced Crafting
+  ingredients:
+    Bronze Plate: 8
+    Iron Plate: 8
+    Bucket: 2
+    Basic Control Circuit: 1
+    Motor: 1
+    Glass: 3
+    Gold Gear: 2
+    

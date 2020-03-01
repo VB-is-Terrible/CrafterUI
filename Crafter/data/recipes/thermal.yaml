@@ -244,8 +244,8 @@ Resonant Servo:
   ingredients:
     Signalum Servo: 1
     Glass: 3
-    Signalum Plate: 2
-    Enderium Servo: 1
+    Enderium Servo Plate: 2
+    Redstone Servo: 1
 
 Iridium Plate:
   method: Compactor
@@ -552,3 +552,94 @@ Aluminum Plate:
   ingredients:
     Aluminum Ingot: 1
     
+Constantan Ingot:
+  method: Advanced Alloy Smelting Factory
+  makes: 3
+  ingredients:
+    Copper Ingot: 1
+    Nickel Ingot: 1
+    
+Signalum Ingot:
+  method: Advanced Alloy Smelting Factory
+  makes: 4
+  ingredients:
+    Constantan Ingot: 1
+    Redstone: 3
+    
+Invar Ingot:
+  method: Advanced Alloy Smelting Factory
+  makes: 4
+  default: true
+  ingredients:
+    Iron Ingot: 2
+    Nickel Ingot: 1
+    
+Electrum Ingot:
+  method: Advanced Alloy Smelting Factory
+  makes: 3
+  default: true
+  ingredients:
+    Gold Ingot: 1
+    Silver Ingot: 1
+
+Fluid Allocator:
+  method: Advanced Crafting
+  ingredients:
+    Iron Plate: 8
+    Tin Plate: 8
+    Silicon: 2
+    Bucket: 2
+    Basic Control Circuit: 1
+    Redstone Servo: 2
+    Filter Fluids: 1
+    Liquid Cleaning Tube: 1
+
+Bronze Ingot:
+  method: Advanced Alloy Smelting Factory
+  makes: 5
+  default: true
+  ingredients:
+    Tin Ingot: 1
+    Copper Ingot: 3
+    
+Molten Cryotheum:
+  method: Magma Crucible
+  makes: 250
+  ingredients:
+    Cryotheum Dust: 1
+    
+Cryotheum Dust:
+  method: Carpenter
+  makes: 5
+  ingredients:
+    Crushed Ice: 1000
+    Chemical Compound: 1
+    Blizz Powder: 3
+    Energetic Blend: 1
+
+Blizz Powder:
+  method: Fluid Transposer - Fill
+  ingredients:
+    Snowball: 2
+    Essence of Knowledge: 200
+    
+Sequential Fabricator:
+  method: Advanced Crafting
+  ingredients:
+    Steel Plate: 8
+    Osgloglas Plate: 8
+    Ignitz Ingot: 2
+    Microchip <Tier 3>: 1
+    Hardened Glass: 3
+    CPU Core EX2000: 1
+    Elite Control Circuit: 2
+
+Arboreal Extractor:
+  method: Advanced Crafting
+  ingredients:
+    Iron Plate: 8
+    Tin Plate: 8
+    Glass: 4
+    Redstone Servo: 2
+    Bronze Gear: 2
+    Basic Control Circuit: 1

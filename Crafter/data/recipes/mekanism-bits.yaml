@@ -239,7 +239,7 @@ Basic Smelting Factory:
     Steel Plate: 8
     Energized Smelter: 1
     Heat Conductor: 1
-Basic Enrichment Factory:
+Basic Enriching Factory:
   ingredients:
     Enriched Alloy: 4
     Advanced Control Circuit: 2
@@ -326,7 +326,7 @@ Advanced Purifying Factory:
     Advanced Gas Tank: 2
     Energized Silicon: 1
 
-Speed Upgrade:
+Speed Upgrade (Mekanism):
   method: Carpenter
   ingredients:
     Gold Plate: 4
@@ -427,3 +427,183 @@ Basic Control Circuit:
     Electro Silicon: 2
     Infused Silicon: 1
     Super Glue: 500
+    
+Energy Upgrade (Mekanism):
+  method: Carpenter
+  ingredients:
+    Enchanted Plate: 4
+    Plastic: 2
+    Microchip <Tier 1>: 1
+    Liquid Crystalline: 2000
+    Enriched Alloy: 2
+
+Gas Upgrade:
+  ingredients:
+    Invar Plate: 4
+    Plastic: 2
+    Microchip <Tier 1>: 1
+    Liquid Crystalline: 2000
+    Enriched Alloy: 2
+    
+Basic Infusing Factory:
+  method: Advanced Crafting
+  ingredients:
+    Steel Plate: 8
+    Silver Plate: 8
+    Advanced Control Circuit: 2
+    Electrotine Alloy Gear: 1
+    Furnace: 1
+    Exchanger Core (Tier 2): 1
+    Metallurgic Infuser: 1
+    30k Coolant Cell: 1
+    Infused Silicon: 1
+    Double Battery: 1
+
+Advanced Injecting Factory:
+  method: Elite Crafting
+  ingredients:
+    Alumite Plate: 24
+    Liquid Cleaning Tube: 4
+    Basic Injecting Factory: 1
+    Bronze Tank: 2
+    Elite Control Circuit: 1
+    Chest: 9
+    Filter (Extra Planets): 2
+    Fluid Pipe (Galacticraft): 2
+    Electrolytic Core: 3
+    Energized Silicon: 1
+
+Basic Injecting Factory:
+  method: Advanced Crafting
+  ingredients:
+    Steel Plate: 8
+    Silver Plate: 8
+    Compressed Diamond: 2
+    Electrolytic Core: 1
+    Tin Tank: 1
+    Liquid Cleaning Tube: 1
+    Advanced Control Circuit: 1
+    Infused Silicon: 2
+    Chemical Injection Chamber: 1
+    
+Chemical Oxidizer:
+  method: Advanced Crafting
+  ingredients:
+    Osmium Plate: 16
+    Enriched Alloy: 4
+    Basic Gas Tank: 1
+    Basic Control Circuit: 2
+    Glass: 1
+    Personal Chest: 1
+    
+Personal Chest:
+  ingredients:
+    Steel Plate: 7
+    Iron Chest: 1
+    Basic Control Circuit: 1
+    
+Chemical Dissolution Chamber:
+  method: Advanced Crafting
+  ingredients:
+    Osmium Plate: 16
+    Advanced Control Circuit: 4
+    Enriched Alloy: 2
+    Basic Gas Tank: 2
+    Atomic Alloy: 1
+    
+Atomic Alloy:
+  method: Metallurgic Infuser
+  ingredients:
+    Reinforced Alloy: 1
+    Refined Obsidian Dust: 1
+    
+Chemical Washer:
+  method: Advanced Crafting
+  ingredients:
+    Osmium Plate: 16
+    Bucket: 2
+    Enriched Alloy: 4
+    Basic Control Circuit: 2
+    Compressed Redstone: 1
+    
+Chemical Crystallizer:
+  method: Advanced Crafting
+  ingredients:
+    Osmium Plate: 16
+    Basic Control Circuit: 4
+    Compressed Diamond: 1
+    Basic Gas Tank: 2
+    Atomic Alloy: 2
+    
+Rotary Condensentrator:
+  method: Advanced Crafting
+  ingredients:
+    Osmium Plate: 16
+    Glass: 4
+    Basic Control Circuit: 2
+    Basic Gas Tank: 1
+    Enriched Alloy: 1
+    Tin Tank: 1
+    
+Basic Pressurized Tube:
+  method: Carpenter
+  makes: 7
+  ingredients:
+    Steel Plate: 2
+    Tank Valve: 1
+    Silicone: 2000
+    
+Advanced Pressurized Tube:
+  method: Carpenter
+  makes: 7
+  ingredients:
+    Basic Pressurized Tube: 7
+    Alumite Plate: 2
+    Silicone: 3000
+
+Ultimate Control Circuit:
+  method: Carpenter
+  ingredients:
+    Super Glue: 3000
+    Majestic Component: 2
+    Elite Control Circuit: 2
+    Tungstensteel Plate: 1
+    Data Storage Circuit: 2
+    Atomic Alloy: 2
+    
+Ultimate Control Circuit:
+  method: Carpenter
+  makes: 3
+  ingredients:
+    Super Glue: 3000
+    Majestic Component: 2
+    Elite Control Circuit: 2
+    Tungstensteel Plate: 1
+    Data Storage Circuit: 1
+    Boosting Mixture: 1
+    Atomic Alloy: 2
+    
+Ultimate Control Circuit:
+  method: Carpenter
+  makes: 20
+  ingredients:
+    Super Glue: 5000
+    Majestic Component: 2
+    Elite Control Circuit: 2
+    Tungstensteel Plate: 1
+    Data Storage Circuit: 2
+    Crystaltine Ingot: 2
+    
+Ultimate Control Circuit:
+  method: Carpenter
+  makes: 24
+  ingredients:
+    Super Glue: 5000
+    Majestic Component: 2
+    Elite Control Circuit: 2
+    Tungstensteel Plate: 1
+    Data Storage Circuit: 1
+    Boosting Mixture: 1
+    Crystaltine Ingot: 2
+
+    

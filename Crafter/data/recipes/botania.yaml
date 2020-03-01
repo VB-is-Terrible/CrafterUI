@@ -121,3 +121,55 @@ Rune of Earth:
     Block of Inferium Coal: 1
     Mana Powder: 1
     
+Rune of Envy:
+  method: Runic Altar
+  ingredients:
+    Rune of Winter: 1
+    Rune of Water: 1
+    Mana Diamond: 2
+    Eezo Ingot: 1
+    Superium Essence: 2
+    White Magic Dust: 1
+    
+Manasteel Ingot:
+  method: Mana Infusion
+  ingredients:
+    Iron Ingot: 1
+    
+Mana Diamond:
+  method: Mana Infusion
+  ingredients:
+    Diamond: 1
+
+Rune of Water:
+  method: Runic Altar
+  ingredients:
+    Mana Powder: 1
+    Water Cell: 1
+    Fishing Rod: 1
+    Sugar Cane Block: 1
+    Copper Ingot: 1
+    Manasteel Ingot: 1
+
+Rune of Winter:
+  method: Runic Altar
+  ingredients:
+    Rune of Earth: 1
+    Rune of Water: 1
+    Snow: 3
+    Aquamarine: 2
+    Cake: 1
+    
+Sugar Cane Block:
+  ingredients:
+    Sugar Cane: 9
+
+Managlass Vial:
+  makes: 3
+  ingredients:
+    Managlass: 3
+    
+Managlass:
+  method: Mana Infusion
+  ingredients:
+    Glass: 1

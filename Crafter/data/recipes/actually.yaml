@@ -204,3 +204,21 @@ Fluid Collector:
     Basic Coil: 1
     Bucket: 2
     
+Empowered Emeradic Crystal:
+  makes: 9
+  ingredients:
+    Empowered Emeradic Block: 1
+    
+Empowered Emeradic Block:
+  method: Empowerer
+  ingredients:
+    Blood Infused Glowstone: 1
+    Block of Terrasteel: 1
+    Inert Blood-Iron Ingot: 1
+    Block of Redstone: 1
+    Emeradic Crystal Block: 1
+
+Emeradic Crystal Block:
+  method: Atomic Reconstructor
+  ingredients:
+    Block of Emerald: 1
