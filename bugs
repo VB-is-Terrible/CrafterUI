@@ -8,6 +8,9 @@ Track done recipes
 
 #Long Item names cross over into the raw materials
 
-Saving custom recipe options
+#Saving custom recipe options
+# Above, Kinda?
 
-It's possible for a recipe to wait on a parent that won't call it
+#It's possible for a recipe to wait on a parent that won't call it
+
+# Saving a recipe with index > 0 breaks loading
