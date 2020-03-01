@@ -387,7 +387,7 @@ _const_iterator<N, E> _const_iterator<N, E>::operator--(int) {
 
 template <typename N, typename E>
 std::vector<N> Graph<N, E>::GetIncoming(const N& node) const {
-  auto src_it = nodes.find(node);
+        auto src_it = nodes.find(node);
 	if (src_it == nodes.end()) {
 		throw std::out_of_range("Cannot call Graph::GetIncoming if src doesn't exist in the graph");
 	}
