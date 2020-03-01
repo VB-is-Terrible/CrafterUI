@@ -16,18 +16,40 @@
 #include "graphuimanager.h"
 #include "graph-builder.h"
 
-std::string read_args (int argc, char *argv[]);
 
 constexpr auto TEMP_FILE = "/tmp/CrafterUIContinue.yaml";
+constexpr auto HELP_STRING = "Usage: CrafterUI [OPTION]... FILE\nA GUI to help with long crafting recipes\n\n  -c, Config file to use\n  -h, Display this message\n";
+
+struct options {
+        bool help;
+        std::string config;
+        std::string input;
+};
+
+struct config {
+        std::string template_location;
+};
+
+struct options read_args(int argc, char *argv[]);
+struct config read_config(std::string config_file);
+struct config default_config();
 
 int main(int argc, char *argv[])
 {
-        auto input_file = read_args(argc, argv);
+        const auto options = read_args(argc, argv);
+        if (options.help) {
+                std::cout << HELP_STRING;
+                return 0;
+        }
+        auto input_file = options.input;
+
+        const auto config = read_config(options.config);
+
         std::cout << "Testing import, hello import, hello " << crafter::hello() << "\n";
 
         std::cout << "Current path is " << std::filesystem::current_path() << '\n';
 
-        const auto recipes = crafter::read_templates();
+        const auto recipes = crafter::read_templates(config.template_location);
         const auto dependencies = crafter::build_depend_graph(recipes);
         std::shared_ptr<crafter::CraftingGraph> graph;
         if (input_file == "" && std::filesystem::exists(TEMP_FILE)) {
@@ -68,13 +90,41 @@ int main(int argc, char *argv[])
         return app.exec();
 }
 
-std::string read_args (int argc, char *argv[]) {
-	if (argc == 1) {
-		return "";
-	} else if (argc == 2) {
-		return argv[1];
-	} else {
-		std::cerr << "Got " << argc << " arguements, expected 0 or 1\n";
-		throw std::invalid_argument(argv[2]);
-	}
+struct options read_args (int argc, char *argv[]) {
+        auto pointer = 1;
+        struct options options{};
+        while (pointer < argc) {
+                if (strcmp(argv[pointer], "-h") == 0) {
+                        options.help = true;
+                        pointer += 1;
+                } else if (strcmp(argv[pointer], "-c") == 0) {
+                        if (pointer + 1 < argc) {
+                                options.config = argv[pointer + 1];
+                                pointer += 2;
+                        } else {
+                                pointer += 1;
+                        }
+                } else {
+                        if (options.input == "") {
+                                options.input = argv[pointer];
+                        }
+                        pointer += 1;
+                }
+        }
+        return options;
+}
+
+struct config read_config(std::string) {
+        struct config result = default_config();
+        return result;
+}
+
+struct config default_config() {
+        struct config result;
+        const auto exe_location = std::filesystem::read_symlink("/proc/self/exe");
+        auto templates = exe_location.parent_path().parent_path();
+        templates /= "data";
+        templates /= "recipes";
+        result.template_location = templates;
+        return result;
 }
