@@ -72,7 +72,9 @@ Item {
             clip: true
             interactive: false
             Item {
-                RecipeInput {}
+                RecipeInput {
+                    anchors.fill: parent;
+                }
             }
 
             Item {
