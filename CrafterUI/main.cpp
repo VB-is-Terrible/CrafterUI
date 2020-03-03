@@ -17,7 +17,8 @@
 #include "graph-builder.h"
 
 
-constexpr auto TEMP_FILE = "/tmp/CrafterUIContinue.yaml";
+constexpr auto CONTINUE_FILE = "/tmp/CrafterUIContinue.yaml";
+constexpr auto TEMP_FILE = "/tmp/CrafterUITemp.yaml";
 constexpr auto HELP_STRING = "Usage: CrafterUI [OPTION]... FILE\nA GUI to help with long crafting recipes\n\n  -c, Config file to use\n  -h, Display this message\n";
 
 struct options {
@@ -28,6 +29,7 @@ struct options {
 
 struct config {
         std::string template_location;
+        std::string save_location = CONTINUE_FILE;
 };
 
 struct options read_args(int argc, char *argv[]);
@@ -52,10 +54,10 @@ int main(int argc, char *argv[])
         const auto recipes = crafter::read_templates(config.template_location);
         const auto dependencies = crafter::build_depend_graph(recipes);
         std::shared_ptr<crafter::CraftingGraph> graph;
-        if (input_file == "" && std::filesystem::exists(TEMP_FILE)) {
-                auto yaml_file = YAML::LoadFile(TEMP_FILE);
+        if (input_file == "" && std::filesystem::exists(config.save_location)) {
+                auto yaml_file = YAML::LoadFile(config.save_location);
                 crafter::CraftingGraphState state;
-                YAML::convert<crafter::CraftingGraphState>::decode(yaml_file, state);
+                state = yaml_file.as<crafter::CraftingGraphState>();
                 graph = std::make_shared<crafter::CraftingGraph>(
                         state,
                         recipes, dependencies);
@@ -64,7 +66,6 @@ int main(int argc, char *argv[])
                 graph = std::make_shared<crafter::CraftingGraph>(
                         requests, recipes, dependencies);
         }
-
 
         QCoreApplication::setAttribute(Qt::AA_EnableHighDpiScaling);
 
@@ -84,7 +85,7 @@ int main(int argc, char *argv[])
         }, Qt::QueuedConnection);
         engine.load(url);
 
-        auto main_graph = std::make_shared<crafter::GraphUIManager>(&engine, TEMP_FILE);
+        auto main_graph = std::make_shared<crafter::GraphUIManager>(&engine, config.save_location);
         main_graph->populateRecipes(graph);
 
         return app.exec();
