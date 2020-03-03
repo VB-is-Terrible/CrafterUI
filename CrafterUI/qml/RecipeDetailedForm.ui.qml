@@ -15,6 +15,7 @@ Item {
     property alias recipeSelector: recipeSelector
     property bool isDefaultRecipe: false
     property int recipeCount: -1
+    property int total: -1
     property alias cancel: cancel
     property alias accept: accept
     property alias swiper: swiper
@@ -49,11 +50,28 @@ Item {
                 anchors.horizontalCenter: parent.horizontalCenter
                 height: fontMetrics.height * 2
             }
+            Row {
+                id: totalRow
+                anchors.left: parent.left
+                anchors.right: parent.right
+                anchors.top: editChange.bottom
+                anchors.topMargin: fontMetrics.height * .5
+                spacing: fontMetrics.averageCharacterWidth
+                Text {
+                    text: qsTr("Total: ")
+                    font.underline: true
+                }
+                Text {
+                    text: total
+                    font.underline: true
+                }
+            }
+
             Item {
                 anchors.right: parent.right
                 anchors.left: parent.left
                 anchors.bottom: parent.bottom
-                anchors.top: editChange.bottom
+                anchors.top: totalRow.bottom
                 anchors.topMargin: fontMetrics.height * .5
                 BetterColumn {
                     column {
