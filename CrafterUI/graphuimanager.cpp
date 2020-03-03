@@ -234,6 +234,7 @@ void GraphUIManager::setDetailedRecipe(const std::string& name, const size_t rec
         recipeSpinner->setProperty("value", static_cast<int>(needed));
         recipeDisplay->setProperty("isDefaultRecipe", recipe_index == default_recipe);
         recipeDisplay->setProperty("recipeCount", static_cast<int>(needed));
+        recipeDisplay->setProperty("total", static_cast<int>(count.needed));
 }
 
 QQuickItem* GraphUIManager::createSingleRecipe(const ingredient_map& ingredients, const Recipe& recipe, const size_t needed) {
