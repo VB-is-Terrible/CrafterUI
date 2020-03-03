@@ -128,20 +128,20 @@ Item {
                 anchors.leftMargin: fontMetrics.height * .5
                 anchors.bottomMargin: fontMetrics.height * .5
                 Button {
-                    id: cancel
-                    text: qsTr("Cancel")
-                    Layout.fillWidth: true
-                    Layout.fillHeight: true
-                    Keys.onReturnPressed: cancel_change();
-                    Keys.onEnterPressed: cancel_change();
-                }
-                Button {
                     id: accept
                     text: qsTr("Accept")
                     Layout.fillWidth: true
                     Layout.fillHeight: true
                     Keys.onReturnPressed: accept_change();
                     Keys.onEnterPressed: accept_change();
+                }
+                Button {
+                    id: cancel
+                    text: qsTr("Cancel")
+                    Layout.fillWidth: true
+                    Layout.fillHeight: true
+                    Keys.onReturnPressed: cancel_change();
+                    Keys.onEnterPressed: cancel_change();
                 }
             }
         }

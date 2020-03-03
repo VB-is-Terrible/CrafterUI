@@ -14,8 +14,6 @@ RecipeDetailedForm {
             swiper.setCurrentIndex(1);
         }
     }
-    spinBox {
-    }
     accept {
         onClicked: accept_change();
     }
